@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_070",
+  "name": "Katàri",
+  "image": "Katàri.jpg",
+  "category": "Origine",
+  "sub_category": "Katàri",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Speranza", "amount": 2 },
+  "range": "Personale",
+  "mechanics": {
+    "reaction": "Reroll Dado Speranza (Agilità)",
+    "action": "Artigli (Rende Vulnerabile)"
+  },
+  "description": "Istinti Felini: Quando effettuate un Tiro Agilità, potete spendere 2 Speranze per rilanciare il Dado Speranza. Artigli Retrattili: Effettuate un Tiro Agilità per graffiare un bersaglio in Mischia. In caso di successo, il bersaglio diventa temporaneamente Vulnerabile.",
+  "source_ref": "DH_MB_070"
+}
