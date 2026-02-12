@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_064",
+  "name": "Galapa",
+  "image": "Galapa.jpg",
+  "category": "Origine",
+  "sub_category": "Galapa",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1 },
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": { "damage_threshold": "Competenza" },
+    "stance": "Rinchiudersi (Resistenza danni fisici, Svantaggio azioni, Immobilità)"
+  },
+  "description": "Guscio: Guadagnate un bonus alle soglie di danno pari alla vostra Competenza. Rinchiudersi: Marcate uno Stress per ritrarvi nel vostro guscio. Quando siete nel guscio, guadagnate resistenza ai danni fisici, ma avete svantaggio ai tiri azione e non potete muovervi.",
+  "source_ref": "DH_MB_064"
+}
