@@ -1,0 +1,22 @@
+{
+  "id": "DH_MB_057",
+  "name": "Drakona",
+  "image": "Drakona.jpg",
+  "category": "Origine",
+  "sub_category": "Drakona",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1, "condition": "Riduzione danno" },
+  "range": "Prossima",
+  "mechanics": {
+    "reaction": "Ridurre danno Grave di 1 PF",
+    "action": {
+      "name": "Soffio Elementale",
+      "damage": "d8",
+      "damage_type": "Magico",
+      "stat": "Istinto"
+    }
+  },
+  "description": "Scaglie: Quando subite danni Gravi, potete marcare uno Stress per subire 1 Punto Ferita in meno. Soffio Elementale: Potete rivolgere il vostro soffio contro un bersaglio o un gruppo di bersagli entro distanza Prossima, trattandolo come un’arma basata sull’Istinto che infligge d8 danni magici applicando la vostra Competenza.",
+  "source_ref": "DH_MB_057"
+}
