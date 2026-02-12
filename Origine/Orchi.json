@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_071",
+  "name": "Orchi",
+  "image": "Orchi.jpg",
+  "category": "Origine",
+  "sub_category": "Orchi",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Speranza", "amount": 1 },
+  "range": "Mischia",
+  "mechanics": {
+    "passive": "Svantaggio agli attacchi nemici quando a 1 PF",
+    "bonus_damage": "1d6 (Zanne)"
+  },
+  "description": "Robusto: Quando vi resta 1 Punto Ferita, gli attacchi nei vostri confronti hanno svantaggio. Zanne: Quando riuscite in un attacco contro un bersaglio in Mischia, potete spendere una Speranza per sventrare il bersaglio con le zanne, infliggendo 1d6 danni extra.",
+  "source_ref": "DH_MB_071"
+}
