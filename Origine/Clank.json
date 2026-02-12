@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_056",
+  "name": "Clank",
+  "image": "Clank.jpg",
+  "category": "Origine",
+  "sub_category": "Clank",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": { "experience_trait": 1 },
+    "feature": "Riposo Breve efficiente (usa mossa Riposo Lungo)"
+  },
+  "description": "Scopo Preciso: Alla creazione del personaggio, scegliete una delle vostre Esperienze che meglio si allinea con tale finalità e guadagnate bonus +1 permanente a essa. Efficiente: Quando effettuate un riposo breve, potete scegliere una mossa di riposo lungo invece che una mossa di riposo breve.",
+  "source_ref": "DH_MB_056"
+}
