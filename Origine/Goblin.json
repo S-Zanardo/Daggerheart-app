@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_066",
+  "name": "Goblin",
+  "image": "Goblin.jpg",
+  "category": "Origine",
+  "sub_category": "Goblin",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1 },
+  "range": "Prossima",
+  "mechanics": {
+    "passive": "Ignora svantaggio Agilità",
+    "reaction": "Costringi avversario a ripetere attacco (1/riposo)"
+  },
+  "description": "Piè Fermo: Ignorate qualsiasi svantaggio sui Tiri Agilità. Senso del Pericolo: Una volta per riposo, marcate uno Stress per costringere un avversario a ripetere un attacco contro di voi o contro un alleato entro una distanza Prossima.",
+  "source_ref": "DH_MB_066"
+}
