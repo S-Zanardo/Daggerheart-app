@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_002",
+  "name": "Trovatore (Specializzazione)",
+  "image": "Trovatore-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Trovatore",
+  "type": "Specializzazione",
+  "level": 1,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "trigger": "Assegnare Dado A Raccolta",
+    "effect": "Alleato guadagna 1 Speranza o rimuove 1 Stress"
+  },
+  "description": "Maestro: Le vostre canzoni accendono il coraggio di chi le ascolta. Quando assegnate un Dado A Raccolta a un alleato, questo può guadagnare una Speranza o rimuovere uno Stress.",
+  "source_ref": "DH_MB_002"
+}
