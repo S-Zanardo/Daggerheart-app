@@ -1,0 +1,21 @@
+{
+  "id": "DH_MB_077",
+  "name": "Bassifondi",
+  "image": "Bassifondi.jpg",
+  "category": "Comunità",
+  "sub_category": "Bassifondi",
+  "type": "Carta Comunità",
+  "level": 0,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Vantaggio (Criminalità)",
+    "triggers": [
+      "Negoziare con criminali",
+      "Riconoscere menzogne",
+      "Trovare nascondigli"
+    ]
+  },
+  "description": "Furfante: Avete vantaggio ai tiri per negoziare con i criminali, per riconoscere le menzogne o per trovare un posto sicuro dove nascondervi.",
+  "source_ref": "DH_MB_077"
+}
