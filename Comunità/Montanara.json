@@ -1,0 +1,21 @@
+{
+  "id": "DH_MB_075",
+  "name": "Montanara",
+  "image": "Montanara.jpg",
+  "category": "Comunità",
+  "sub_category": "Montanara",
+  "type": "Carta Comunità",
+  "level": 0,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Vantaggio (Ambiente)",
+    "triggers": [
+      "Attraversare scogliere",
+      "Ambienti difficili",
+      "Sopravvivenza"
+    ]
+  },
+  "description": "Costanza: Avete vantaggio ai tiri per attraversare scogliere e sporgenze pericolose, orientarvi in ambienti difficili e sfruttare le vostre conoscenze di sopravvivenza.",
+  "source_ref": "DH_MB_075"
+}
