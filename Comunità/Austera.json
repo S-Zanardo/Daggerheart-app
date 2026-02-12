@@ -1,0 +1,21 @@
+{
+  "id": "DH_MB_074",
+  "name": "Austera",
+  "image": "Austera.jpg",
+  "category": "Comunità",
+  "sub_category": "Austera",
+  "type": "Carta Comunità",
+  "level": 0,
+  "cost": {
+    "type": "Riposo",
+    "amount": 1
+  },
+  "range": "Personale",
+  "mechanics": {
+    "input_required": "Definire 3 valori/detti",
+    "effect": "Sostituisci Dado Speranza con d20",
+    "condition": "Incarnare i propri principi durante l'azione"
+  },
+  "description": "Dedizione: Annotate tre detti o valori che la vostra educazione vi ha trasmesso. Una volta per riposo, quando descrivete come incarnate questi principi attraverso l’azione che state compiendo, potete tirare un d20 come dado Speranza.",
+  "source_ref": "DH_MB_074"
+}
