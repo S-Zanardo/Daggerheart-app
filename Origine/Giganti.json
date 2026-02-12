@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_065",
+  "name": "Giganti",
+  "image": "Giganti.jpg",
+  "category": "Origine",
+  "sub_category": "Giganti",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": null,
+  "range": "Prossima",
+  "mechanics": {
+    "passive_bonus": { "hp_slots": 1 },
+    "range_override": "Mischia diventa Prossima"
+  },
+  "description": "Resistenza: Guadagnate una casella aggiuntiva nei Punti Ferita alla creazione del personaggio. Raggiungere: Potete considerare qualsiasi arma, abilità, incantesimo o altra caratteristica che abbia una portata di Mischia come se avesse invece una portata Prossima.",
+  "source_ref": "DH_MB_065"
+}
