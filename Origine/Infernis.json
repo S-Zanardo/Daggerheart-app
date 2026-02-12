@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_069",
+  "name": "Infernis",
+  "image": "Infernis.jpg",
+  "category": "Origine",
+  "sub_category": "Infernis",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 2 },
+  "range": "Personale",
+  "mechanics": {
+    "reaction": "Trasforma Paura in Speranza",
+    "advantage": "Intimidire"
+  },
+  "description": "Senzapaura: Quando tirate con Paura, potete marcare 2 Stress per trasformarlo in un tiro con Speranza. Volto Spaventoso: Avete vantaggio ai tiri per intimidire le creature ostili.",
+  "source_ref": "DH_MB_069"
+}
