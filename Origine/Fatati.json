@@ -1,0 +1,21 @@
+{
+  "id": "DH_MB_060",
+  "name": "Fatati",
+  "image": "Fatati.jpg",
+  "category": "Origine",
+  "sub_category": "Fatati",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Speranza", "amount": 3 },
+  "range": "Ravvicinata",
+  "mechanics": {
+    "fly": true,
+    "feature": "Rilanciare Dadi Dualità (1/sessione)",
+    "reaction": {
+      "cost": "1 Stress",
+      "effect": "+2 Evasione in volo"
+    }
+  },
+  "description": "Portafortuna: Una volta per sessione, dopo che voi o un alleato consenziente entro distanza Ravvicinata effettuate un tiro azione, potete spendere 3 Speranze per rilanciare i Dadi Dualità. Ali: Potete volare. Mentre siete in volo, potete marcare uno Stress dopo che un avversario ha effettuato un attacco nei vostri confronti per ottenere bonus +2 alla vostra Evasione.",
+  "source_ref": "DH_MB_060"
+}
