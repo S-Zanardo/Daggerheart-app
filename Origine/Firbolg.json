@@ -1,0 +1,18 @@
+{
+  "id": "DH_MB_061",
+  "name": "Firbolg",
+  "image": "Firbolg.jpg",
+  "category": "Origine",
+  "sub_category": "Firbolg",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1 },
+  "range": "Mischia",
+  "mechanics": {
+    "action": "Carica (danno AoE dopo movimento)",
+    "damage": "1d12 Fisico",
+    "passive": "Irremovibile (Tira d6 su Stress: 6 = annulla)"
+  },
+  "description": "Carica: Quando riuscite in un Tiro Agilità per spostarvi da distanza Lontana o Remota a distanza di Mischia, potete marcare uno Stress per infliggere 1d12 danni fisici a tutti i bersagli entro distanza di Mischia. Irremovibile: Quando dovreste marcare uno Stress, tirate un d6. Con un risultato di 6, non dovete marcarlo.",
+  "source_ref": "DH_MB_061"
+}
