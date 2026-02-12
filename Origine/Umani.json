@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_068",
+  "name": "Umani",
+  "image": "Umani.jpg",
+  "category": "Origine",
+  "sub_category": "Umani",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1 },
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": { "stress_slots": 1 },
+    "reaction": "Reroll tiro Esperienza fallito"
+  },
+  "description": "Vigore: Guadagnate una casella Stress aggiuntiva alla creazione del personaggio. Versatilità: Quando fallite un tiro che utilizza una delle vostre Esperienze, potete marcare uno Stress per ripetere il tiro.",
+  "source_ref": "DH_MB_068"
+}
