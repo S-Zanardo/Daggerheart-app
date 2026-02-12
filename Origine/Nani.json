@@ -1,0 +1,20 @@
+{
+  "id": "DH_MB_058",
+  "name": "Nani",
+  "image": "Nani.jpg",
+  "category": "Origine",
+  "sub_category": "Nani",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Variabile", "amount": 0 },
+  "range": "Personale",
+  "mechanics": {
+    "reaction": "Converti Danno Minore in 2 Stress",
+    "active": {
+      "cost": "3 Speranze",
+      "effect": "Dimezza danni fisici in arrivo"
+    }
+  },
+  "description": "Pelle Dura: Quando subite un danno Minore, potete marcare 2 Stress invece di subire un Punto Ferita. Resistenza Aumentata: Spendete 3 Speranze per dimezzare i danni fisici in arrivo.",
+  "source_ref": "DH_MB_058"
+}
