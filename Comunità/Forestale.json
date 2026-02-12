@@ -1,0 +1,20 @@
+{
+  "id": "DH_MB_080",
+  "name": "Forestale",
+  "image": "Forestale.jpg",
+  "category": "Comunità",
+  "sub_category": "Forestale",
+  "type": "Carta Comunità",
+  "level": 0,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Vantaggio (Furtività)",
+    "triggers": [
+      "Muoversi silenziosamente",
+      "Muoversi senza essere uditi"
+    ]
+  },
+  "description": "Piè Leggero: Il vostro movimento è naturalmente silenzioso. Avete vantaggio ai tiri per muovervi senza essere uditi.",
+  "source_ref": "DH_MB_080"
+}
