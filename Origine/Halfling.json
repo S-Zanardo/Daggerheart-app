@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_067",
+  "name": "Halfling",
+  "image": "Halfling.jpg",
+  "category": "Origine",
+  "sub_category": "Halfling",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": null,
+  "range": "Gruppo",
+  "mechanics": {
+    "start_session": "Tutto il gruppo guadagna 1 Speranza",
+    "passive": "Reroll '1' sul dado Speranza"
+  },
+  "description": "Quadrifoglio: All’inizio di ogni sessione, tutti i membri del gruppo di cui fate parte (voi compresi) ottengono una Speranza. Bussola Interna: Quando ottenete un 1 sul Dado Speranza, potete rilanciarlo.",
+  "source_ref": "DH_MB_067"
+}
