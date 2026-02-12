@@ -1,0 +1,22 @@
+{
+  "id": "DH_MB_072",
+  "name": "Ribbet",
+  "image": "Ribbet.jpg",
+  "category": "Origine",
+  "sub_category": "Ribbet",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1 },
+  "range": "Ravvicinata",
+  "mechanics": {
+    "passive": "Anfibio",
+    "action": {
+      "name": "Lingualunga",
+      "damage": "d12",
+      "damage_type": "Fisico",
+      "stat": "Astuzia"
+    }
+  },
+  "description": "Anfibio: Potete respirare e muovervi naturalmente sott’acqua. Lingualunga: Potete usare la lingua lunga per afferrare oggetti entro una distanza Ravvicinata. Marcate uno Stress per usare la lingua come un’arma Ravvicinata basata su Astuzia che infligge d12 danni fisici applicando la vostra Competenza.",
+  "source_ref": "DH_MB_072"
+}
