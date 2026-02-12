@@ -1,0 +1,22 @@
+{
+  "id": "DH_MB_078",
+  "name": "Sotterranea",
+  "image": "Sotterranea.jpg",
+  "category": "Comunità",
+  "sub_category": "Sotterranea",
+  "type": "Carta Comunità",
+  "level": 0,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Vantaggio (Oscurità)",
+    "condition": "Area in penombra o oscurità",
+    "triggers": [
+      "Nascondersi",
+      "Indagare",
+      "Percepire dettagli"
+    ]
+  },
+  "description": "Vivere nel Crepuscolo: Quando vi trovate in un’area in penombra o nell’oscurità, avete vantaggio ai tiri per nascondersi, indagare o percepire i dettagli.",
+  "source_ref": "DH_MB_078"
+}
