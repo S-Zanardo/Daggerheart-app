@@ -1,0 +1,20 @@
+{
+  "id": "DH_MB_076",
+  "name": "Marittima",
+  "image": "Marittima.jpg",
+  "category": "Comunità",
+  "sub_category": "Marittima",
+  "type": "Carta Comunità",
+  "level": 0,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "resource_pool": "Gettoni Marea",
+    "max_tokens": "Livello Personaggio",
+    "trigger_gain": "Tiro con Paura",
+    "effect_spend": "+1 al tiro per gettone",
+    "reset": "Fine sessione"
+  },
+  "description": "Sentire la Marea: Quando tirate con Paura, posizionate un gettone sulla carta comunità (Max pari al livello). Prima di effettuare un tiro azione, potete spendere un numero qualsiasi di gettoni per ottenere bonus +1 al tiro per ogni gettone. Rimuovere i gettoni a fine sessione.",
+  "source_ref": "DH_MB_076"
+}
