@@ -1,0 +1,21 @@
+{
+  "id": "DH_MB_073",
+  "name": "Privilegiata",
+  "image": "Privilegiata.jpg",
+  "category": "Comunità",
+  "sub_category": "Privilegiata",
+  "type": "Carta Comunità",
+  "level": 0,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Vantaggio (Sociale)",
+    "triggers": [
+      "Interagire con nobiltà",
+      "Contrattare prezzi",
+      "Sfruttare reputazione"
+    ]
+  },
+  "description": "Privilegio: Avete vantaggio nei tiri per interagire con la nobiltà, contrattare un prezzo o sfruttare la vostra reputazione per ottenere ciò che volete.",
+  "source_ref": "DH_MB_073"
+}
