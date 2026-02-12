@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_059",
+  "name": "Elfi",
+  "image": "Elfi.jpg",
+  "category": "Origine",
+  "sub_category": "Elfi",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1 },
+  "range": "Personale",
+  "mechanics": {
+    "reaction": "Vantaggio al tiro reazione",
+    "rest_feature": "Mossa Interludio Aggiuntiva (Trance)"
+  },
+  "description": "Reazione Istintiva: Marcate uno Stress per ottenere vantaggio in un tiro reazione. Dormiveglia: Durante un riposo, potete cadere in trance per scegliere una mossa di interludio aggiuntiva.",
+  "source_ref": "DH_MB_059"
+}
