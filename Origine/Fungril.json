@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_062",
+  "name": "Fungril",
+  "image": "Fungril.jpg",
+  "category": "Origine",
+  "sub_category": "Fungril",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1 },
+  "range": "Variabile",
+  "mechanics": {
+    "action": "Comunicazione Micellare (Istinto 12)",
+    "feature": "Estrarre ricordi dai cadaveri"
+  },
+  "description": "Cerchio dei Fungril: Effettuate un Tiro Istinto (12) per utilizzare la vostra struttura micellare per comunicare con altri fungril. Connessione con i Morti: Toccando un cadavere morto di recente, potete marcare uno Stress per estrarre dal cadavere un ricordo legato a un’emozione o sensazione specifica.",
+  "source_ref": "DH_MB_062"
+}
