@@ -1,0 +1,19 @@
+{
+  "id": "DH_MB_063",
+  "name": "Fauni",
+  "image": "Fauni.jpg",
+  "category": "Origine",
+  "sub_category": "Fauni",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": { "type": "Stress", "amount": 1 },
+  "range": "Ravvicinata",
+  "mechanics": {
+    "movement": "Salto come movimento normale",
+    "action": "Calcio (Attacco in mischia)",
+    "bonus_damage": "2d6",
+    "effect": "Spinta (Knockback)"
+  },
+  "description": "Balzo Caprino: Potete saltare entro qualsiasi punto a distanza Ravvicinata come se usaste un normale movimento. Calcio: Quando riuscite a sferrare un attacco contro un bersaglio in Mischia, potete marcare uno Stress per scalciare via il bersaglio o voi stessi, infliggendo 2d6 danni aggiuntivi e spostando voi o il bersaglio in qualsiasi punto entro una distanza Prossima.",
+  "source_ref": "DH_MB_063"
+}
