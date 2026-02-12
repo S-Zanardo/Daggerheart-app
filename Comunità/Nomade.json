@@ -1,0 +1,21 @@
+{
+  "id": "DH_MB_079",
+  "name": "Nomade",
+  "image": "Nomade.jpg",
+  "category": "Comunità",
+  "sub_category": "Nomade",
+  "type": "Carta Comunità",
+  "level": 0,
+  "cost": {
+    "type": "Speranza",
+    "amount": 1
+  },
+  "range": "Personale",
+  "mechanics": {
+    "inventory_add": "Sacca da Viaggio",
+    "active_ability": "Creare Oggetto (1/Sessione)",
+    "item_type": "Oggetto comune utile"
+  },
+  "description": "Sacca da Viaggio: Aggiungete una Sacca da Viaggio al vostro inventario. Una volta per sessione, potete spendere una Speranza per rovistare nella sacca in cerca di un oggetto comune utile per la situazione.",
+  "source_ref": "DH_MB_079"
+}
