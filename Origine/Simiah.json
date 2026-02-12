@@ -1,0 +1,17 @@
+{
+  "id": "DH_MB_055",
+  "name": "Simiah",
+  "image": "Simiah.jpg",
+  "category": "Origine",
+  "sub_category": "Simiah",
+  "type": "Tratto Razziale",
+  "level": 0,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": { "evasion": 1 },
+    "advantage": "Tiri Agilità (Equilibrio/Arrampicata)"
+  },
+  "description": "Scalatore Naturale: Avete vantaggio sui Tiri Agilità che riguardano l’equilibrio e l’arrampicata. Scioltezza: Guadagnate bonus +1 permanente all’Evasione alla creazione del personaggio.",
+  "source_ref": "DH_MB_055"
+}
