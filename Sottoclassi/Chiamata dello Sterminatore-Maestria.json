@@ -1,20 +1,31 @@
 {
-  "id": "DH_MB_047",
+  "id": "DH_CARD_STERMINATORE_MASTERY",
   "name": "Chiamata dello Sterminatore-Maestria",
-  "class": "Guerriero",
   "image": "Chiamata dello Sterminatore-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Chiamata dello Sterminatore",
-  "class_restriction": "Guerriero",
-  "type": "Maestria",
-  "level": 8,
-  "cost": "Riposo (Mossa Interludio)",
-  "range": "Personale / Gruppo",
-  "mechanics": {
-    "feature": "Addestramento Marziale",
-    "effect": "Sblocca mossa di interludio per il gruppo. Chi la usa guadagna 1 d6 Dado dello Sterminatore.",
-    "usage": "Il dado può essere speso per aggiungere il risultato a un tiro attacco o danno."
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_CHIAMATA_STERMINATORE",
+  "parent_class": "Guerriero",
+  "level_unlock": 8,
+  "description": "Addestramento Marziale: Siete un guerriero che ispira tutti coloro che viaggiano con voi. Il vostro gruppo ha accesso alla mossa Addestramento Marziale durante il riposo. Voi e ogni alleato che sceglie questa mossa di interludio guadagnate un d6 di Dado dello Sterminatore. Un PG con un Dado dello Sterminatore può spenderlo per tirare il dado e aggiungere il risultato a un tiro attacco o di danno a sua scelta.",
+  "automation": {
+    "rest_move": {
+      "name": "Addestramento Marziale",
+      "description": "Allenati con il Guerriero per ottenere un Dado Sterminatore (d6).",
+      "effect": {
+        "target": "self_and_allies_who_choose",
+        "resource": "slayer_die_temp",
+        "value": 1,
+        "die_size": "d6"
+      }
+    },
+    "resource_usage": {
+      "id": "slayer_die_temp",
+      "trigger": "declare_roll_attack_or_damage",
+      "effect": {
+        "operation": "roll_and_add",
+        "die_size": "d6"
+      }
+    }
   },
-  "description": "Addestramento Marziale: Siete un guerriero che ispira tutti coloro che viaggiano con voi. Il vostro gruppo ha accesso alla mossa Addestramento Marziale durante il riposo. Per usare questa mossa durante un riposo, descrivete come istruite e vi allenate con il gruppo. Voi e ogni alleato che sceglie questa mossa di interludio guadagnate un d6 di Dado dello Sterminatore. Un PG con un Dado dello Sterminatore può spenderlo per tirare il dado e aggiungere il risultato a un tiro attacco o di danno a sua scelta.",
   "source_ref": "DH_MB_047"
 }
