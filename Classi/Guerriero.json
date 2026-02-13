@@ -1,0 +1,43 @@
+{
+  "id": "DH_DEF_Guerriero",
+  "class_name": "Guerriero",
+  "category": "Definizione Classe",
+  "domains": [
+    "Lame",
+    "Ossa"
+  ],
+  "stats": {
+    "starting_evasion": 11,
+    "starting_hp": 6,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": 2,
+      "Forza": 1,
+      "Astuzia": 0,
+      "Istinto": 1,
+      "Presenza": -1,
+      "Conoscenza": 0
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ],
+    "unique_choice": [
+      "Il ritratto di chi amate",
+      "Una cote per affilare"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Attacco di Opportunità",
+    "description": "Se un avversario entro distanza di Mischia tenta di uscirne, effettuate un tiro di reazione usando un tratto a vostra scelta contro la sua Difficoltà. Scegliete un effetto: in caso di successo, infliggete i danni della vostra arma. In caso di successo critico, infliggete i danni della vostra arma e l'avversario non si muove."
+  },
+  "source_ref": "DH_Schede_Guerriero"
+}
