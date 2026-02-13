@@ -1,0 +1,23 @@
+{
+  "id": "DH_MB_045",
+  "name": "Chiamata dello Sterminatore-Privilegio Base",
+  "class": "Guerriero",
+  "image": "Chiamata dello Sterminatore-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Chiamata dello Sterminatore",
+  "class_restriction": "Guerriero",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "Variabile (Speranza convertita)",
+  "range": "Personale",
+  "mechanics": {
+    "feature": "Sterminatore",
+    "trigger_gain": "Effettuare un tiro con Speranza",
+    "effect_gain": "Invece di guadagnare una Speranza, mettere un d6 nella riserva Dadi dello Sterminatore (Max pari a Competenza).",
+    "trigger_spend": "Tiro attacco o danno",
+    "effect_spend": "Spendere dadi dalla riserva e aggiungerli al totale.",
+    "cleanup": "A fine sessione, rimuovere dadi e guadagnare 1 Speranza per ciascuno."
+  },
+  "description": "Sterminatore: Ottenete una riserva di dadi chiamata Dadi dello Sterminatore. Quando effettuate un tiro con Speranza, potete mettere un d6 su questa carta invece di guadagnare una Speranza, aggiungendo il dado alla riserva. Potete conservare un numero massimo di Dadi dello Sterminatore pari alla vostra Competenza. Quando effettuate un tiro attacco o di danno, potete spendere un numero qualsiasi di Dadi dello Sterminatore, tirandoli e aggiungendo il loro risultato al tiro. Alla fine di ogni sessione, rimuovete i Dadi dello Sterminatore non spesi da questa carta e guadagnate una Speranza per ogni dado cancellato.",
+  "source_ref": "DH_MB_045"
+}
