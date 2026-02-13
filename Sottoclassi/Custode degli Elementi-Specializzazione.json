@@ -1,0 +1,25 @@
+{
+  "id": "DH_MB_008",
+  "name": "Custode degli Elementi-Specializzazione",
+  "class": "Druido",
+  "image": "Custode degli Elementi-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Custode degli Elementi",
+  "class_restriction": "Druido",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": "Variabile (vedi opzioni)",
+  "range": "Ravvicinata",
+  "mechanics": {
+    "trigger": "Mentre si Incanala (1 volta per riposo)",
+    "effect": "Attivare Aura corrispondente all'elemento incanalato",
+    "options": [
+      "Fuoco: Avversario subisce PF -> marca anche Stress",
+      "Terra: Alleati +1 Forza",
+      "Acqua: Sposta avversario che vi infligge danno (Costo: 1 Stress)",
+      "Aria: Riduci danni non in Mischia di 1d8"
+    ]
+  },
+  "description": "Aura Elementale: Una volta per riposo, mentre Incanalate, potete ammantarvi di un’aura corrispondente al vostro elemento. L’aura colpisce i bersagli entro distanza Ravvicinata finché non smettete di Incanalare.\nFuoco: Quando un avversario subisce 1 o più Punti Ferita, deve marcare anche uno Stress.\nTerra: Gli alleati ottengono bonus +1 alla Forza.\nAcqua: Quando un avversario vi infligge un danno, potete marcare uno Stress per spostarlo ovunque entro una distanza Prossima da dove si trova.\nAria: Quando voi o un alleato subite danni da un attacco non in Mischia, riducete i danni di 1d8.",
+  "source_ref": "DH_MB_008"
+}
