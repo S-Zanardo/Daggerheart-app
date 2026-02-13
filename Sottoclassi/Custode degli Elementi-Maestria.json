@@ -1,24 +1,20 @@
 {
-  "id": "DH_MB_009",
+  "id": "DH_CARD_CUSTODE_ELEMENTI_MASTERY",
   "name": "Custode degli Elementi-Maestria",
-  "class": "Druido",
   "image": "Custode degli Elementi-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Custode degli Elementi",
-  "class_restriction": "Druido",
-  "type": "Maestria",
-  "level": 8,
-  "cost": "Variabile (vedi opzioni)",
-  "range": "Personale",
-  "mechanics": {
-    "trigger": "Mentre si Incanala",
-    "options": [
-      "Fuoco: +1 Competenza attacchi/incantesimi danno",
-      "Terra: Tira d6 per ogni PF subito; ogni 6 riduce danni di 1",
-      "Acqua: Quando colpiti, marca 1 Stress per rendere attaccante Vulnerabile",
-      "Aria: +1 Evasione e Volo"
-    ]
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_CUSTODE_ELEMENTI",
+  "parent_class": "Druido",
+  "level_unlock": 8,
+  "description": "Dominio Elementale: Mentre Incanalate ottenete benefici passivi. Fuoco: +1 alla Competenza per attacchi e incantesimi di danno. Terra: Quando subite PF, tirate un d6 per ogni PF subito; per ogni 6 ottenuto, riducete i PF subiti di 1. Acqua: Quando venite colpiti da un attacco, marcate 1 Stress per rendere l'attaccante Vulnerabile. Aria: +1 Evasione.",
+  "automation": {
+    "condition": "is_channeling",
+    "modes_upgrade": {
+      "Fuoco": { "passive": { "target": "proficiency", "value": 1 } },
+      "Terra": { "reaction": "roll_d6_per_hp_loss_reduce_on_6" },
+      "Acqua": { "reaction": { "trigger": "hit_by_attack", "cost": "1_stress", "effect": "make_attacker_vulnerable" } },
+      "Aria": { "passive": { "target": "evasion", "value": 1 } }
+    }
   },
-  "description": "Dominio Elementale: Incarnate ulteriormente il vostro elemento. Mentre Incanalate, ottenete il beneficio corrispondente:\nFuoco: Bonus +1 alla Competenza per gli attacchi e gli incantesimi che infliggono danni.\nTerra: Quando subite Punti Ferita, tirate un d6 per ogni Punto Ferita subito. Per ogni risultato di 6, riducete di 1 il numero di Punti Ferita subiti.\nAcqua: Quando un attacco contro di voi ha successo, potete marcare uno Stress per rendere l’attaccante temporaneamente Vulnerabile.\nAria: Guadagnate bonus +1 all’Evasione e potete volare.",
-  "source_ref": "DH_MB_009"
+  "source_ref": "DH_MB_033"
 }
