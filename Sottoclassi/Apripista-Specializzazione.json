@@ -1,0 +1,18 @@
+{
+  "id": "DH_MB_022",
+  "name": "Apripista-Specializzazione",
+  "image": "Apripista-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Apripista",
+  "class_restriction": "Ranger",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "trigger": "Focus compie un attacco contro di voi",
+    "effect": "+2 Evasione contro tale attacco"
+  },
+  "description": "Predatore Furtivo: Quando il vostro Focus compie un attacco contro di voi, ottenete bonus +2 alla vostra Evasione contro tale attacco.",
+  "source_ref": "DH_MB_022"
+}
