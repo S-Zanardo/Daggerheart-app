@@ -1,26 +1,26 @@
 {
-  "id": "DH_MB_039",
+  "id": "DH_CARD_POTERE_ELEMENTALE_MASTERY",
   "name": "Potere Elementale-Maestria",
-  "class": "Stregone",
   "image": "Potere Elementale-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Potere Elementale",
-  "class_restriction": "Stregone",
-  "type": "Maestria",
-  "level": 8,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Trascendenza",
-    "frequency": "1 volta per riposo lungo",
-    "effect": "Trasformazione fisica nell'elemento. Scegliere 2 benefici fino al riposo.",
-    "options": [
-      "Bonus +4 alla soglia di danno Grave",
-      "Bonus +1 a un tratto del personaggio a scelta",
-      "Bonus +1 alla Competenza",
-      "Bonus +2 all’Evasione"
-    ]
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_POTERE_ELEMENTALE",
+  "parent_class": "Stregone",
+  "level_unlock": 8,
+  "description": "Trascendenza: Una volta per riposo lungo, potete trasformarvi in una manifestazione fisica del vostro elemento. Quando lo fate, descrivete la vostra trasformazione e ottenete a vostra scelta due dei seguenti benefici, fino al riposo successivo: Bonus +4 alla soglia di danno Grave; Bonus +1 a un tratto del personaggio a scelta; Bonus +1 alla Competenza; Bonus +2 all’Evasione.",
+  "automation": {
+    "frequency": "long_rest",
+    "trigger": "active_activation",
+    "input": {
+      "type": "multi_select",
+      "limit": 2,
+      "options": [
+        { "label": "+4 Soglia Grave", "effect": { "target": "severe_damage_threshold", "value": 4 } },
+        { "label": "+1 Tratto", "effect": { "target": "selected_trait", "value": 1 } },
+        { "label": "+1 Competenza", "effect": { "target": "proficiency", "value": 1 } },
+        { "label": "+2 Evasione", "effect": { "target": "evasion", "value": 2 } }
+      ]
+    },
+    "duration": "until_rest"
   },
-  "description": "Trascendenza: Una volta per riposo lungo, potete trasformarvi in una manifestazione fisica del vostro elemento. Quando lo fate, descrivete la vostra trasformazione e ottenete a vostra scelta due dei seguenti benefici, fino al riposo successivo:\n• Bonus +4 alla soglia di danno Grave\n• Bonus +1 a un tratto del personaggio a scelta\n• Bonus +1 alla Competenza\n• Bonus +2 all’Evasione",
   "source_ref": "DH_MB_039"
 }
