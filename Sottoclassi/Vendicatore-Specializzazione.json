@@ -1,18 +1,31 @@
 {
-  "id": "DH_MB_016",
+  "id": "DH_CARD_VENDICATORE_SPEC",
   "name": "Vendicatore-Specializzazione",
   "image": "Vendicatore-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Vendicatore",
-  "class_restriction": "Guardiano",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Mischia",
-  "mechanics": {
-    "trigger": "Avversario danneggia un alleato entro distanza di Mischia",
-    "effect": "Bonus +1 alla Competenza per il successivo attacco riuscito contro quell'avversario"
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_VENDICATORE",
+  "parent_class": "Guardiano",
+  "level_unlock": 5,
   "description": "Rappresaglia: Quando un avversario danneggia un alleato entro distanza di Mischia, ottenete bonus +1 alla Competenza per il successivo attacco riuscito contro quell’avversario.",
+  "automation": {
+    "reaction": {
+      "trigger": "ally_damaged_melee",
+      "effect": {
+        "target": "self",
+        "status": "retribution_bonus",
+        "description": "+1 Competenza al prossimo attacco contro questo nemico"
+      }
+    },
+    "conditional_bonus": {
+      "trigger": "attack_damage_roll",
+      "condition": "has_retribution_bonus_against_target",
+      "effect": {
+        "target": "proficiency",
+        "operation": "add_temporary",
+        "value": 1,
+        "side_effect": "consume_status"
+      }
+    }
+  },
   "source_ref": "DH_MB_016"
 }
