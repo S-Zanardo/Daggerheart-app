@@ -1,21 +1,34 @@
 {
-  "id": "DH_MB_040",
+  "id": "DH_CARD_POTERE_PRIMORDIALE_SPEC",
   "name": "Potere Primordiale-Specializzazione",
-  "class": "Stregone",
   "image": "Potere Primordiale-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Potere Primordiale",
-  "class_restriction": "Stregone",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Aiuto Incantato",
-    "trigger": "Aiutare un Alleato con un Tiro Incantesimo",
-    "effect": "Tirare un d8 come dado vantaggio.",
-    "extra_effect": "1 volta per riposo lungo: scambiare i risultati dei Dadi Dualità dell'alleato aiutato."
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_POTERE_PRIMORDIALE",
+  "parent_class": "Stregone",
+  "level_unlock": 5,
+  "description": "Aiuto Incantato: Potete potenziare la magia altrui grazie alla vostra essenza. Quando Aiutate un Alleato con un Tiro Incantesimo, potete tirare un d8 come dado vantaggio. Una volta per riposo lungo, dopo che un alleato ha effettuato un Tiro Incantesimo con il vostro aiuto, potete scambiare i risultati dei suoi Dadi Dualità (trasformando potenzialmente un fallimento in successo o attivando la Speranza).",
+  "automation": {
+    "features": [
+      {
+        "name": "Aiuto Incantato (Passivo)",
+        "trigger": "help_ally",
+        "condition": { "ally_action": "spellcast" },
+        "effect": {
+          "target": "help_die",
+          "operation": "replace",
+          "new_value": "d8"
+        }
+      },
+      {
+        "name": "Scambio Dualità",
+        "frequency": "long_rest",
+        "trigger": "ally_roll_resolved_with_help",
+        "effect": {
+          "target": "ally_duality_dice",
+          "operation": "swap_hope_fear_values"
+        }
+      }
+    ]
   },
-  "description": "Aiuto Incantato: Potete potenziare la magia altrui grazie alla vostra essenza. Quando Aiutate un Alleato con un Tiro Incantesimo, potete tirare un d8 come dado vantaggio. Una volta per riposo lungo, dopo che un alleato ha effettuato un Tiro Incantesimo con il vostro aiuto, potete scambiare i risultati dei suoi Dadi Dualità.",
   "source_ref": "DH_MB_040"
 }
