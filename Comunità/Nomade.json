@@ -1,21 +1,45 @@
 {
-  "id": "DH_MB_079",
+  "id": "DH_COMMUNITY_007",
   "name": "Nomade",
   "image": "Nomade.jpg",
   "category": "Comunità",
-  "sub_category": "Nomade",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": {
-    "type": "Speranza",
-    "amount": 1
-  },
-  "range": "Personale",
-  "mechanics": {
-    "inventory_add": "Sacca da Viaggio",
-    "active_ability": "Creare Oggetto (1/Sessione)",
-    "item_type": "Oggetto comune utile"
-  },
-  "description": "Sacca da Viaggio: Aggiungete una Sacca da Viaggio al vostro inventario. Una volta per sessione, potete spendere una Speranza per rovistare nella sacca in cerca di un oggetto comune utile per la situazione.",
+  "description": "Far parte di una comunità nomade significa aver condotto una vita errante, rinunciando a una casa permanente e sperimentando un’ampia varietà di culture. I nomadi danno meno valore all’accumulo di beni materiali a favore dell’acquisizione di informazioni, competenze e contatti.",
+  "features": [
+    {
+      "id": "NOMADE_F01",
+      "name": "Sacca da Viaggio",
+      "description": "Aggiungete una Sacca da Viaggio al vostro inventario. Una volta per sessione, potete spendere una Speranza per rovistare nella sacca in cerca di un oggetto comune utile per la situazione.",
+      "type": "active_item_spawn",
+      "automation": {
+        "creation_phase": {
+          "effect": {
+            "target": "inventory",
+            "operation": "add_item",
+            "item_id": "DH_ITEM_TRAVEL_BAG"
+          }
+        },
+        "usage": {
+          "frequency": "once_per_session",
+          "cost": {
+            "resource": "hope",
+            "amount": 1
+          },
+          "trigger": "active_button",
+          "input_request": {
+            "type": "text_input",
+            "label": "Descrivi l'oggetto comune trovato",
+            "store_as": "spawned_item_name"
+          },
+          "effect": {
+            "target": "inventory",
+            "operation": "add_custom_item",
+            "name_source": "spawned_item_name",
+            "tier": "common",
+            "tags": ["found_in_bag"]
+          }
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_079"
 }
