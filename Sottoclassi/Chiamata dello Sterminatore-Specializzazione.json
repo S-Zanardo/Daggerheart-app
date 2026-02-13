@@ -1,21 +1,35 @@
 {
-  "id": "DH_MB_046",
+  "id": "DH_CARD_STERMINATORE_SPEC",
   "name": "Chiamata dello Sterminatore-Specializzazione",
-  "class": "Guerriero",
   "image": "Chiamata dello Sterminatore-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Chiamata dello Sterminatore",
-  "class_restriction": "Guerriero",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": "1 Speranza (per il danno extra)",
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Specialista delle Armi",
-    "trigger_attack": "Attacco riuscito",
-    "effect_attack": "Spendere 1 Speranza per aggiungere un dado danno dell'arma secondaria al tiro.",
-    "passive_bonus": "1 volta per riposo lungo: ripetere l'esito di qualsiasi 1 sui Dadi dello Sterminatore."
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_CHIAMATA_STERMINATORE",
+  "parent_class": "Guerriero",
+  "level_unlock": 5,
+  "description": "Specialista delle Armi: Potete maneggiare più armi con letale maestria. Quando avete successo in un attacco, potete spendere una Speranza per aggiungere uno dei dadi di danno della vostra arma secondaria al tiro di danno. Inoltre, una volta per riposo lungo, quando tirate i Dadi dello Sterminatore, potete ripetere l’esito di qualsiasi 1.",
+  "automation": {
+    "features": [
+      {
+        "name": "Colpo Secondario",
+        "trigger": "attack_success",
+        "cost": { "resource": "hope", "amount": 1 },
+        "condition": "has_secondary_weapon",
+        "effect": {
+          "target": "damage_roll",
+          "operation": "add_die",
+          "source": "secondary_weapon_damage_die_single"
+        }
+      },
+      {
+        "name": "Rilancio Sterminatore",
+        "trigger": "slayer_dice_rolled",
+        "frequency": "long_rest",
+        "effect": {
+          "operation": "reroll_specific_result",
+          "target_result": 1
+        }
+      }
+    ]
   },
-  "description": "Specialista delle Armi: Potete maneggiare più armi con letale maestria. Quando avete successo in un attacco, potete spendere una Speranza per aggiungere uno dei dadi di danno della vostra arma secondaria al tiro di dado. Inoltre, una volta per riposo lungo, quando tirate i Dadi dello Sterminatore, potete ripetere l’esito di qualsiasi 1.",
-  "source_ref": "DH_MB_046"
+  "source_ref": "DH_CS_046"
 }
