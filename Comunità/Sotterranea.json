@@ -1,22 +1,36 @@
 {
-  "id": "DH_MB_078",
+  "id": "DH_COMMUNITY_009",
   "name": "Sotterranea",
   "image": "Sotterranea.jpg",
   "category": "Comunità",
-  "sub_category": "Sotterranea",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Vantaggio (Oscurità)",
-    "condition": "Area in penombra o oscurità",
-    "triggers": [
-      "Nascondersi",
-      "Indagare",
-      "Percepire dettagli"
-    ]
-  },
-  "description": "Vivere nel Crepuscolo: Quando vi trovate in un’area in penombra o nell’oscurità, avete vantaggio ai tiri per nascondersi, indagare o percepire i dettagli.",
+  "description": "Far parte di una comunità sotterranea significa appartenere a una società che si è sviluppata sotto la superficie. Molti vivono sotto le città, altri in immense caverne. Gli abitanti del sottosuolo sono spesso composti, sfuggenti, indomiti e pieni di risorse.",
+  "features": [
+    {
+      "id": "SOTTERRANEA_F01",
+      "name": "Vivere nel Crepuscolo",
+      "description": "Quando vi trovate in un’area in penombra o nell’oscurità, avete vantaggio ai tiri per nascondersi, indagare o percepire i dettagli.",
+      "type": "environmental_advantage",
+      "automation": {
+        "usage": {
+          "trigger": "roll_check_declared",
+          "condition": {
+            "all_true": [
+              {
+                "environment_light_level": ["dim", "dark"]
+              },
+              {
+                "check_tags": ["stealth", "investigate", "perception"]
+              }
+            ]
+          },
+          "effect": {
+            "operation": "add_advantage",
+            "target": "current_roll",
+            "message": "Vantaggio applicato: Vivere nel Crepuscolo (Ambiente Buio)"
+          }
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_078"
 }
