@@ -1,18 +1,24 @@
 {
-  "id": "DH_MB_022",
+  "id": "DH_CARD_APRIPISTA_SPEC",
   "name": "Apripista-Specializzazione",
   "image": "Apripista-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Apripista",
-  "class_restriction": "Ranger",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "trigger": "Focus compie un attacco contro di voi",
-    "effect": "+2 Evasione contro tale attacco"
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_APRIPISTA",
+  "parent_class": "Ranger",
+  "level_unlock": 5,
   "description": "Predatore Furtivo: Quando il vostro Focus compie un attacco contro di voi, ottenete bonus +2 alla vostra Evasione contro tale attacco.",
-  "source_ref": "DH_MB_022"
+  "automation": {
+    "passive_bonus": {
+      "trigger": "attacked_by_enemy",
+      "condition": {
+        "enemy_status": "ranger_focus"
+      },
+      "effect": {
+        "target_stat": "evasion",
+        "operation": "add_temporary",
+        "value": 2
+      }
+    }
+  },
+  "source_ref": "DH_CS_022"
 }
