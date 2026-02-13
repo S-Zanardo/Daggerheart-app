@@ -1,19 +1,43 @@
 {
-  "id": "DH_MB_018",
-  "name": "Ferale-Privilegio Base",
-  "image": "Ferale-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Ferale",
-  "class_restriction": "Ranger",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Agilità",
-    "feature": "Compagno Animale",
-    "effect": "Ottenete un compagno animale e la relativa scheda. Il compagno sale di livello con il personaggio."
+  "id": "DH_CARD_FERALE_BASE",
+  "name": "Ferale-Privilegio base",
+  "image": "Ferale-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_FERALE",
+  "parent_class": "Ranger",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Agilità. Compagno: Avete un compagno animale a vostra scelta. Rimane al vostro fianco a meno che non gli ordiniate di fare altrimenti. Prendete la scheda del Compagno del Ranger. Il dado danno base è d6 (Mischia). Potete effettuare un Tiro Incantesimo (Agilità) per comandarlo; spendendo 1 Speranza aggiungete un'Esperienza del compagno al tiro. Se il tiro ha successo con Speranza, e la vostra prossima azione si basa sul successo del compagno, avete Vantaggio.",
+  "automation": {
+    "spellcast_trait": "Agilità",
+    "features": [
+      {
+        "name": "Evoca Scheda Compagno",
+        "effect": {
+          "operation": "initialize_companion_sheet",
+          "base_stats": {
+            "evasion": 10,
+            "damage_die": "d6",
+            "range": "Mischia",
+            "experiences_count": 2,
+            "stress_slots": "base"
+          }
+        }
+      },
+      {
+        "name": "Comandare Compagno",
+        "trigger": "active_roll",
+        "roll_type": "spellcast",
+        "stat": "agility",
+        "cost_option": {
+          "resource": "hope",
+          "amount": 1,
+          "effect": "add_companion_experience_bonus"
+        },
+        "on_success_hope": {
+          "effect": "grant_advantage_next_action"
+        }
+      }
+    ]
   },
-  "description": "Compagno: Avete un compagno animale a vostra scelta (a discrezione del GM). Rimane al vostro fianco a meno che non gli ordiniate di fare altrimenti. Prendete la scheda del Compagno del Ranger. Quando fate salire di livello il vostro personaggio, scegliete anche un’opzione di aumento di livello per il vostro compagno da questa scheda.",
   "source_ref": "DH_MB_018"
 }
