@@ -1,21 +1,27 @@
 {
-  "id": "DH_MB_034",
+  "id": "DH_CARD_SENTINELLA_ALATA_SPEC",
   "name": "Sentinella Alata-Specializzazione",
   "image": "Sentinella Alata-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Sentinella Alata",
-  "class_restriction": "Consacrato",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Volto Celeste",
-    "condition": "Mentre siete in volo",
-    "benefit": "Vantaggio sui Tiri Presenza.",
-    "trigger": "Successo con Speranza in un Tiro Presenza",
-    "effect": "Rimuovere 1 Paura dalla riserva del GM invece di guadagnare Speranza."
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_SENTINELLA_ALATA",
+  "parent_class": "Consacrato",
+  "level_unlock": 5,
   "description": "Volto Celeste: Il vostro volto soprannaturale incute timore e paura. Quando siete in volo, avete vantaggio sui Tiri Presenza. Quando avete successo con Speranza in un Tiro Presenza, potete rimuovere una Paura dalla riserva di Paura del GM invece di guadagnare Speranza.",
+  "automation": {
+    "passive_bonus": {
+      "condition": "is_flying",
+      "target_check": "presence",
+      "effect": "grant_advantage"
+    },
+    "trigger_event": {
+      "trigger": "roll_success_with_hope",
+      "check_type": "presence",
+      "prompt": "Rimuovere 1 Paura al GM invece di prendere Speranza?",
+      "effect": {
+        "player_hope": 0,
+        "gm_fear": -1
+      }
+    }
+  },
   "source_ref": "DH_MB_034"
 }
