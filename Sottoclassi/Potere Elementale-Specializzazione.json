@@ -1,0 +1,20 @@
+{
+  "id": "DH_MB_038",
+  "name": "Potere Elementale-Specializzazione",
+  "class": "Stregone",
+  "image": "Potere Elementale-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Potere Elementale",
+  "class_restriction": "Stregone",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": "1 Stress",
+  "range": "Personale",
+  "mechanics": {
+    "feature": "Scudo della Natura",
+    "trigger": "Un tiro attacco contro di voi ha successo",
+    "effect": "Tirare un d6 e aggiungere il risultato alla propria Evasione contro l'attacco."
+  },
+  "description": "Scudo della Natura: Potete invocare il vostro elemento per proteggervi dai danni. Quando un tiro attacco contro di voi ha successo, potete marcare uno Stress e descrivere come usate il vostro elemento per difendervi. Quando lo fate, tirate un d6 e aggiungete il risultato alla vostra Evasione contro l’attacco.",
+  "source_ref": "DH_MB_038"
+}
