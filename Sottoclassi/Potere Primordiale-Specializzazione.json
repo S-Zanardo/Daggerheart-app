@@ -1,0 +1,21 @@
+{
+  "id": "DH_MB_040",
+  "name": "Potere Primordiale-Specializzazione",
+  "class": "Stregone",
+  "image": "Potere Primordiale-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Potere Primordiale",
+  "class_restriction": "Stregone",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "feature": "Aiuto Incantato",
+    "trigger": "Aiutare un Alleato con un Tiro Incantesimo",
+    "effect": "Tirare un d8 come dado vantaggio.",
+    "extra_effect": "1 volta per riposo lungo: scambiare i risultati dei Dadi Dualità dell'alleato aiutato."
+  },
+  "description": "Aiuto Incantato: Potete potenziare la magia altrui grazie alla vostra essenza. Quando Aiutate un Alleato con un Tiro Incantesimo, potete tirare un d8 come dado vantaggio. Una volta per riposo lungo, dopo che un alleato ha effettuato un Tiro Incantesimo con il vostro aiuto, potete scambiare i risultati dei suoi Dadi Dualità.",
+  "source_ref": "DH_MB_040"
+}
