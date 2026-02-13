@@ -1,18 +1,19 @@
 {
-  "id": "DH_MB_003",
+  "id": "DH_CARD_TROVATORE_MASTERY",
   "name": "Trovatore-Maestria",
   "image": "Trovatore-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Trovatore",
-  "class_restriction": "Bardo",
-  "type": "Maestria",
-  "level": 8,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "target_feature": "Musico Eccezionale",
-    "effect": "Eseguire ogni canzone due volte per riposo lungo invece di una sola"
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_TROVATORE",
+  "parent_class": "Bardo",
+  "level_unlock": 8,
   "description": "Virtuoso: Siete tra i più grandi musicisti mai vissuti e la vostra abilità è illimitata. Potete eseguire ogni canzone del privilegio “Musico Eccezionale” due volte invece di una sola per riposo lungo.",
-  "source_ref": "DH_MB_003"
+  "automation": {
+    "passive_upgrade": {
+      "target_features": ["Canzone Popolare", "Canto Epico", "Ballata"],
+      "parameter": "max_uses",
+      "operation": "set_value",
+      "value": 2
+    }
+  },
+  "source_ref": "DH_CS_002"
 }
