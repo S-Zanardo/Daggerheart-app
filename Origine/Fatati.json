@@ -1,41 +1,56 @@
 {
-  "id": "DH_ORIGIN_003",
-  "name": "Elfo",
-  "image": "Elfo",
+  "id": "DH_ORIGIN_004",
+  "name": "Fatato",
+  "image": "Fatato",
   "category": "Origine",
-  "description": "Gli elfi sono in genere umanoidi alti, con orecchie a punta e sensi molto acuti. Tutti gli elfi hanno l’abilità di cadere in una trance trasognante invece di dormire, e questo permette loro di riposare efficacemente in un breve lasso di tempo.",
+  "description": "I fatati sono creature umanoidi alate con tratti da insetto. A causa del loro stretto legame con il mondo naturale, spesso possiedono caratteristiche che permettono loro di confondersi con la vegetazione.",
   "features": [
     {
-      "id": "ELF_F01",
-      "name": "Reazione Istintiva",
-      "description": "Marcate uno Stress per ottenere vantaggio in un tiro reazione.",
-      "type": "reaction_modifier",
+      "id": "FATATO_F01",
+      "name": "Portafortuna",
+      "description": "Una volta per sessione, dopo che voi o un alleato consenziente entro distanza Ravvicinata effettuate un tiro azione, potete spendere 3 Speranze per rilanciare i Dadi Dualità.",
+      "type": "active_reroll",
       "automation": {
-        "trigger": "reaction_roll_initiated",
+        "frequency": "once_per_session",
+        "trigger": "post_roll_result",
+        "condition": {
+          "target": ["self", "ally_close"],
+          "roll_type": "action_roll"
+        },
+        "cost": {
+          "resource": "hope",
+          "amount": 3
+        },
+        "effect": {
+          "operation": "reroll_duality_dice",
+          "target": "triggering_roll"
+        }
+      }
+    },
+    {
+      "id": "FATATO_F02",
+      "name": "Ali",
+      "description": "Potete volare. Mentre siete in volo, potete marcare uno Stress dopo che un avversario ha effettuato un attacco nei vostri confronti per ottenere bonus +2 alla vostra Evasione contro quell’attacco.",
+      "type": "reaction_defense",
+      "automation": {
+        "passive_capability": "flight_mode_toggle",
+        "trigger": "incoming_attack",
+        "condition": "is_flying",
         "cost": {
           "resource": "stress",
           "amount": 1
         },
         "effect": {
-          "target": "current_roll",
-          "operation": "add_advantage"
-        }
-      }
-    },
-    {
-      "id": "ELF_F02",
-      "name": "Dormiveglia",
-      "description": "Durante un riposo, potete cadere in trance per scegliere una mossa di interludio aggiuntiva.",
-      "type": "rest_modifier",
-      "automation": {
-        "trigger": "rest_start",
-        "effect": {
-          "target": "downtime_actions_count",
+          "target": "evasion",
           "operation": "add",
-          "value": 1
+          "value": 2,
+          "duration": "current_attack_only"
         }
       }
     }
+  ],
+  "source_ref": "DH_MB_059"
+}
   ],
   "source_ref": "DH_MB_058"
 }
