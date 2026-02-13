@@ -1,23 +1,24 @@
 {
-  "id": "ORIGIN_CLANK",
+  "id": "DH_ORIGIN_001",
   "name": "Clank",
-  "category": "Origin",
-  "description": "I clank sono esseri artificiali, costrutti di ingranaggi, metallo e magia (o tecnologia), creati per uno scopo specifico.",
+  "image": "Clank-Origine.jpg",
+  "category": "Origine",
+  "description": "I clank sono esseri meccanici senzienti costruiti con diversi materiali, tra cui metallo, legno e pietra. Costruiti per uno scopo, la loro forma fisica è potenzialmente immortale, ma le loro menti possono deteriorarsi se la magia che le alimenta svanisce.",
   "features": [
     {
       "id": "CLANK_F01",
       "name": "Scopo Preciso",
       "description": "Decidete chi vi ha creato e per quale scopo. Alla creazione del personaggio, scegliete una delle vostre Esperienze che meglio si allinea con tale finalità e guadagnate bonus +1 permanente a essa.",
-      "type": "creation_choice",
+      "type": "passive",
       "automation": {
         "trigger": "character_creation",
-        "input_required": {
-          "type": "select_experience",
-          "label": "Seleziona l'Esperienza allineata al tuo scopo"
+        "input_request": {
+          "type": "select_existing_experience",
+          "label": "Scegli l'Esperienza legata al tuo scopo"
         },
         "effect": {
-          "target": "selected_experience",
-          "operation": "add_modifier",
+          "target": "selected_experience_modifier",
+          "operation": "add",
           "value": 1
         }
       }
@@ -30,11 +31,11 @@
       "automation": {
         "trigger": "short_rest_menu",
         "effect": {
-          "operation": "unlock_options",
-          "source_list": "long_rest_moves",
-          "target_list": "short_rest_moves"
+          "allow_selection_from": "long_rest_moves",
+          "limit": 1
         }
       }
     }
-  ]
+  ],
+  "source_ref": "DH_MB_056"
 }
