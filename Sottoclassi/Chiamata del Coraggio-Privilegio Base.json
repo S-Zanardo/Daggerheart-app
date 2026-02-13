@@ -1,24 +1,39 @@
 {
-  "id": "DH_MB_042",
-  "name": "Chiamata del Coraggio-Privilegio Base",
-  "class": "Guerriero",
-  "image": "Chiamata del Coraggio-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Chiamata del Coraggio",
-  "class_restriction": "Guerriero",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": "1 Riposo Lungo (Riti di Battaglia)",
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Coraggio: Guadagnare 1 Speranza quando si fallisce un tiro con Paura.",
-    "action": {
-      "name": "Riti di Battaglia",
-      "frequency": "1 volta per riposo lungo",
-      "trigger": "Prima di un'azione pericolosa o scontro difficile",
-      "effect": "Rimuovere 2 Stress e guadagnare 2 Speranze."
+  "id": "DH_CARD_CUSTODE_ELEMENTI_BASE",
+  "name": "Custode degli Elementi-Privilegio base",
+  "image": "Custode degli Elementi-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_CUSTODE_ELEMENTI",
+  "parent_class": "Druido",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Istinto. Incarnazione Elementale: Potete marcare uno Stress per Incanalare uno degli elementi. Fuoco: Quando un avversario entro distanza di Mischia vi colpisce con un attacco, subisce 1d10 danni magici. Terra: Aggiungete la vostra Competenza alle vostre soglie di danno. Acqua: Quando effettuate un attacco con successo contro un avversario in Mischia, potete spingere tutti gli avversari entro distanza Ravvicinata dal bersaglio a distanza Lontana. Aria: Potete librarvi in aria, ottenendo vantaggio nei Tiri Agilità.",
+  "automation": {
+    "spellcast_trait": "Istinto",
+    "activation": {
+      "cost": { "resource": "stress", "amount": 1 },
+      "input": {
+        "type": "select_mode",
+        "label": "Scegli Elemento da Incanalare",
+        "options": ["Fuoco", "Terra", "Acqua", "Aria"],
+        "store_as": "active_element_channel"
+      }
+    },
+    "modes": {
+      "Fuoco": {
+        "trigger": "hit_by_melee_attack",
+        "effect": { "target": "attacker", "deal_damage": "1d10_magic" }
+      },
+      "Terra": {
+        "passive": { "target": "damage_thresholds", "operation": "add", "value_source": "proficiency" }
+      },
+      "Acqua": {
+        "trigger": "melee_attack_success",
+        "effect": { "target": "enemies_near_target", "operation": "push", "distance": "far" }
+      },
+      "Aria": {
+        "passive": { "fly": true, "agility_rolls": "advantage" }
+      }
     }
   },
-  "description": "Coraggio: Quando fallite un tiro con Paura, guadagnate una Speranza. Riti di Battaglia: Una volta per riposo lungo, prima di tentare qualcosa di incredibilmente pericoloso o di affrontare un nemico che vi supera chiaramente, descrivete il rituale che eseguite o i preparativi che fate. Quando lo fate, rimuovete 2 Stress e guadagnate 2 Speranze.",
-  "source_ref": "DH_MB_042"
+  "source_ref": "DH_MB_033"
 }
