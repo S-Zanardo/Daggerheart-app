@@ -1,22 +1,49 @@
 {
-  "id": "DH_MB_072",
+  "id": "DH_ORIGIN_015",
   "name": "Ribbet",
-  "image": "Ribbet.jpg",
+  "image": "Ribbet",
   "category": "Origine",
-  "sub_category": "Ribbet",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Stress", "amount": 1 },
-  "range": "Ravvicinata",
-  "mechanics": {
-    "passive": "Anfibio",
-    "action": {
+  "description": "I ribbet somigliano a rane antropomorfe con occhi sporgenti e mani e piedi palmati. Hanno una pelle umida e liscia e possiedono una potente lingua che possono estroflettere a velocità incredibile.",
+  "features": [
+    {
+      "id": "RIBBET_F01",
+      "name": "Anfibio",
+      "description": "Potete respirare e muovervi naturalmente sott’acqua.",
+      "type": "passive_movement",
+      "automation": {
+        "passive_effect": {
+          "movement_mode": "swimming",
+          "speed_multiplier": 1.0,
+          "breathe_underwater": true
+        }
+      }
+    },
+    {
+      "id": "RIBBET_F02",
       "name": "Lingualunga",
-      "damage": "d12",
-      "damage_type": "Fisico",
-      "stat": "Astuzia"
+      "description": "Potete usare la lingua lunga per afferrare oggetti entro una distanza Ravvicinata. Marcate uno Stress per usare la lingua come un’arma Ravvicinata basata su Astuzia che infligge d12 danni fisici applicando la vostra Competenza.",
+      "type": "action_utility_attack",
+      "automation": {
+        "utility_mode": {
+          "range": "Ravvicinata",
+          "effect": "interact_remote"
+        },
+        "attack_mode": {
+          "cost": {
+            "resource": "stress",
+            "amount": 1
+          },
+          "virtual_weapon": {
+            "name": "Lingua",
+            "range": "Ravvicinata",
+            "trait_used": "Astuzia",
+            "damage_die": "1d12",
+            "damage_type": "Fisico",
+            "add_proficiency_to_damage": true
+          }
+        }
+      }
     }
-  },
-  "description": "Anfibio: Potete respirare e muovervi naturalmente sott’acqua. Lingualunga: Potete usare la lingua lunga per afferrare oggetti entro una distanza Ravvicinata. Marcate uno Stress per usare la lingua come un’arma Ravvicinata basata su Astuzia che infligge d12 danni fisici applicando la vostra Competenza.",
-  "source_ref": "DH_MB_072"
+  ],
+  "source_ref": "DH_MB_068"
 }
