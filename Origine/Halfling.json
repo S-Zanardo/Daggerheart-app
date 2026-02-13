@@ -1,17 +1,40 @@
 {
-  "id": "DH_MB_067",
+  "id": "DH_ORIGIN_011",
   "name": "Halfling",
-  "image": "Halfling.jpg",
+  "image": "Halfling",
   "category": "Origine",
-  "sub_category": "Halfling",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": null,
-  "range": "Gruppo",
-  "mechanics": {
-    "start_session": "Tutto il gruppo guadagna 1 Speranza",
-    "passive": "Reroll '1' sul dado Speranza"
-  },
-  "description": "Quadrifoglio: All’inizio di ogni sessione, tutti i membri del gruppo di cui fate parte (voi compresi) ottengono una Speranza. Bussola Interna: Quando ottenete un 1 sul Dado Speranza, potete rilanciarlo.",
+  "description": "Gli halfling sono umanoidi di piccole dimensioni, con grandi piedi pelosi e orecchie prominenti e arrotondate. Sono naturalmente sintonizzati con i campi magnetici del Regno dei Mortali, il che garantisce loro un'innata bussola interna.",
+  "features": [
+    {
+      "id": "HALFLING_F01",
+      "name": "Quadrifoglio",
+      "description": "All’inizio di ogni sessione, tutti i membri del gruppo di cui fate parte (voi compresi) ottengono una Speranza.",
+      "type": "session_start_bonus",
+      "automation": {
+        "trigger": "session_start",
+        "effect": {
+          "target": "all_party_members",
+          "resource": "hope",
+          "operation": "add",
+          "value": 1
+        }
+      }
+    },
+    {
+      "id": "HALFLING_F02",
+      "name": "Bussola Interna",
+      "description": "Quando ottenete un 1 sul Dado Speranza, potete rilanciarlo.",
+      "type": "reroll_trigger",
+      "automation": {
+        "trigger": "roll_result",
+        "condition": "hope_die_value == 1",
+        "effect": {
+          "operation": "reroll_die",
+          "target_die": "hope_die",
+          "prompt_user": true
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_067"
 }
