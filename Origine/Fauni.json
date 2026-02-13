@@ -1,19 +1,52 @@
 {
-  "id": "DH_MB_063",
-  "name": "Fauni",
-  "image": "Fauni.jpg",
+  "id": "DH_ORIGIN_005",
+  "name": "Fauno",
+  "image": "Fauno",
   "category": "Origine",
-  "sub_category": "Fauni",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Stress", "amount": 1 },
-  "range": "Ravvicinata",
-  "mechanics": {
-    "movement": "Salto come movimento normale",
-    "action": "Calcio (Attacco in mischia)",
-    "bonus_damage": "2d6",
-    "effect": "Spinta (Knockback)"
-  },
-  "description": "Balzo Caprino: Potete saltare entro qualsiasi punto a distanza Ravvicinata come se usaste un normale movimento. Calcio: Quando riuscite a sferrare un attacco contro un bersaglio in Mischia, potete marcare uno Stress per scalciare via il bersaglio o voi stessi, infliggendo 2d6 danni aggiuntivi e spostando voi o il bersaglio in qualsiasi punto entro una distanza Prossima.",
-  "source_ref": "DH_MB_063"
+  "description": "I fauni assomigliano a capre, pecore o camosci umanoidi con corna ricurve e zoccoli fessi. Sono noti per la loro abilità nello sferrare colpi potenti con i loro zoccoli.",
+  "features": [
+    {
+      "id": "FAUNO_F01",
+      "name": "Balzo Caprino",
+      "description": "Potete saltare entro qualsiasi punto a distanza Ravvicinata come se usaste un normale movimento, il che vi consente di superare ostacoli o spazi vuoti con facilità.",
+      "type": "movement_override",
+      "automation": {
+        "effect": {
+          "movement_type": "leap",
+          "ignore_terrain": true,
+          "range": "Ravvicinata"
+        }
+      }
+    },
+    {
+      "id": "FAUNO_F02",
+      "name": "Calcio",
+      "description": "Quando riuscite a sferrare un attacco contro un bersaglio in Mischia, potete marcare uno Stress per scalciare via il bersaglio o voi stessi, infliggendo 2d6 danni aggiuntivi e spostando voi o il bersaglio in qualsiasi punto entro una distanza Prossima.",
+      "type": "attack_modifier",
+      "automation": {
+        "trigger": "on_attack_hit",
+        "condition": {
+          "range": "Mischia"
+        },
+        "cost": {
+          "resource": "stress",
+          "amount": 1
+        },
+        "effect": [
+          {
+            "target": "damage",
+            "operation": "add_dice",
+            "value": "2d6"
+          },
+          {
+            "target": "position",
+            "operation": "forced_movement",
+            "subject_choice": ["self", "target"],
+            "range": "Prossima"
+          }
+        ]
+      }
+    }
+  ],
+  "source_ref": "DH_MB_060"
 }
