@@ -1,0 +1,32 @@
+{
+  "id": "DH_MB_033",
+  "name": "Sentinella Alata-Privilegio Base",
+  "image": "Sentinella Alata-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Sentinella Alata",
+  "class_restriction": "Consacrato",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "Variabile (vedi opzioni)",
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Forza. Capacità di volare (Ali di Luce).",
+    "actions": [
+      {
+        "name": "Trasporto Aereo",
+        "cost": "1 Stress",
+        "condition": "In volo",
+        "effect": "Afferrare e trasportare un'altra creatura consenziente (taglia vostra o più piccola)."
+      },
+      {
+        "name": "Attacco in Picchiata",
+        "cost": "1 Speranza",
+        "condition": "In volo",
+        "trigger": "Attacco riuscito",
+        "effect": "Infliggere 1d8 danni extra."
+      }
+    ]
+  },
+  "description": "Ali di Luce: Potete volare. Quando siete in volo, potete:\n• Marcare uno Stress per afferrare e trasportare un’altra creatura consenziente della vostra taglia o più piccola.\n• Spendere una Speranza per infliggere 1d8 danni extra in un attacco riuscito.",
+  "source_ref": "DH_MB_033"
+}
