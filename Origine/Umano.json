@@ -1,0 +1,44 @@
+{
+  "id": "DH_ORIGIN_017",
+  "name": "Umano",
+  "image": "Umano",
+  "category": "Origine",
+  "description": "Gli umani sono facilmente riconoscibili per le loro mani abili, le orecchie arrotondate e una struttura corporea naturalmente adatta a essere resistente. Sono fisicamente versatili e si adattano ai climi rigidi con relativa facilità.",
+  "features": [
+    {
+      "id": "UMANO_F01",
+      "name": "Vigore",
+      "description": "Guadagnate una casella Stress aggiuntiva alla creazione del personaggio.",
+      "type": "creation_stat_bonus",
+      "automation": {
+        "trigger": "character_creation",
+        "effect": {
+          "target": "max_stress",
+          "operation": "add",
+          "value": 1
+        }
+      }
+    },
+    {
+      "id": "UMANO_F02",
+      "name": "Versatilità",
+      "description": "Quando fallite un tiro che utilizza una delle vostre Esperienze, potete marcare uno Stress per ripetere il tiro.",
+      "type": "reaction_reroll",
+      "automation": {
+        "trigger": "post_roll_failure",
+        "condition": {
+          "roll_includes_experience": true
+        },
+        "cost": {
+          "resource": "stress",
+          "amount": 1
+        },
+        "effect": {
+          "operation": "reroll_all_dice",
+          "target": "failed_roll"
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_073"
+}
