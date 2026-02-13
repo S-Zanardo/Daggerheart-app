@@ -1,19 +1,27 @@
 {
-  "id": "DH_MB_012",
-  "name": "Valoroso-Privilegio Base",
-  "image": "Valoroso-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Valoroso",
-  "class_restriction": "Guardiano",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "+1 soglie di danno (Saldo)",
-    "trigger": "Subire danni fisici (Volontà di Ferro)",
-    "effect": "Marcare un'ulteriore Casella Armatura per ridurre la gravità"
-  },
+  "id": "DH_CARD_VALOROSO_BASE",
+  "name": "Valoroso-Privilegio base",
+  "image": "Valoroso-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_VALOROSO",
+  "parent_class": "Guardiano",
+  "level_unlock": 1,
   "description": "Saldo: Guadagnate bonus permanente +1 alle soglie di danno. Volontà di Ferro: Quando subite danni fisici, potete marcare un’ulteriore Casella Armatura per ridurne la gravità.",
+  "automation": {
+    "passive_stat_boost": {
+      "target": "damage_thresholds",
+      "operation": "add_all",
+      "value": 1
+    },
+    "reaction": {
+      "name": "Volontà di Ferro",
+      "trigger": "incoming_physical_damage",
+      "cost": { "resource": "armor_slot", "amount": 1 },
+      "effect": {
+        "operation": "reduce_damage_severity",
+        "value": 1
+      }
+    }
+  },
   "source_ref": "DH_MB_012"
 }
