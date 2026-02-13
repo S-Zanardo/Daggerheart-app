@@ -1,0 +1,45 @@
+{
+  "id": "DH_DEF_Bardo",
+  "class_name": "Bardo",
+  "category": "Definizione Classe",
+  "domains": [
+    "Grazia",
+    "Codice"
+  ],
+  "stats": {
+    "starting_evasion": 10,
+    "starting_hp": 5,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": 0,
+      "Forza": -1,
+      "Astuzia": 1,
+      "Istinto": 0,
+      "Presenza": 2,
+      "Conoscenza": 1
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "unique_choice": [
+      "Un romanzo sentimentale",
+      "Una lettera mai aperta"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Chiamata A Raccolta",
+    "description": "Una volta per sessione, descrivete come radunate il gruppo; poi date a voi stessi e a ciascuno dei vostri alleati un Dado A Raccolta. Un PG può spendere il suo Dado A Raccolta per tirarlo e aggiungere il risultato al suo tiro azione, tiro reazione, tiro di danno oppure per cancellare un numero di Stress pari al risultato. A fine sessione i dadi non spesi vengono persi.",
+    "die_value": "d6 (Livello 1)",
+    "progression": "Il dado diventa un d8 al livello 5 e un d10 al livello 8."
+  },
+  "source_ref": "DH_Schede_334"
+}
