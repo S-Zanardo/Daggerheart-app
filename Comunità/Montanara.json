@@ -1,21 +1,32 @@
 {
-  "id": "DH_MB_075",
+  "id": "DH_COMMUNITY_006",
   "name": "Montanara",
   "image": "Montanara.jpg",
   "category": "Comunità",
-  "sub_category": "Montanara",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Vantaggio (Ambiente)",
-    "triggers": [
-      "Attraversare scogliere",
-      "Ambienti difficili",
-      "Sopravvivenza"
-    ]
-  },
-  "description": "Costanza: Avete vantaggio ai tiri per attraversare scogliere e sporgenze pericolose, orientarvi in ambienti difficili e sfruttare le vostre conoscenze di sopravvivenza.",
+  "description": "Far parte di una comunità montanara significa chiamare casa le cime rocciose e i dirupi aguzzi delle alte vette. I montanari sono spesso audaci, resistenti, indomiti, leali, riservati e testardi.",
+  "features": [
+    {
+      "id": "MONTANARA_F01",
+      "name": "Costanza",
+      "description": "Avete vantaggio ai tiri per attraversare scogliere e sporgenze pericolose, orientarvi in ambienti difficili e sfruttare le vostre conoscenze di sopravvivenza.",
+      "type": "situational_advantage",
+      "automation": {
+        "usage": {
+          "trigger": "roll_check_declared",
+          "condition": {
+            "any_true": [
+              { "check_tags": ["survival", "climbing", "navigation"] },
+              { "environment_tags": ["difficult_terrain", "hazardous"] }
+            ]
+          },
+          "effect": {
+            "operation": "add_advantage",
+            "target": "current_roll",
+            "message": "Vantaggio applicato: Costanza"
+          }
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_075"
 }
