@@ -1,0 +1,21 @@
+{
+  "id": "DH_MB_046",
+  "name": "Chiamata dello Sterminatore-Specializzazione",
+  "class": "Guerriero",
+  "image": "Chiamata dello Sterminatore-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Chiamata dello Sterminatore",
+  "class_restriction": "Guerriero",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": "1 Speranza (per il danno extra)",
+  "range": "Personale",
+  "mechanics": {
+    "feature": "Specialista delle Armi",
+    "trigger_attack": "Attacco riuscito",
+    "effect_attack": "Spendere 1 Speranza per aggiungere un dado danno dell'arma secondaria al tiro.",
+    "passive_bonus": "1 volta per riposo lungo: ripetere l'esito di qualsiasi 1 sui Dadi dello Sterminatore."
+  },
+  "description": "Specialista delle Armi: Potete maneggiare più armi con letale maestria. Quando avete successo in un attacco, potete spendere una Speranza per aggiungere uno dei dadi di danno della vostra arma secondaria al tiro di dado. Inoltre, una volta per riposo lungo, quando tirate i Dadi dello Sterminatore, potete ripetere l’esito di qualsiasi 1.",
+  "source_ref": "DH_MB_046"
+}
