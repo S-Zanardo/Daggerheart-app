@@ -1,26 +1,48 @@
 {
-  "id": "DH_MB_001",
-  "name": "Trovatore-Privilegio Base",
-  "image": "Trovatore-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Trovatore",
-  "class_restriction": "Bardo",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": "1 Riposo Lungo (per canzone)",
-  "range": "Ravvicinata",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Presenza",
-    "action": {
-      "name": "Musico Eccezionale",
-      "effect": "Eseguire una canzone (una volta ciascuna per riposo lungo)",
-      "options": [
-        "Canzone Popolare: Voi e alleati recuperate 1 PF",
-        "Canto Epico: Bersaglio diventa Vulnerabile",
-        "Ballata: Voi e alleati guadagnate 1 Speranza"
-      ]
-    }
+  "id": "DH_CARD_TROVATORE_BASE",
+  "name": "Trovatore-Privilegio base",
+  "image": "Trovatore-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_TROVATORE",
+  "parent_class": "Bardo",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Presenza. Musico Eccezionale: Descrivete il modo in cui vi esibite per gli altri. È possibile eseguire ogni canzone una sola volta per riposo lungo: Canzone Popolare: Voi e tutti gli alleati a distanza Ravvicinata recuperate un Punto Ferita. Canto Epico: Rendete temporaneamente Vulnerabile un bersaglio a distanza Ravvicinata. Ballata: Voi e tutti gli alleati a distanza Ravvicinata guadagnate una Speranza.",
+  "automation": {
+    "spellcast_trait": "Presenza",
+    "features": [
+      {
+        "name": "Canzone Popolare",
+        "frequency": "long_rest",
+        "max_uses": 1,
+        "effect": {
+          "target": "self_and_allies_close",
+          "operation": "heal_hp",
+          "value": 1
+        }
+      },
+      {
+        "name": "Canto Epico",
+        "frequency": "long_rest",
+        "max_uses": 1,
+        "effect": {
+          "target": "enemy_close",
+          "operation": "apply_condition",
+          "condition": "vulnerable",
+          "duration": "temporary"
+        }
+      },
+      {
+        "name": "Ballata",
+        "frequency": "long_rest",
+        "max_uses": 1,
+        "effect": {
+          "target": "self_and_allies_close",
+          "resource": "hope",
+          "operation": "add",
+          "value": 1
+        }
+      }
+    ]
   },
-  "description": "Musico Eccezionale: Descrivete il modo in cui vi esibite per gli altri. È possibile eseguire ogni canzone una sola volta per riposo lungo:\nCanzone Popolare: Voi e tutti gli alleati a distanza Ravvicinata recuperate un Punto Ferita.\nCanto Epico: Rendete temporaneamente Vulnerabile un bersaglio a distanza Ravvicinata.\nBallata: Voi e tutti gli alleati a distanza Ravvicinata guadagnate una Speranza.",
-  "source_ref": "DH_MB_001"
+  "source_ref": "DH_CS_001"
 }
