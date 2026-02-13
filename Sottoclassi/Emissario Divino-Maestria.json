@@ -1,19 +1,21 @@
 {
-  "id": "DH_MB_032",
+  "id": "DH_CARD_EMISSARIO_MASTERY",
   "name": "Emissario Divino-Maestria",
   "image": "Emissario Divino-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Emissario Divino",
-  "class_restriction": "Consacrato",
-  "type": "Maestria",
-  "level": 8,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Risonanza Celestiale",
-    "trigger": "Tiro danni con Arma Animata",
-    "effect": "Se i dadi danno mostrano lo stesso risultato, raddoppia il loro valore (es. due 5 diventano due 10)."
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_EMISSARIO_DIVINO",
+  "parent_class": "Consacrato",
+  "level_unlock": 8,
   "description": "Risonanza Celestiale: Quando tirate i danni per la vostra “Arma Animata”, se i risultati dei dadi coincidono, raddoppiate il valore di ogni dado corrispondente. Ad esempio, se ottenete due 5, questi contano come due 10.",
+  "automation": {
+    "trigger": "damage_roll",
+    "condition": {
+      "feature_active": "Arma Animata",
+      "dice_result": "doubles_match"
+    },
+    "effect": {
+      "operation": "double_matching_dice_values"
+    }
+  },
   "source_ref": "DH_MB_032"
 }
