@@ -1,19 +1,29 @@
 {
-  "id": "DH_MB_013",
+  "id": "DH_CARD_VALOROSO_SPEC",
   "name": "Valoroso-Specializzazione",
   "image": "Valoroso-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Valoroso",
-  "class_restriction": "Guardiano",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Ravvicinata",
-  "mechanics": {
-    "passive_bonus": "+2 soglie di danno (Implacabile)",
-    "trigger": "Alleato entro Ravvicinata subisce danni (Compagni d'Arme)",
-    "effect": "Marcare una Casella Armatura per ridurre la gravità del danno subito dall'alleato di una soglia"
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_VALOROSO",
+  "parent_class": "Guardiano",
+  "level_unlock": 5,
   "description": "Implacabile: Guadagnate bonus +2 permanente alle soglie di danno. Compagni d’Arme: Quando un alleato entro distanza Ravvicinata subisce danni, potete marcare una Casella Armatura per ridurne la gravità di una soglia.",
+  "automation": {
+    "passive_stat_boost": {
+      "target": "damage_thresholds",
+      "operation": "add_all",
+      "value": 2
+    },
+    "reaction": {
+      "name": "Compagni d'Arme",
+      "trigger": "ally_takes_damage",
+      "condition": { "ally_range": "Ravvicinata" },
+      "cost": { "resource": "armor_slot", "amount": 1 },
+      "effect": {
+        "target": "ally",
+        "operation": "reduce_damage_severity",
+        "value": 1
+      }
+    }
+  },
   "source_ref": "DH_MB_013"
 }
