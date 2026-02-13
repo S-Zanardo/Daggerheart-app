@@ -1,0 +1,24 @@
+{
+  "id": "DH_MB_005",
+  "name": "Oratore-Specializzazione",
+  "image": "Oratore-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Oratore",
+  "class_restriction": "Bardo",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "trigger": "Incoraggiare un alleato",
+    "frequency": "1 volta per sessione",
+    "effect": "Scegliere un beneficio extra",
+    "options": [
+      "Trovare oggetto/strumento comune",
+      "Aiutare senza spendere Speranza",
+      "Assegnare mossa aggiuntiva in interludio"
+    ]
+  },
+  "description": "Eloquente: Le vostre parole toccanti aumentano il morale. Una volta per sessione, quando incoraggiate un alleato, potete scegliere una delle seguenti opzioni: Permettere di trovare un oggetto o uno strumento comune di cui ha bisogno; Aiutare un Alleato senza spendere Speranza; Assegnare una mossa aggiuntiva in un interludio durante il prossimo riposo.",
+  "source_ref": "DH_MB_005"
+}
