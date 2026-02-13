@@ -1,0 +1,43 @@
+{
+  "id": "DH_DEF_Mago",
+  "class_name": "Mago",
+  "category": "Definizione Classe",
+  "domains": [
+    "Codice",
+    "Splendore"
+  ],
+  "stats": {
+    "starting_evasion": 11,
+    "starting_hp": 5,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": -1,
+      "Forza": 0,
+      "Astuzia": 0,
+      "Istinto": 1,
+      "Presenza": 1,
+      "Conoscenza": 2
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ],
+    "unique_choice": [
+      "Un libro che state cercando di tradurre",
+      "Un piccolo e innocuo cucciolo elementale"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Prestidigitazione & Segni Misteriosi",
+    "description": "Prestidigitazione: Potete eseguire effetti magici innocui e di piccola entità a volontà (es. cambiare colore a un abito, creare un odore, accendere una candela). Segni Misteriosi: Scegliete un numero compreso tra 1 e 12. Quando tirate quel numero su un Dado Dualità, guadagnate una Speranza o rimuovete uno Stress. Potete cambiare il numero scelto quando fate un riposo lungo."
+  },
+  "source_ref": "DH_Schede_Mago"
+}
