@@ -1,0 +1,43 @@
+{
+  "id": "DH_DEF_Druido",
+  "class_name": "Druido",
+  "category": "Definizione Classe",
+  "domains": [
+    "Saggezza",
+    "Arcano"
+  ],
+  "stats": {
+    "starting_evasion": 10,
+    "starting_hp": 6,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": 1,
+      "Forza": 0,
+      "Astuzia": 1,
+      "Istinto": 2,
+      "Presenza": -1,
+      "Conoscenza": 0
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ],
+    "unique_choice": [
+      "Una borsa piena di pietruzze e ossicini",
+      "Uno strano pendente scovato nella sporcizia"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Forma Bestiale & Tocco della Natura",
+    "description": "Forma Bestiale: Marcate uno Stress per trasformarvi magicamente in una creatura del vostro rango o inferiore. Durante la trasformazione non potete usare armi o lanciare incantesimi dalle carte dominio (ma potete usare altri privilegi). Ottenete i privilegi della forma bestiale e aggiungete il suo bonus all'Evasione. Tocco della Natura: Potete eseguire a volontà effetti innocui e minori legati alla natura (es. far sbocciare un fiore, accendere un fuoco con la legna)."
+  },
+  "source_ref": "DH_Schede_Druido"
+}
