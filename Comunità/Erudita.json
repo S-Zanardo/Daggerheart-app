@@ -1,21 +1,29 @@
 {
-  "id": "DH_MB_073_B",
+  "id": "DH_COMMUNITY_003",
   "name": "Erudita",
   "image": "Erudita.jpg",
   "category": "Comunità",
-  "sub_category": "Erudita",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Vantaggio (Conoscenza)",
-    "triggers": [
-      "Storia",
-      "Cultura",
-      "Politica"
-    ]
-  },
-  "description": "Acculturato: Avete vantaggio ai tiri che riguardano la storia, la cultura o l’orientamento politico di un individuo o di una regione.",
+  "description": "Far parte di una comunità di eruditi significa appartenere a una cultura che dà priorità alla conoscenza e alle capacità politiche. Le comunità erudite attribuiscono grande valore al sapere, spesso sotto forma di conservazione della memoria storica, avanzamento politico o studio scientifico.",
+  "features": [
+    {
+      "id": "ERUDITA_F01",
+      "name": "Acculturato",
+      "description": "Avete vantaggio ai tiri che riguardano la storia, la cultura o l’orientamento politico di un individuo o di una regione.",
+      "type": "situational_advantage",
+      "automation": {
+        "usage": {
+          "trigger": "roll_check_declared",
+          "condition": {
+            "check_tags": ["history", "culture", "politics", "lore"]
+          },
+          "effect": {
+            "operation": "add_advantage",
+            "target": "current_roll",
+            "message": "Vantaggio applicato: Acculturato"
+          }
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_073"
 }
