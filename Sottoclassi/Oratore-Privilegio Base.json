@@ -1,31 +1,37 @@
 {
-  "id": "DH_MB_004",
-  "name": "Oratore-Privilegio Base",
-  "image": "Oratore-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Oratore",
-  "class_restriction": "Bardo",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": "Variabile",
-  "range": "Lontana / Personale",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Presenza",
-    "actions": [
+  "id": "DH_CARD_ORATORE_BASE",
+  "name": "Oratore-Privilegio base",
+  "image": "Oratore-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_ORATORE",
+  "parent_class": "Bardo",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Presenza. Discorso Ispiratore: Una volta per riposo lungo, potete pronunciare un discorso accorato e ispiratore. Tutti gli alleati entro distanza Lontana rimuovono 2 Stress. Cuore di Poeta: Dopo aver effettuato un tiro azione per impressionare, persuadere o offendere qualcuno, potete spendere una Speranza per aggiungere un d4 al tiro.",
+  "automation": {
+    "spellcast_trait": "Presenza",
+    "features": [
       {
         "name": "Discorso Ispiratore",
-        "frequency": "1 volta per riposo lungo",
-        "range": "Lontana",
-        "effect": "Alleati rimuovono 2 Stress"
+        "frequency": "long_rest",
+        "effect": {
+          "target": "all_allies_within_far",
+          "resource": "stress",
+          "operation": "heal",
+          "value": 2
+        }
       },
       {
         "name": "Cuore di Poeta",
-        "cost": "1 Speranza",
-        "trigger": "Tiro azione per impressionare/persuadere/offendere",
-        "effect": "Aggiungi un d4 al tiro"
+        "trigger": "post_roll",
+        "condition": { "action_type": ["impress", "persuade", "offend"] },
+        "cost": { "resource": "hope", "amount": 1 },
+        "effect": {
+          "target": "roll_result",
+          "operation": "add_die",
+          "die_size": "d4"
+        }
       }
     ]
   },
-  "description": "Discorso Ispiratore: Una volta per riposo lungo, potete pronunciare un discorso accorato e ispiratore. Tutti gli alleati entro distanza Lontana rimuovono 2 Stress. Cuore di Poeta: Dopo aver effettuato un tiro azione per impressionare, persuadere o offendere qualcuno, potete spendere una Speranza per aggiungere un d4 al tiro.",
   "source_ref": "DH_MB_004"
 }
