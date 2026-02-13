@@ -1,17 +1,48 @@
 {
-  "id": "DH_MB_069",
+  "id": "DH_ORIGIN_012",
   "name": "Infernis",
-  "image": "Infernis.jpg",
+  "image": "Infernis",
   "category": "Origine",
-  "sub_category": "Infernis",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Stress", "amount": 2 },
-  "range": "Personale",
-  "mechanics": {
-    "reaction": "Trasforma Paura in Speranza",
-    "advantage": "Intimidire"
-  },
-  "description": "Senzapaura: Quando tirate con Paura, potete marcare 2 Stress per trasformarlo in un tiro con Speranza. Volto Spaventoso: Avete vantaggio ai tiri per intimidire le creature ostili.",
-  "source_ref": "DH_MB_069"
+  "description": "Gli infernis sono umanoidi che possiedono denti canini affilati, orecchie a punta e corna. Sono i discendenti dei demoni delle Cerchie Infere. Spesso possiedono un 'volto spaventoso' che si manifesta quando provano forti emozioni.",
+  "features": [
+    {
+      "id": "INFERNIS_F01",
+      "name": "Senzapaura",
+      "description": "Quando tirate con Paura, potete marcare 2 Stress per trasformarlo in un tiro con Speranza.",
+      "type": "result_override",
+      "automation": {
+        "trigger": "roll_result_calculated",
+        "condition": {
+          "result_type": "with_fear"
+        },
+        "cost": {
+          "resource": "stress",
+          "amount": 2
+        },
+        "effect": {
+          "operation": "convert_result_type",
+          "from": "fear",
+          "to": "hope"
+        }
+      }
+    },
+    {
+      "id": "INFERNIS_F02",
+      "name": "Volto Spaventoso",
+      "description": "Avete vantaggio ai tiri per intimidire le creature ostili.",
+      "type": "situational_advantage",
+      "automation": {
+        "trigger": "social_roll_declared",
+        "condition": {
+          "intent": "intimidate",
+          "target_status": "hostile"
+        },
+        "effect": {
+          "operation": "add_advantage",
+          "target": "current_roll"
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_068"
 }
