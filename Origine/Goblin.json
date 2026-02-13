@@ -1,17 +1,44 @@
 {
-  "id": "DH_MB_066",
+  "id": "DH_ORIGIN_010",
   "name": "Goblin",
-  "image": "Goblin.jpg",
+  "image": "Goblin",
   "category": "Origine",
-  "sub_category": "Goblin",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Stress", "amount": 1 },
-  "range": "Prossima",
-  "mechanics": {
-    "passive": "Ignora svantaggio Agilità",
-    "reaction": "Costringi avversario a ripetere attacco (1/riposo)"
-  },
-  "description": "Piè Fermo: Ignorate qualsiasi svantaggio sui Tiri Agilità. Senso del Pericolo: Una volta per riposo, marcate uno Stress per costringere un avversario a ripetere un attacco contro di voi o contro un alleato entro una distanza Prossima.",
+  "description": "I goblin sono piccoli umanoidi facilmente riconoscibili per i loro grandi occhi e le ampie orecchie membranose. Grazie all’udito fino e alla vista acuta, percepiscono i dettagli sia a grandi distanze che nell’oscurità.",
+  "features": [
+    {
+      "id": "GOBLIN_F01",
+      "name": "Piè Fermo",
+      "description": "Ignorate qualsiasi svantaggio sui Tiri Agilità.",
+      "type": "passive_rule_override",
+      "automation": {
+        "trigger": "agility_roll_initiated",
+        "effect": {
+          "operation": "remove_disadvantage",
+          "target": "current_roll"
+        }
+      }
+    },
+    {
+      "id": "GOBLIN_F02",
+      "name": "Senso del Pericolo",
+      "description": "Una volta per riposo, marcate uno Stress per costringere un avversario a ripetere un attacco contro di voi o contro un alleato entro una distanza Prossima.",
+      "type": "reaction_reroll",
+      "automation": {
+        "frequency": "short_rest",
+        "trigger": "enemy_attack_roll",
+        "condition": {
+          "target": ["self", "ally_close"]
+        },
+        "cost": {
+          "resource": "stress",
+          "amount": 1
+        },
+        "effect": {
+          "operation": "force_reroll",
+          "target": "triggering_attack"
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_066"
 }
