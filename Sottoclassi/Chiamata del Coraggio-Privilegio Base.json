@@ -1,0 +1,24 @@
+{
+  "id": "DH_MB_042",
+  "name": "Chiamata del Coraggio-Privilegio Base",
+  "class": "Guerriero",
+  "image": "Chiamata del Coraggio-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Chiamata del Coraggio",
+  "class_restriction": "Guerriero",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "1 Riposo Lungo (Riti di Battaglia)",
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Coraggio: Guadagnare 1 Speranza quando si fallisce un tiro con Paura.",
+    "action": {
+      "name": "Riti di Battaglia",
+      "frequency": "1 volta per riposo lungo",
+      "trigger": "Prima di un'azione pericolosa o scontro difficile",
+      "effect": "Rimuovere 2 Stress e guadagnare 2 Speranze."
+    }
+  },
+  "description": "Coraggio: Quando fallite un tiro con Paura, guadagnate una Speranza. Riti di Battaglia: Una volta per riposo lungo, prima di tentare qualcosa di incredibilmente pericoloso o di affrontare un nemico che vi supera chiaramente, descrivete il rituale che eseguite o i preparativi che fate. Quando lo fate, rimuovete 2 Stress e guadagnate 2 Speranze.",
+  "source_ref": "DH_MB_042"
+}
