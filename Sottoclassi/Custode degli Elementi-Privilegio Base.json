@@ -1,26 +1,39 @@
 {
-  "id": "DH_MB_007",
-  "name": "Custode degli Elementi-Privilegio Base",
-  "class": "Druido",
-  "image": "Custode degli Elementi-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Custode degli Elementi",
-  "class_restriction": "Druido",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": "1 Stress",
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Istinto",
-    "trigger": "Incanalare (Incarnazione Elementale)",
-    "condition": "Fino a danno Grave o riposo",
-    "options": [
-      "Fuoco: Nemico in Mischia subisce 1d10 danni magici se vi infligge danno",
-      "Terra: Bonus soglie danno pari a Competenza",
-      "Acqua: Quando infliggete danno in Mischia, nemici entro Prossima marcano Stress",
-      "Aria: Volo e Vantaggio Tiri Agilità"
-    ]
+  "id": "DH_CARD_CUSTODE_ELEMENTI_BASE",
+  "name": "Custode degli Elementi-Privilegio base",
+  "image": "Custode degli Elementi-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_CUSTODE_ELEMENTI",
+  "parent_class": "Druido",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Istinto. Incarnazione Elementale: Potete marcare uno Stress per Incanalare uno degli elementi. Fuoco: Quando un avversario entro distanza di Mischia vi colpisce con un attacco, subisce 1d10 danni magici. Terra: Aggiungete la vostra Competenza alle vostre soglie di danno. Acqua: Quando effettuate un attacco con successo contro un avversario in Mischia, potete spingere tutti gli avversari entro distanza Ravvicinata dal bersaglio a distanza Lontana. Aria: Potete librarvi in aria, ottenendo vantaggio nei Tiri Agilità.",
+  "automation": {
+    "spellcast_trait": "Istinto",
+    "activation": {
+      "cost": { "resource": "stress", "amount": 1 },
+      "input": {
+        "type": "select_mode",
+        "label": "Scegli Elemento da Incanalare",
+        "options": ["Fuoco", "Terra", "Acqua", "Aria"],
+        "store_as": "active_element_channel"
+      }
+    },
+    "modes": {
+      "Fuoco": {
+        "trigger": "hit_by_melee_attack",
+        "effect": { "target": "attacker", "deal_damage": "1d10_magic" }
+      },
+      "Terra": {
+        "passive": { "target": "damage_thresholds", "operation": "add", "value_source": "proficiency" }
+      },
+      "Acqua": {
+        "trigger": "melee_attack_success",
+        "effect": { "target": "enemies_near_target", "operation": "push", "distance": "far" }
+      },
+      "Aria": {
+        "passive": { "fly": true, "agility_rolls": "advantage" }
+      }
+    }
   },
-  "description": "Incarnazione Elementale: Marcate uno Stress per Incanalare uno dei seguenti elementi finché non subite un danno Grave o fino al vostro prossimo riposo:\nFuoco: Quando un avversario in Mischia vi infligge danno, subisce 1d10 danni magici.\nTerra: Guadagnate un bonus alle soglie di danno pari alla vostra Competenza.\nAcqua: Quando infliggete danno a un avversario in Mischia, tutti gli altri avversari entro distanza Prossima devono marcare uno Stress.\nAria: Potete librarvi in aria, ottenendo vantaggio nei Tiri Agilità.",
-  "source_ref": "DH_MB_007"
+  "source_ref": "DH_MB_033"
 }
