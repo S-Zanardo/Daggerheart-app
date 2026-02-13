@@ -1,0 +1,19 @@
+{
+  "id": "DH_MB_023",
+  "name": "Apripista-Maestria",
+  "image": "Apripista-Maestria.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Apripista",
+  "class_restriction": "Ranger",
+  "type": "Maestria",
+  "level": 8,
+  "cost": "1 Speranza",
+  "range": "Personale",
+  "mechanics": {
+    "trigger": "Prima di effettuare un tiro attacco contro il Focus",
+    "cost": "1 Speranza",
+    "effect": "Se l'attacco ha successo, rimuovi 1 Paura del GM"
+  },
+  "description": "Predatore Dominante: Prima di effettuare un tiro attacco contro il vostro Focus, potete spendere una Speranza. Se l’attacco ha successo, rimuovete una Paura dalla riserva di Paura del GM.",
+  "source_ref": "DH_MB_023"
+}
