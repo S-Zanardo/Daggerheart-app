@@ -1,27 +1,35 @@
 {
-  "id": "DH_MB_025",
+  "id": "DH_CARD_OMBRA_NOTTURNA_SPEC",
   "name": "Ombra Notturna-Specializzazione",
-  "class": "Fuorilegge",
   "image": "Ombra Notturna-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Ombra Notturna",
-  "class_restriction": "Fuorilegge",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": "Variabile",
-  "range": "Ravvicinata",
-  "mechanics": {
-    "action": {
-      "name": "Nube di Tenebra",
-      "check": "Tiro Incantesimo (15)",
-      "effect": "Crea nube oscura fino a Ravvicinata. Blocca la vista. Siete considerati Ammantati al suo interno."
-    },
-    "passive": {
-      "name": "Adrenalina",
-      "trigger": "Quando siete Vulnerabili",
-      "effect": "Aggiungete il vostro livello ai tiri per i danni."
-    }
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_OMBRA_NOTTURNA",
+  "parent_class": "Fuorilegge",
+  "level_unlock": 5,
+  "description": "Nube di Tenebra: Effettuate un Tiro Incantesimo (Difficoltà 15). Se riuscite, create una nube oscura temporanea fino a distanza Ravvicinata. Blocca la linea di vista (dentro/fuori). Siete Ammantati per chi non può vedervi attraverso la nube. Adrenalina: Quando siete Vulnerabili, aggiungete il vostro livello ai tiri dei danni.",
+  "automation": {
+    "features": [
+      {
+        "name": "Nube di Tenebra",
+        "trigger": "active_roll",
+        "roll_type": "spellcast",
+        "difficulty": 15,
+        "success_effect": {
+          "create_zone": "darkness_cloud",
+          "range": "Ravvicinata",
+          "properties": ["block_los", "grant_cloaked_to_caster"]
+        }
+      },
+      {
+        "name": "Adrenalina",
+        "trigger": "damage_roll",
+        "condition": "is_vulnerable",
+        "effect": {
+          "operation": "add_flat_bonus",
+          "value_source": "character_level"
+        }
+      }
+    ]
   },
-  "description": "Nube di Tenebra: Effettuate un Tiro Incantesimo (15). Se riuscite, create una nube oscura temporanea che copre ogni cosa fino a distanza Ravvicinata. Chiunque si trovi all’interno di questa nube non può vedere al di fuori di essa, e chiunque si trovi al di fuori di essa non può vedere al suo interno. Siete considerati Ammantati da qualsiasi avversario per il quale la nube blocca la linea di vista. Adrenalina: Quando siete Vulnerabili, aggiungete il vostro livello ai tiri per i danni.",
   "source_ref": "DH_MB_025"
 }
