@@ -1,0 +1,46 @@
+{
+  "id": "DH_ORIGIN_014",
+  "name": "Orco",
+  "image": "Orco",
+  "category": "Origine",
+  "description": "Gli orchi sono umanoidi facilmente riconoscibili per i loro tratti spigolosi e per le zanne simili a quelle di un cinghiale che sporgono dalla mascella inferiore. Molti orchi scelgono di decorare le loro zanne con vistosi ornamenti. Tendono ad avere una corporatura muscolosa.",
+  "features": [
+    {
+      "id": "ORCO_F01",
+      "name": "Robusto",
+      "description": "Quando vi resta 1 Punto Ferita, gli attacchi nei vostri confronti hanno svantaggio.",
+      "type": "passive_defense",
+      "automation": {
+        "trigger": "incoming_attack_roll",
+        "condition": "current_hp == 1",
+        "effect": {
+          "target": "attacker_roll",
+          "operation": "force_disadvantage",
+          "message": "Attivato: Robusto (1 HP rimanente)"
+        }
+      }
+    },
+    {
+      "id": "ORCO_F02",
+      "name": "Zanne",
+      "description": "Quando riuscite in un attacco contro un bersaglio in Mischia, potete spendere una Speranza per sventrare il bersaglio con le zanne, infliggendo 1d6 danni extra.",
+      "type": "damage_boost",
+      "automation": {
+        "trigger": "on_attack_hit",
+        "condition": {
+          "range": "Mischia"
+        },
+        "cost": {
+          "resource": "hope",
+          "amount": 1
+        },
+        "effect": {
+          "target": "damage_roll",
+          "operation": "add_dice",
+          "value": "1d6"
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_067"
+}
