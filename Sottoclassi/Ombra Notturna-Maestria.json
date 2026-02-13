@@ -1,23 +1,31 @@
 {
-  "id": "DH_MB_026",
+  "id": "DH_CARD_OMBRA_NOTTURNA_MASTERY",
   "name": "Ombra Notturna-Maestria",
-  "class": "Fuorilegge",
   "image": "Ombra Notturna-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Ombra Notturna",
-  "class_restriction": "Fuorilegge",
-  "type": "Maestria",
-  "level": 8,
-  "cost": "1 Stress (Svanire)",
-  "range": "Remota (Passo d'Ombra)",
-  "mechanics": {
-    "passive_bonus": "+1 Evasione permanente. Passo d'Ombra esteso a distanza Remota (Ombra Sfuggente).",
-    "action": {
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_OMBRA_NOTTURNA",
+  "parent_class": "Fuorilegge",
+  "level_unlock": 8,
+  "description": "Ombra Sfuggente: Guadagnate bonus +1 permanente all’Evasione. Potete usare il privilegio “Passo d’Ombra” fino a distanza Remota. Svanire: Marcate uno Stress per diventare Ammantati in qualsiasi momento (elimina automaticamente la condizione Trattenuto). Rimanete Ammantati finché non tirate con Paura o fino al riposo.",
+  "automation": {
+    "passive_stat_boost": {
+      "target": "evasion",
+      "value": 1
+    },
+    "feature_upgrade": {
+      "target_feature": "Passo d'Ombra",
+      "parameter": "range",
+      "new_value": "Remota"
+    },
+    "active_ability": {
       "name": "Svanire",
-      "cost": "1 Stress",
-      "effect": "Diventare Ammantati in qualsiasi momento e rimuovere condizione Trattenuto. Dura fino a tiro con Paura o riposo."
+      "cost": { "resource": "stress", "amount": 1 },
+      "effect": {
+        "apply_status": "cloaked",
+        "remove_status": "restrained",
+        "duration_end_trigger": ["roll_with_fear", "short_rest"]
+      }
     }
   },
-  "description": "Ombra Sfuggente: Guadagnate bonus +1 permanente all’Evasione. Potete usare il vostro privilegio “Passo d’Ombra” per muovervi fino a distanza Remota. Svanire: Marcate uno Stress per diventare Ammantati in qualsiasi momento. Quando vi Ammantate con questo privilegio, eliminate automaticamente la condizione di Trattenuto, se presente. Rimanete Ammantati in questo modo finché non tirate con Paura o fino al prossimo riposo.",
   "source_ref": "DH_MB_026"
 }
