@@ -1,0 +1,30 @@
+{
+  "id": "DH_MB_048",
+  "name": "Scuola della Conoscenza-Privilegio Base",
+  "class": "Mago",
+  "image": "Scuola della Conoscenza-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Scuola della Conoscenza",
+  "class_restriction": "Mago",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "1 Stress (Opzionale per Iniziato)",
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Conoscenza. Carta dominio extra (Preparato).",
+    "actions": [
+      {
+        "name": "Preparato",
+        "effect": "Prendere una carta dominio aggiuntiva del proprio livello o inferiore."
+      },
+      {
+        "name": "Iniziato",
+        "trigger": "Utilizzare un'Esperienza",
+        "cost": "1 Stress (invece di 1 Speranza)",
+        "effect": "Raddoppiare il modificatore dell'Esperienza per quel tiro."
+      }
+    ]
+  },
+  "description": "Preparato: Prendete una carta dominio aggiuntiva del vostro livello o di livello inferiore da un dominio a cui avete accesso. Iniziato: Quando Utilizzate un’Esperienza, potete marcare uno Stress invece di spendere Speranza. Se lo fate, raddoppiate il modificatore dell’Esperienza per quel tiro.",
+  "source_ref": "DH_MB_048"
+}
