@@ -1,21 +1,41 @@
 {
-  "id": "DH_MB_060",
-  "name": "Fatati",
-  "image": "Fatati.jpg",
+  "id": "DH_ORIGIN_003",
+  "name": "Elfo",
+  "image": "Elfo",
   "category": "Origine",
-  "sub_category": "Fatati",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Speranza", "amount": 3 },
-  "range": "Ravvicinata",
-  "mechanics": {
-    "fly": true,
-    "feature": "Rilanciare Dadi Dualità (1/sessione)",
-    "reaction": {
-      "cost": "1 Stress",
-      "effect": "+2 Evasione in volo"
+  "description": "Gli elfi sono in genere umanoidi alti, con orecchie a punta e sensi molto acuti. Tutti gli elfi hanno l’abilità di cadere in una trance trasognante invece di dormire, e questo permette loro di riposare efficacemente in un breve lasso di tempo.",
+  "features": [
+    {
+      "id": "ELF_F01",
+      "name": "Reazione Istintiva",
+      "description": "Marcate uno Stress per ottenere vantaggio in un tiro reazione.",
+      "type": "reaction_modifier",
+      "automation": {
+        "trigger": "reaction_roll_initiated",
+        "cost": {
+          "resource": "stress",
+          "amount": 1
+        },
+        "effect": {
+          "target": "current_roll",
+          "operation": "add_advantage"
+        }
+      }
+    },
+    {
+      "id": "ELF_F02",
+      "name": "Dormiveglia",
+      "description": "Durante un riposo, potete cadere in trance per scegliere una mossa di interludio aggiuntiva.",
+      "type": "rest_modifier",
+      "automation": {
+        "trigger": "rest_start",
+        "effect": {
+          "target": "downtime_actions_count",
+          "operation": "add",
+          "value": 1
+        }
+      }
     }
-  },
-  "description": "Portafortuna: Una volta per sessione, dopo che voi o un alleato consenziente entro distanza Ravvicinata effettuate un tiro azione, potete spendere 3 Speranze per rilanciare i Dadi Dualità. Ali: Potete volare. Mentre siete in volo, potete marcare uno Stress dopo che un avversario ha effettuato un attacco nei vostri confronti per ottenere bonus +2 alla vostra Evasione.",
-  "source_ref": "DH_MB_060"
+  ],
+  "source_ref": "DH_MB_058"
 }
