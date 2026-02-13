@@ -1,0 +1,24 @@
+{
+  "id": "DH_MB_010",
+  "name": "Custode del Rinnovamento-Specializzazione",
+  "class": "Druido",
+  "image": "Custode del Rinnovamento-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Custode del Rinnovamento",
+  "class_restriction": "Druido",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": "2 Speranze (Protezione)",
+  "range": "Prossima / Ravvicinata",
+  "mechanics": {
+    "passive_bonus": "Estende raggio Rigenerazione a Prossima (Onda Rigenerante)",
+    "action": {
+      "name": "Protezione del Guardiano",
+      "frequency": "1 volta per riposo lungo",
+      "cost": "2 Speranze",
+      "effect": "Cura 2 PF a 1d4 alleati entro Ravvicinata"
+    }
+  },
+  "description": "Onda Rigenerante: Con il privilegio “Rigenerazione” potete bersagliare creature entro distanza Prossima. Protezione del Guardiano: Una volta per riposo lungo, spendete 2 Speranze per curare 2 Punti Ferita a 1d4 alleati a distanza Ravvicinata.",
+  "source_ref": "DH_MB_010"
+}
