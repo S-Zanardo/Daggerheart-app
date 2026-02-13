@@ -1,30 +1,27 @@
 {
-  "id": "DH_MB_049",
+  "id": "DH_CARD_SCUOLA_CONOSCENZA_SPEC",
   "name": "Scuola della Conoscenza-Specializzazione",
-  "class": "Mago",
   "image": "Scuola della Conoscenza-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Scuola della Conoscenza",
-  "class_restriction": "Mago",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Carta dominio extra (Esperto).",
-    "actions": [
-      {
-        "name": "Esperto",
-        "effect": "Prendere una carta dominio aggiuntiva del proprio livello o inferiore."
-      },
-      {
-        "name": "Memoria Perfetta",
-        "frequency": "1 volta per riposo",
-        "trigger": "Richiamare una carta dominio nella riserva",
-        "effect": "Ridurre di 1 il Costo di Richiamo."
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_SCUOLA_CONOSCENZA",
+  "parent_class": "Mago",
+  "level_unlock": 5,
+  "description": "Esperto: Prendete una carta dominio aggiuntiva del vostro livello o di livello inferiore da un dominio a cui avete accesso. Memoria Perfetta: Una volta per riposo, quando richiamate una carta dominio nella vostra riserva (Carte Attive), potete ridurre di 1 il suo Costo di Richiamo.",
+  "automation": {
+    "passive_bonus": {
+      "target": "max_domain_cards",
+      "operation": "add",
+      "value": 1
+    },
+    "trigger_event": {
+      "frequency": "short_rest",
+      "trigger": "recall_domain_card",
+      "effect": {
+        "target": "recall_cost",
+        "operation": "subtract",
+        "value": 1
       }
-    ]
+    }
   },
-  "description": "Esperto: Prendete una carta dominio aggiuntiva del vostro livello o di livello inferiore da un dominio a cui avete accesso. Memoria Perfetta: Una volta per riposo, quando richiamate una carta dominio nella vostra riserva, potete ridurre di 1 il suo Costo di Richiamo.",
   "source_ref": "DH_MB_049"
 }
