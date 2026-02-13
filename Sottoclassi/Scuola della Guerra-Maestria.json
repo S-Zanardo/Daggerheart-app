@@ -1,22 +1,27 @@
 {
-  "id": "DH_MB_053",
+  "id": "DH_CARD_SCUOLA_GUERRA_MASTERY",
   "name": "Scuola della Guerra-Maestria",
-  "class": "Mago",
   "image": "Scuola della Guerra-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Scuola della Guerra",
-  "class_restriction": "Mago",
-  "type": "Maestria",
-  "level": 8,
-  "cost": "1 Stress (Prosperare nel Caos)",
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Prosperare nel Caos",
-    "trigger": "Attacco a segno (dopo il tiro danni)",
-    "cost": "1 Stress",
-    "effect": "Costringere il bersaglio a subire 1 Punto Ferita aggiuntivo.",
-    "upgrade": "Il danno di 'Affronta la Tua Paura' aumenta a 3d10 (Non Conoscerai la Paura)."
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_SCUOLA_GUERRA",
+  "parent_class": "Mago",
+  "level_unlock": 8,
   "description": "Prosperare nel Caos: Quando un attacco va a segno, potete marcare uno Stress dopo aver tirato i danni per costringere il bersaglio a subire un Punto Ferita aggiuntivo. Non Conoscerai la Paura: Il danno magico extra della caratteristica “Affronta la Tua Paura” aumenta a 3d10.",
+  "automation": {
+    "trigger_event": {
+      "name": "Prosperare nel Caos",
+      "trigger": "attack_damage_resolved",
+      "cost": { "resource": "stress", "amount": 1 },
+      "effect": {
+        "target": "enemy",
+        "operation": "direct_hp_loss",
+        "value": 1
+      }
+    },
+    "variable_override": {
+      "target_variable": "fear_damage_die",
+      "new_value": "3d10"
+    }
+  },
   "source_ref": "DH_MB_053"
 }
