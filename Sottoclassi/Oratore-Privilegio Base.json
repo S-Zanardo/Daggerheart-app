@@ -1,0 +1,31 @@
+{
+  "id": "DH_MB_004",
+  "name": "Oratore-Privilegio Base",
+  "image": "Oratore-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Oratore",
+  "class_restriction": "Bardo",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "Variabile",
+  "range": "Lontana / Personale",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Presenza",
+    "actions": [
+      {
+        "name": "Discorso Ispiratore",
+        "frequency": "1 volta per riposo lungo",
+        "range": "Lontana",
+        "effect": "Alleati rimuovono 2 Stress"
+      },
+      {
+        "name": "Cuore di Poeta",
+        "cost": "1 Speranza",
+        "trigger": "Tiro azione per impressionare/persuadere/offendere",
+        "effect": "Aggiungi un d4 al tiro"
+      }
+    ]
+  },
+  "description": "Discorso Ispiratore: Una volta per riposo lungo, potete pronunciare un discorso accorato e ispiratore. Tutti gli alleati entro distanza Lontana rimuovono 2 Stress. Cuore di Poeta: Dopo aver effettuato un tiro azione per impressionare, persuadere o offendere qualcuno, potete spendere una Speranza per aggiungere un d4 al tiro.",
+  "source_ref": "DH_MB_004"
+}
