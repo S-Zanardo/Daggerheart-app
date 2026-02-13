@@ -1,21 +1,60 @@
 {
-  "id": "DH_MB_077",
+  "id": "DH_COMMUNITY_002",
   "name": "Bassifondi",
   "image": "Bassifondi.jpg",
   "category": "Comunità",
-  "sub_category": "Bassifondi",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Vantaggio (Criminalità)",
-    "triggers": [
-      "Negoziare con criminali",
-      "Riconoscere menzogne",
-      "Trovare nascondigli"
-    ]
-  },
-  "description": "Furfante: Avete vantaggio ai tiri per negoziare con i criminali, per riconoscere le menzogne o per trovare un posto sicuro dove nascondervi.",
-  "source_ref": "DH_MB_077"
+  "description": "Far parte di una comunità dei bassifondi significa provenire da un ambiente difficile e spesso illecito, dove si impara a sopravvivere con l'astuzia e le conoscenze di strada.",
+  "features": [
+    {
+      "id": "BASSIFONDI_F01",
+      "name": "Conoscenze di Strada",
+      "description": "Siete cresciuti a stretto contatto con un’altra comunità. Scegliete un’altra comunità: quando effettuate un tiro per interagire con i membri di quella comunità o per ricordare informazioni su di essa, aggiungete +2 al risultato.",
+      "type": "passive_bonus_selective",
+      "automation": {
+        "creation_phase": {
+          "input_request": {
+            "type": "select_option",
+            "label": "Scegli la Comunità con cui hai legami",
+            "source_data": "list_all_communities",
+            "exclude": ["Bassifondi"],
+            "store_as": "underborne_connection"
+          }
+        },
+        "usage": {
+          "trigger": "roll_check",
+          "condition": {
+            "context_tag": "selected_community_interaction"
+          },
+          "effect": {
+            "operation": "add_modifier",
+            "value": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "BASSIFONDI_F02",
+      "name": "Connessioni",
+      "description": "Avete una borsa o un mazzo di oggetti utili che potete tirare fuori al momento giusto. Tirate un d6 ogni volta che utilizzate questa caratteristica. Con un risultato di 1–3, l’oggetto è di scarsa qualità o ha un difetto, oppure avete esaurito le vostre connessioni e non potete più utilizzare questa caratteristica fino al prossimo riposo.",
+      "type": "active_item_generation",
+      "automation": {
+        "usage": {
+          "trigger": "active_button",
+          "label": "Usa Connessioni (Genera Oggetto)",
+          "roll": "1d6",
+          "outcomes": {
+            "1-3": {
+              "message": "Oggetto difettoso o connessioni esaurite.",
+              "effect": "disable_feature_until_rest"
+            },
+            "4-6": {
+              "message": "Oggetto utile ottenuto!",
+              "effect": "spawn_temporary_item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_075"
 }
