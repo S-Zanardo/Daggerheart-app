@@ -1,0 +1,31 @@
+{
+  "id": "DH_MB_Druido_Rinnovamento_Base",
+  "name": "Custode del Rinnovamento-Privilegio Base",
+  "class": "Druido",
+  "image": "Custode del Rinnovamento-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Custode del Rinnovamento",
+  "class_restriction": "Druido",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "Variabile",
+  "range": "Ravvicinata / Contatto",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Istinto",
+    "actions": [
+      {
+        "name": "Illuminazione della Natura",
+        "frequency": "1 volta per riposo lungo",
+        "effect": "Rimuovere Stress totale pari a Istinto diviso tra alleati in spazio di serenità."
+      },
+      {
+        "name": "Rigenerazione",
+        "cost": "3 Speranze",
+        "range": "Contatto",
+        "effect": "Creatura recupera 1d4 Punti Ferita"
+      }
+    ]
+  },
+  "description": "Illuminazione della Natura: Una volta per riposo lungo, potete creare uno spazio di serenità naturale entro distanza Ravvicinata. Quando trascorrete alcuni minuti di riposo all’interno dello spazio, rimuovete un valore totale di Stress pari al vostro Istinto, a scelta tra voi e i vostri alleati. Rigenerazione: Toccate una creatura e spendete 3 Speranze. La creatura recupera 1d4 Punti Ferita.",
+  "source_ref": "Manuale Base_Druido"
+}
