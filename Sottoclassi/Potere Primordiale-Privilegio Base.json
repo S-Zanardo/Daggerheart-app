@@ -1,0 +1,27 @@
+{
+  "id": "DH_MB_039",
+  "name": "Potere Primordiale-Privilegio Base",
+  "class": "Stregone",
+  "image": "Potere Primordiale-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Potere Primordiale",
+  "class_restriction": "Stregone",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "1 Stress",
+  "range": "Variabile",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Istinto",
+    "feature": "Manipolare la Magia",
+    "trigger": "Lancio incantesimo o attacco con arma che infligge danni magici",
+    "effect": "Scegliere un effetto extra",
+    "options": [
+      "Estendere la portata di una categoria",
+      "Bonus +2 al risultato del tiro azione",
+      "Raddoppiare un dado danno a scelta",
+      "Colpire un altro bersaglio entro portata"
+    ]
+  },
+  "description": "Manipolare la Magia: Il vostro potere primordiale vi permette di modificare l’essenza stessa della magia. Dopo aver lanciato un incantesimo o aver effettuato un attacco con un’arma che infligge danni magici, potete marcare uno Stress per attivare un effetto a scelta tra i seguenti:\n• Estendere la portata dell’incantesimo o dell’attacco di una categoria\n• Ottenere bonus +2 al risultato del tiro azione\n• Raddoppiare un dado danno a scelta\n• Colpire un altro bersaglio entro portata",
+  "source_ref": "DH_MB_039"
+}
