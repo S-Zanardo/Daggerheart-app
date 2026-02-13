@@ -1,20 +1,52 @@
 {
-  "id": "DH_MB_076",
+  "id": "DH_COMMUNITY_005",
   "name": "Marittima",
   "image": "Marittima.jpg",
   "category": "Comunità",
-  "sub_category": "Marittima",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "resource_pool": "Gettoni Marea",
-    "max_tokens": "Livello Personaggio",
-    "trigger_gain": "Tiro con Paura",
-    "effect_spend": "+1 al tiro per gettone",
-    "reset": "Fine sessione"
-  },
-  "description": "Sentire la Marea: Quando tirate con Paura, posizionate un gettone sulla carta comunità (Max pari al livello). Prima di effettuare un tiro azione, potete spendere un numero qualsiasi di gettoni per ottenere bonus +1 al tiro per ogni gettone. Rimuovere i gettoni a fine sessione.",
-  "source_ref": "DH_MB_076"
+  "description": "Far parte di una comunità marittima significa vivere su o vicino a un grande specchio d’acqua. Le comunità marittime sono costruite, sia fisicamente che culturalmente, intorno alle acque che chiamano casa, e i loro abitanti sono strettamente legati alle maree e alle creature che le abitano.",
+  "features": [
+    {
+      "id": "MARITTIMA_F01",
+      "name": "Sentire la Marea",
+      "description": "Quando tirate con Paura, posizionate un gettone sulla carta comunità (massimo pari al vostro livello). Prima di effettuare un tiro azione, potete spendere un numero qualsiasi di questi gettoni per ottenere bonus +1 al tiro per ogni gettone speso. Alla fine di ogni sessione, rimuovete tutti i gettoni non spesi.",
+      "type": "resource_accumulator",
+      "automation": {
+        "resource_definition": {
+          "name": "Gettoni Marea",
+          "max_value_source": "character_level",
+          "reset_condition": "session_end"
+        },
+        "accumulation": {
+          "trigger": "roll_result_calculated",
+          "condition": {
+            "result_type": "with_fear"
+          },
+          "effect": {
+            "target": "custom_resource_tide_tokens",
+            "operation": "add",
+            "value": 1,
+            "cap_source": "character_level"
+          }
+        },
+        "usage": {
+          "trigger": "pre_action_roll_declared",
+          "input_request": {
+            "type": "slider",
+            "label": "Spendi Gettoni Marea per Bonus",
+            "max_available": "current_tide_tokens"
+          },
+          "effect": {
+            "target": "current_roll_modifier",
+            "operation": "add_dynamic",
+            "value_source": "input_value"
+          },
+          "cost": {
+            "resource": "custom_resource_tide_tokens",
+            "amount": "input_value"
+          }
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_077"
 }
