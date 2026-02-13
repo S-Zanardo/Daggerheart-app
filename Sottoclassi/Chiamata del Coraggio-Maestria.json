@@ -1,20 +1,32 @@
 {
-  "id": "DH_MB_044",
+  "id": "DH_CARD_CHIAMATA_CORAGGIO_MASTERY",
   "name": "Chiamata del Coraggio-Maestria",
-  "class": "Guerriero",
   "image": "Chiamata del Coraggio-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Chiamata del Coraggio",
-  "class_restriction": "Guerriero",
-  "type": "Maestria",
-  "level": 8,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Commilitoni",
-    "effect_1": "Effettuare un Tiro Combinato una volta in più per sessione.",
-    "effect_2": "Costo ridotto a 2 Speranze per gli alleati che iniziano un Tiro Combinato con voi."
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_CHIAMATA_CORAGGIO",
+  "parent_class": "Guardiano",
+  "level_unlock": 8,
+  "description": "Commilitoni: Il vostro saldo coraggio è un punto fermo nel caos della battaglia per i vostri alleati. Potete effettuare un Tiro Combinato una volta in più per sessione. Inoltre, quando un alleato inizia un Tiro Combinato con voi, deve spendere solo 2 Speranze per farlo (invece di 3).",
+  "automation": {
+    "features": [
+      {
+        "name": "Commilitoni (Bonus Uso)",
+        "effect": {
+          "target": "combo_move_limit",
+          "operation": "add",
+          "value": 1
+        }
+      },
+      {
+        "name": "Commilitoni (Sconto)",
+        "trigger": "ally_starts_combo_with_self",
+        "effect": {
+          "target": "ally_hope_cost",
+          "operation": "set_value",
+          "value": 2
+        }
+      }
+    ]
   },
-  "description": "Commilitoni: Il vostro saldo coraggio è un punto fermo nel caos della battaglia per i vostri alleati. Potete effettuare un Tiro Combinato una volta in più per sessione. Inoltre, quando un alleato inizia un Tiro Combinato con voi, deve spendere solo 2 Speranze per farlo.",
-  "source_ref": "DH_MB_044"
+  "source_ref": "DH_CS_044"
 }
