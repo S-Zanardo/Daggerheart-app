@@ -1,43 +1,131 @@
 {
-  "id": "DH_DEF_Ranger",
-  "class_name": "Ranger",
-  "category": "Definizione Classe",
-  "domains": [
-    "Ossa",
-    "Saggezza"
-  ],
-  "stats": {
-    "starting_evasion": 12,
-    "starting_hp": 6,
-    "starting_stress": 6,
-    "recommended_stats": {
-      "Agilità": 2,
-      "Forza": 0,
-      "Astuzia": 1,
-      "Istinto": 1,
-      "Presenza": -1,
-      "Conoscenza": 0
-    }
-  },
-  "starting_items": {
-    "standard_kit": [
-      "Una torcia",
-      "16 metri di corda",
-      "Provviste di base",
-      "Una manciata d'oro"
-    ],
-    "potion_choice": [
-      "Pozione di Guarigione Minore",
-      "Pozione di Recupero Minore"
-    ],
-    "unique_choice": [
-      "Un trofeo della vostra prima preda",
-      "Una bussola apparentemente rotta"
+  "id": "DH_CLASS_008",
+  "name": "Ranger",
+  "image": "Ranger.jpg",
+  "category": "Classe",
+  "description": "I ranger sono cacciatori esperti, maestri della sopravvivenza e dell'inseguimento, spesso accompagnati da un fedele animale o dotati di una precisione letale.",
+  "ui_data": {
+    "color_theme": "#228B22",
+    "domain_refs": [
+      {
+        "name": "Ossa",
+        "id": "DOMAIN_BONE",
+        "image_asset": "Ossa.png"
+      },
+      {
+        "name": "Saggezza",
+        "id": "DOMAIN_SAGE",
+        "image_asset": "Saggezza.png"
+      }
     ]
   },
-  "class_mechanic": {
-    "name": "Focus del Ranger",
-    "description": "Spendete una Speranza ed effettuate un attacco contro un bersaglio. Se l'attacco ha successo, infliggete i normali danni e rendete il bersaglio il vostro Focus. Finché il privilegio non termina (o scegliete un altro Focus), sapete sempre in che direzione si trova e, quando gli infliggete danno, deve marcare uno Stress aggiuntivo. Se fallite un attacco contro il Focus, potete terminare questo privilegio per rilanciare i Dadi Dualità."
+  "base_stats": {
+    "starting_evasion": 12,
+    "starting_hp": 6,
+    "starting_stress": 5,
+    "starting_hope": 2
   },
-  "source_ref": "DH_Schede_Ranger"
+  "creation_options": {
+    "starting_equipment": {
+      "choices": [
+        "Un trofeo della vostra prima preda",
+        "Una bussola apparentemente rotta"
+      ]
+    }
+  },
+  "features": [
+    {
+      "id": "RANGER_F01",
+      "name": "Focus del Ranger",
+      "description": "Spendete 1 Speranza quando colpite per marcare il bersaglio come Focus. Sapete sempre dov'è. Quando gli infliggete danno, subisce 1 Stress extra. Se fallite un attacco contro di esso, potete terminare l'effetto per ritirare i Dadi Dualità.",
+      "type": "target_mark_mechanic",
+      "automation": {
+        "trigger": "attack_hit",
+        "cost": { "resource": "hope", "amount": 1 },
+        "effect": {
+          "operation": "apply_status",
+          "status_id": "ranger_focus",
+          "target": "enemy"
+        },
+        "passive_bonus_on_target": {
+          "trigger": "damage_dealt",
+          "effect": "deal_extra_stress_1"
+        },
+        "reaction_on_fail": {
+          "trigger": "attack_miss_on_focus",
+          "prompt": "Termina Focus per Ritirare?",
+          "effect": {
+            "operation": "reroll_duality_dice",
+            "side_effect": "remove_status_focus"
+          }
+        }
+      }
+    },
+    {
+      "id": "RANGER_F02",
+      "name": "Tienili a Bada",
+      "description": "Quando colpite con un'arma, spendete 3 Speranze per applicare lo stesso tiro di attacco contro altri due avversari alla stessa distanza.",
+      "type": "multi_target_attack",
+      "automation": {
+        "trigger": "attack_hit",
+        "cost": { "resource": "hope", "amount": 3 },
+        "effect": {
+          "operation": "apply_hit_to_multiple_targets",
+          "count": 2,
+          "range_constraint": "same_as_original"
+        }
+      }
+    },
+    {
+      "id": "RANGER_SUBCLASS_SELECT",
+      "name": "Selezione Sottoclasse",
+      "type": "selection_gate",
+      "options": [
+        {
+          "id": "SUB_APRIPISTA",
+          "name": "Apripista",
+          "description": "Un cacciatore implacabile che conosce ogni sentiero.",
+          "spellcast_trait": "Agilità",
+          "features": [
+            {
+              "id": "APRIPISTA_F01",
+              "name": "Predatore Spietato",
+              "description": "Marca 1 Stress quando tiri i danni per ottenere +1 alla Competenza per quel colpo. Se infliggi danno Grave, il nemico marca 1 Stress.",
+              "automation": {
+                "trigger": "damage_roll_declared",
+                "cost": { "resource": "stress", "amount": 1 },
+                "effect": { "target": "proficiency", "operation": "add_temporary", "value": 1 }
+              }
+            },
+            {
+              "id": "APRIPISTA_F02",
+              "name": "La Via Prosegue",
+              "description": "Trova il percorso più breve per un luogo già visitato o legato a un oggetto posseduto.",
+              "automation": { "effect": "narrative_pathfinding_success" }
+            }
+          ]
+        },
+        {
+          "id": "SUB_FERALE",
+          "name": "Ferale",
+          "description": "Combatte a fianco di un fedele compagno animale.",
+          "spellcast_trait": "Agilità",
+          "features": [
+            {
+              "id": "FERALE_F01",
+              "name": "Compagno Animale",
+              "description": "Ottieni un Compagno. Ha un dado danno d6 e attacca in Mischia.",
+              "automation": {
+                "effect": {
+                  "operation": "summon_minion_sheet",
+                  "stats": { "damage_die": "d6", "range": "Mischia" }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_ref": "DH_MB_048"
 }
