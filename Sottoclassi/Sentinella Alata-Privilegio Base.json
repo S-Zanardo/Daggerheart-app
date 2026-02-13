@@ -1,32 +1,40 @@
 {
-  "id": "DH_MB_033",
-  "name": "Sentinella Alata-Privilegio Base",
-  "image": "Sentinella Alata-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Sentinella Alata",
-  "class_restriction": "Consacrato",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": "Variabile (vedi opzioni)",
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Forza. Capacità di volare (Ali di Luce).",
-    "actions": [
+  "id": "DH_CARD_SENTINELLA_ALATA_BASE",
+  "name": "Sentinella Alata-Privilegio base",
+  "image": "Sentinella Alata-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_SENTINELLA_ALATA",
+  "parent_class": "Consacrato",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Forza. Ali di Luce: Potete volare. Quando siete in volo, potete: Marcare uno Stress per afferrare e trasportare un'altra creatura consenziente della vostra taglia o più piccola. Spendere una Speranza per infliggere 1d8 danni extra in un attacco riuscito.",
+  "automation": {
+    "spellcast_trait": "Forza",
+    "active_state": {
+      "id": "is_flying",
+      "label": "In Volo",
+      "toggle": true
+    },
+    "features": [
       {
         "name": "Trasporto Aereo",
-        "cost": "1 Stress",
-        "condition": "In volo",
-        "effect": "Afferrare e trasportare un'altra creatura consenziente (taglia vostra o più piccola)."
+        "trigger": "active_button",
+        "condition": "is_flying",
+        "cost": { "resource": "stress", "amount": 1 },
+        "effect": "carry_ally"
       },
       {
         "name": "Attacco in Picchiata",
-        "cost": "1 Speranza",
-        "condition": "In volo",
-        "trigger": "Attacco riuscito",
-        "effect": "Infliggere 1d8 danni extra."
+        "trigger": "damage_roll",
+        "condition": "is_flying",
+        "cost": { "resource": "hope", "amount": 1 },
+        "effect": {
+          "target": "damage_roll",
+          "operation": "add_die",
+          "value": "1d8",
+          "variable_name": "wings_damage_die"
+        }
       }
     ]
   },
-  "description": "Ali di Luce: Potete volare. Quando siete in volo, potete:\n• Marcare uno Stress per afferrare e trasportare un’altra creatura consenziente della vostra taglia o più piccola.\n• Spendere una Speranza per infliggere 1d8 danni extra in un attacco riuscito.",
   "source_ref": "DH_MB_033"
 }
