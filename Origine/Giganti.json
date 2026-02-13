@@ -1,17 +1,37 @@
 {
-  "id": "DH_MB_065",
-  "name": "Giganti",
-  "image": "Giganti.jpg",
+  "id": "DH_ORIGIN_009",
+  "name": "Gigante",
+  "image": "Gigante",
   "category": "Origine",
-  "sub_category": "Giganti",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": null,
-  "range": "Prossima",
-  "mechanics": {
-    "passive_bonus": { "hp_slots": 1 },
-    "range_override": "Mischia diventa Prossima"
-  },
-  "description": "Resistenza: Guadagnate una casella aggiuntiva nei Punti Ferita alla creazione del personaggio. Raggiungere: Potete considerare qualsiasi arma, abilità, incantesimo o altra caratteristica che abbia una portata di Mischia come se avesse invece una portata Prossima.",
+  "description": "I giganti sono umanoidi imponenti con spalle larghe, braccia lunghe e da uno a tre occhi. La loro stazza garantisce loro una portata e una resistenza superiori.",
+  "features": [
+    {
+      "id": "GIGANTE_F01",
+      "name": "Resistenza",
+      "description": "Guadagnate una casella aggiuntiva nei Punti Ferita alla creazione del personaggio.",
+      "type": "creation_bonus",
+      "automation": {
+        "trigger": "character_creation",
+        "effect": {
+          "target": "max_hp",
+          "operation": "add",
+          "value": 1
+        }
+      }
+    },
+    {
+      "id": "GIGANTE_F02",
+      "name": "Raggiungere",
+      "description": "Potete considerare qualsiasi arma, abilità, incantesimo o altra caratteristica che abbia una portata di Mischia come se avesse invece una portata Prossima.",
+      "type": "rule_override",
+      "automation": {
+        "passive_effect": {
+          "condition": "source_range == 'Mischia'",
+          "operation": "override_range",
+          "new_value": "Prossima"
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_065"
 }
