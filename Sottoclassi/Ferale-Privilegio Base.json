@@ -1,0 +1,19 @@
+{
+  "id": "DH_MB_018",
+  "name": "Ferale-Privilegio Base",
+  "image": "Ferale-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Ferale",
+  "class_restriction": "Ranger",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Agilità",
+    "feature": "Compagno Animale",
+    "effect": "Ottenete un compagno animale e la relativa scheda. Il compagno sale di livello con il personaggio."
+  },
+  "description": "Compagno: Avete un compagno animale a vostra scelta (a discrezione del GM). Rimane al vostro fianco a meno che non gli ordiniate di fare altrimenti. Prendete la scheda del Compagno del Ranger. Quando fate salire di livello il vostro personaggio, scegliete anche un’opzione di aumento di livello per il vostro compagno da questa scheda.",
+  "source_ref": "DH_MB_018"
+}
