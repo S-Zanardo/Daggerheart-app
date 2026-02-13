@@ -1,30 +1,31 @@
 {
-  "id": "DH_MB_048",
-  "name": "Scuola della Conoscenza-Privilegio Base",
-  "class": "Mago",
-  "image": "Scuola della Conoscenza-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Scuola della Conoscenza",
-  "class_restriction": "Mago",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": "1 Stress (Opzionale per Iniziato)",
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Conoscenza. Carta dominio extra (Preparato).",
-    "actions": [
-      {
-        "name": "Preparato",
-        "effect": "Prendere una carta dominio aggiuntiva del proprio livello o inferiore."
-      },
-      {
-        "name": "Iniziato",
-        "trigger": "Utilizzare un'Esperienza",
-        "cost": "1 Stress (invece di 1 Speranza)",
-        "effect": "Raddoppiare il modificatore dell'Esperienza per quel tiro."
+  "id": "DH_CARD_SCUOLA_CONOSCENZA_BASE",
+  "name": "Scuola della Conoscenza-Privilegio base",
+  "image": "Scuola della Conoscenza-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_SCUOLA_CONOSCENZA",
+  "parent_class": "Mago",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Conoscenza. Preparato: Prendete una carta dominio aggiuntiva del vostro livello o di livello inferiore da un dominio a cui avete accesso. Iniziato: Quando Utilizzate un’Esperienza, potete marcare uno Stress invece di spendere Speranza. Se lo fate, raddoppiate il modificatore dell’Esperienza per quel tiro.",
+  "automation": {
+    "spellcast_trait": "Conoscenza",
+    "passive_bonus": {
+      "target": "max_domain_cards",
+      "operation": "add",
+      "value": 1
+    },
+    "trigger_event": {
+      "trigger": "use_experience",
+      "option": {
+        "label": "Metodo Iniziato (Stress)",
+        "cost_override": { "resource": "stress", "amount": 1 },
+        "effect": {
+          "target": "experience_modifier",
+          "operation": "multiply",
+          "value": 2
+        }
       }
-    ]
+    }
   },
-  "description": "Preparato: Prendete una carta dominio aggiuntiva del vostro livello o di livello inferiore da un dominio a cui avete accesso. Iniziato: Quando Utilizzate un’Esperienza, potete marcare uno Stress invece di spendere Speranza. Se lo fate, raddoppiate il modificatore dell’Esperienza per quel tiro.",
   "source_ref": "DH_MB_048"
 }
