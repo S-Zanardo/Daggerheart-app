@@ -1,31 +1,35 @@
 {
-  "id": "DH_MB_Druido_Rinnovamento_Base",
-  "name": "Custode del Rinnovamento-Privilegio Base",
-  "class": "Druido",
-  "image": "Custode del Rinnovamento-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Custode del Rinnovamento",
-  "class_restriction": "Druido",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": "Variabile",
-  "range": "Ravvicinata / Contatto",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Istinto",
-    "actions": [
+  "id": "DH_CARD_RINNOVAMENTO_BASE",
+  "name": "Custode del Rinnovamento-Privilegio base",
+  "image": "Custode del Rinnovamento-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_CUSTODE_RINNOVAMENTO",
+  "parent_class": "Druido",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Istinto. Illuminazione della Natura: Una volta per riposo lungo, potete creare uno spazio di serenità naturale entro distanza Ravvicinata. Quando trascorrete alcuni minuti di riposo all’interno dello spazio, rimuovete un valore totale di Stress pari al vostro Istinto, a scelta tra voi e i vostri alleati. Rigenerazione: Toccate una creatura e spendete 3 Speranze. La creatura recupera 1d4 Punti Ferita.",
+  "automation": {
+    "spellcast_trait": "Istinto",
+    "features": [
       {
         "name": "Illuminazione della Natura",
-        "frequency": "1 volta per riposo lungo",
-        "effect": "Rimuovere Stress totale pari a Istinto diviso tra alleati in spazio di serenità."
+        "frequency": "long_rest",
+        "effect": {
+          "type": "restore_resource_pool",
+          "resource": "stress",
+          "amount_source": "instinct_trait",
+          "distribution": "split_among_party"
+        }
       },
       {
         "name": "Rigenerazione",
-        "cost": "3 Speranze",
-        "range": "Contatto",
-        "effect": "Creatura recupera 1d4 Punti Ferita"
+        "cost": { "resource": "hope", "amount": 3 },
+        "target": "touch",
+        "effect": {
+          "target": "ally",
+          "heal_hp": "1d4"
+        }
       }
     ]
   },
-  "description": "Illuminazione della Natura: Una volta per riposo lungo, potete creare uno spazio di serenità naturale entro distanza Ravvicinata. Quando trascorrete alcuni minuti di riposo all’interno dello spazio, rimuovete un valore totale di Stress pari al vostro Istinto, a scelta tra voi e i vostri alleati. Rigenerazione: Toccate una creatura e spendete 3 Speranze. La creatura recupera 1d4 Punti Ferita.",
-  "source_ref": "Manuale Base_Druido"
+  "source_ref": "DH_MB_010"
 }
