@@ -1,0 +1,43 @@
+{
+  "id": "DH_DEF_Consacrato",
+  "class_name": "Consacrato",
+  "category": "Definizione Classe",
+  "domains": [
+    "Splendore",
+    "Valore"
+  ],
+  "stats": {
+    "starting_evasion": 9,
+    "starting_hp": 7,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": 0,
+      "Forza": 2,
+      "Astuzia": 0,
+      "Istinto": 1,
+      "Presenza": 1,
+      "Conoscenza": -1
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ],
+    "unique_choice": [
+      "Una raccolta di offerte",
+      "Il simbolo sacro della vostra divinità"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Dado Preghiera",
+    "description": "All'inizio di ogni sessione, tirate un numero di d4 pari al tratto da Incantatore della vostra sottoclasse e metteteli sulla scheda. Questi sono i Dadi Preghiera. Potete spenderne un numero qualsiasi per aiutare voi stessi o un alleato entro distanza Lontana. Il valore di un dado speso può essere usato per: ridurre i danni in arrivo, aggiungere il risultato a un tiro dopo che è stato effettuato, o guadagnare Speranza pari al risultato. A fine sessione i dadi non spesi vengono persi."
+  },
+  "source_ref": "DH_Schede_Consacrato"
+}
