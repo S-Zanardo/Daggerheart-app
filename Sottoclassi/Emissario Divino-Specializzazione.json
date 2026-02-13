@@ -1,22 +1,29 @@
 {
-  "id": "DH_MB_031",
+  "id": "DH_CARD_EMISSARIO_SPEC",
   "name": "Emissario Divino-Specializzazione",
   "image": "Emissario Divino-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Emissario Divino",
-  "class_restriction": "Consacrato",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Devoto",
-    "effect": "Migliora Dadi Preghiera e Tocco Ristoratore",
-    "details": [
-      "Dadi Preghiera: Tira un dado extra e scarta il più basso",
-      "Tocco Ristoratore: Usabile 2 volte per riposo lungo"
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_EMISSARIO_DIVINO",
+  "parent_class": "Consacrato",
+  "level_unlock": 5,
+  "description": "Devoto: Quando tirate i Dadi Preghiera, potete tirare un dado aggiuntivo e scartare il risultato più basso. Inoltre, potete usare il privilegio “Tocco Ristoratore” due volte invece di una per riposo lungo.",
+  "automation": {
+    "features": [
+      {
+        "name": "Devoto (Dadi Preghiera)",
+        "target_feature": "Dado Preghiera",
+        "modification": {
+          "roll_logic": "roll_n_plus_1_drop_lowest"
+        }
+      },
+      {
+        "name": "Devoto (Tocco Ristoratore)",
+        "target_feature": "Tocco Ristoratore",
+        "modification": {
+          "frequency_override": "2_per_long_rest"
+        }
+      }
     ]
   },
-  "description": "Devoto: Quando tirate i Dadi Preghiera, potete tirare un dado aggiuntivo e scartare il risultato più basso. Inoltre, potete usare il privilegio “Tocco Ristoratore” due volte invece di una per riposo lungo.",
   "source_ref": "DH_MB_031"
 }
