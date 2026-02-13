@@ -1,39 +1,30 @@
 {
-  "id": "DH_CARD_CUSTODE_ELEMENTI_BASE",
-  "name": "Custode degli Elementi-Privilegio base",
-  "image": "Custode degli Elementi-Privilegio base.jpg",
+  "id": "DH_CARD_CHIAMATA_CORAGGIO_BASE",
+  "name": "Chiamata del Coraggio-Privilegio base",
+  "image": "Chiamata del Coraggio-Privilegio base.jpg",
   "category": "Privilegio Sottoclasse",
-  "parent_subclass_id": "DH_SUBCLASS_CUSTODE_ELEMENTI",
-  "parent_class": "Druido",
+  "parent_subclass_id": "DH_SUBCLASS_CHIAMATA_CORAGGIO",
+  "parent_class": "Guardiano",
   "level_unlock": 1,
-  "description": "Tratto da Incantatore: Istinto. Incarnazione Elementale: Potete marcare uno Stress per Incanalare uno degli elementi. Fuoco: Quando un avversario entro distanza di Mischia vi colpisce con un attacco, subisce 1d10 danni magici. Terra: Aggiungete la vostra Competenza alle vostre soglie di danno. Acqua: Quando effettuate un attacco con successo contro un avversario in Mischia, potete spingere tutti gli avversari entro distanza Ravvicinata dal bersaglio a distanza Lontana. Aria: Potete librarvi in aria, ottenendo vantaggio nei Tiri Agilità.",
+  "description": "Tratto da Incantatore: Forza. Saldo: Aggiungete +1 alle vostre soglie di danno (Minore, Maggiore e Grave). Volontà di Ferro: Quando subite danni fisici, potete marcare una Casella Armatura aggiuntiva per ridurre la gravità del danno di un livello (es. da Grave a Maggiore).",
   "automation": {
-    "spellcast_trait": "Istinto",
-    "activation": {
-      "cost": { "resource": "stress", "amount": 1 },
-      "input": {
-        "type": "select_mode",
-        "label": "Scegli Elemento da Incanalare",
-        "options": ["Fuoco", "Terra", "Acqua", "Aria"],
-        "store_as": "active_element_channel"
+    "spellcast_trait": "Forza",
+    "features": [
+      {
+        "name": "Saldo",
+        "effect": {
+          "target": "damage_thresholds",
+          "operation": "add_all",
+          "value": 1
+        }
+      },
+      {
+        "name": "Volontà di Ferro",
+        "trigger": "incoming_physical_damage",
+        "cost": { "resource": "armor_slot", "amount": 1 },
+        "effect": "reduce_damage_severity_1_step"
       }
-    },
-    "modes": {
-      "Fuoco": {
-        "trigger": "hit_by_melee_attack",
-        "effect": { "target": "attacker", "deal_damage": "1d10_magic" }
-      },
-      "Terra": {
-        "passive": { "target": "damage_thresholds", "operation": "add", "value_source": "proficiency" }
-      },
-      "Acqua": {
-        "trigger": "melee_attack_success",
-        "effect": { "target": "enemies_near_target", "operation": "push", "distance": "far" }
-      },
-      "Aria": {
-        "passive": { "fly": true, "agility_rolls": "advantage" }
-      }
-    }
+    ]
   },
-  "source_ref": "DH_MB_033"
+  "source_ref": "DH_MB_040"
 }
