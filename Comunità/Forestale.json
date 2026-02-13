@@ -1,20 +1,29 @@
 {
-  "id": "DH_MB_080",
+  "id": "DH_COMMUNITY_004",
   "name": "Forestale",
   "image": "Forestale.jpg",
   "category": "Comunità",
-  "sub_category": "Forestale",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Vantaggio (Furtività)",
-    "triggers": [
-      "Muoversi silenziosamente",
-      "Muoversi senza essere uditi"
-    ]
-  },
-  "description": "Piè Leggero: Il vostro movimento è naturalmente silenzioso. Avete vantaggio ai tiri per muovervi senza essere uditi.",
+  "description": "Far parte di una comunità forestale significa vivere nel profondo dei boschi. Le comunità forestali sono definite dalla loro dedizione alla conservazione della loro terra natia e molte hanno forti legami religiosi o culturali con la fauna con cui vivono.",
+  "features": [
+    {
+      "id": "FORESTALE_F01",
+      "name": "Piè Leggero",
+      "description": "Il vostro movimento è naturalmente silenzioso. Avete vantaggio ai tiri per muovervi senza essere uditi.",
+      "type": "situational_advantage",
+      "automation": {
+        "usage": {
+          "trigger": "roll_check_declared",
+          "condition": {
+            "check_tags": ["stealth", "sneak", "move_silently"]
+          },
+          "effect": {
+            "operation": "add_advantage",
+            "target": "current_roll",
+            "message": "Vantaggio applicato: Piè Leggero"
+          }
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_080"
 }
