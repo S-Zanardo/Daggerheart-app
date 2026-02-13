@@ -1,27 +1,29 @@
 {
-  "id": "DH_MB_027",
-  "name": "Ladro-Privilegio Base",
-  "class": "Fuorilegge",
-  "image": "Ladro-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Ladro",
-  "class_restriction": "Fuorilegge",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Astuzia",
-    "feature": "Legami",
-    "effect": "Creare un contatto NPC in nuovi luoghi e scegliere un fatto che vi lega.",
-    "options": [
-      "Mi deve un favore",
-      "Chiederà qualcosa in cambio",
-      "È sempre in difficoltà",
-      "Una volta stavamo insieme",
-      "Non ci siamo lasciati in buoni rapporti"
-    ]
+  "id": "DH_CARD_LADRO_BASE",
+  "name": "Ladro-Privilegio base",
+  "image": "Ladro-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_LADRO",
+  "parent_class": "Fuorilegge",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Astuzia. Legami: Quando arrivate in una città o in un altro luogo importante, descrivete una persona che avete già conosciuto e che vive qui. Datele un nome, annotate in che modo pensate che possa esservi utile e scegliete un fatto dalla seguente lista: Mi deve un favore, ma sarà difficile trovarla; Chiederà qualcosa in cambio; È sempre in gran difficoltà; Una volta stavamo insieme (è una lunga storia); Non ci siamo lasciati in buoni rapporti.",
+  "automation": {
+    "spellcast_trait": "Astuzia",
+    "feature": {
+      "name": "Legami",
+      "trigger": "location_entry",
+      "effect": {
+        "type": "narrative_prompt",
+        "prompt_text": "Definisci un contatto locale e scegli la natura del vostro legame.",
+        "options": [
+          "Mi deve un favore (difficile da trovare)",
+          "Chiederà qualcosa in cambio",
+          "È in difficoltà",
+          "Ex amante",
+          "Cattivi rapporti"
+        ]
+      }
+    }
   },
-  "description": "Legami: Quando arrivate in una città o in un altro luogo importante, descrivete una persona che avete già conosciuto e che vive qui. Datele un nome, annotate in che modo pensate che possa esservi utile e scegliete un fatto dalla seguente lista:\n• Mi deve un favore, ma sarà difficile trovarla.\n• Chiederà qualcosa in cambio.\n• È sempre in gran difficoltà.\n• Una volta stavamo insieme. È una lunga storia.\n• Non ci siamo lasciati in buoni rapporti.",
-  "source_ref": "DH_MB_027"
+  "source_ref": "DH_CS_027"
 }
