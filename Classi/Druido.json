@@ -1,43 +1,146 @@
 {
-  "id": "DH_DEF_Druido",
-  "class_name": "Druido",
-  "category": "Definizione Classe",
-  "domains": [
-    "Saggezza",
-    "Arcano"
-  ],
-  "stats": {
-    "starting_evasion": 10,
-    "starting_hp": 6,
-    "starting_stress": 6,
-    "recommended_stats": {
-      "Agilità": 1,
-      "Forza": 0,
-      "Astuzia": 1,
-      "Istinto": 2,
-      "Presenza": -1,
-      "Conoscenza": 0
-    }
-  },
-  "starting_items": {
-    "standard_kit": [
-      "Una torcia",
-      "16 metri di corda",
-      "Provviste di base",
-      "Una manciata d'oro"
-    ],
-    "potion_choice": [
-      "Pozione di Guarigione Minore",
-      "Pozione di Recupero Minore"
-    ],
-    "unique_choice": [
-      "Una borsa piena di pietruzze e ossicini",
-      "Uno strano pendente scovato nella sporcizia"
+  "id": "DH_CLASS_003",
+  "name": "Druido",
+  "image": "Druido.jpg",
+  "category": "Classe",
+  "description": "I druidi sono i protettori della natura, capaci di trasformarsi in bestie selvagge e di comandare gli elementi o la forza vitale stessa.",
+  "ui_data": {
+    "color_theme": "#2E8B57",
+    "domain_refs": [
+      {
+        "name": "Saggezza",
+        "id": "DOMAIN_SAGE",
+        "image_asset": "Saggezza.png"
+      },
+      {
+        "name": "Arcano",
+        "id": "DOMAIN_ARCANA",
+        "image_asset": "Arcano.png"
+      }
     ]
   },
-  "class_mechanic": {
-    "name": "Forma Bestiale & Tocco della Natura",
-    "description": "Forma Bestiale: Marcate uno Stress per trasformarvi magicamente in una creatura del vostro rango o inferiore. Durante la trasformazione non potete usare armi o lanciare incantesimi dalle carte dominio (ma potete usare altri privilegi). Ottenete i privilegi della forma bestiale e aggiungete il suo bonus all'Evasione. Tocco della Natura: Potete eseguire a volontà effetti innocui e minori legati alla natura (es. far sbocciare un fiore, accendere un fuoco con la legna)."
+  "base_stats": {
+    "starting_evasion": 10,
+    "starting_hp": 6,
+    "starting_stress": 5,
+    "starting_hope": 2
   },
-  "source_ref": "DH_Schede_Druido"
+  "creation_options": {
+    "starting_equipment": {
+      "choices": [
+        "Un piccolo sacchetto di rocce e ossa",
+        "Uno strano ciondolo trovato nella terra"
+      ]
+    }
+  },
+  "features": [
+    {
+      "id": "DRUIDO_F01",
+      "name": "Forma Bestiale",
+      "description": "Marcate uno Stress per trasformarvi magicamente in una creatura del vostro rango o inferiore. Ottenete i privilegi della bestia, il suo bonus all'Evasione e la sua arma naturale. Non potete lanciare incantesimi da carte dominio mentre trasformati.",
+      "type": "transformation_mode",
+      "automation": {
+        "cost": { "resource": "stress", "amount": 1 },
+        "trigger": "active_activation",
+        "effect": {
+          "operation": "enable_beastform_mode",
+          "restrictions": {
+            "disable_domain_spells": true,
+            "disable_equipped_weapons": true
+          },
+          "stat_changes": {
+            "evasion": "add_beast_bonus",
+            "weapon": "override_with_beast_weapon"
+          },
+          "input_request": {
+            "type": "select_beast_from_library",
+            "filter": { "max_rank": "character_rank" }
+          }
+        }
+      }
+    },
+    {
+      "id": "DRUIDO_F02",
+      "name": "Evoluzione",
+      "description": "Spendete 3 Speranze per trasformarvi in Forma Bestiale senza marcare Stress. Inoltre, aumentate un Tratto di +1 finché la trasformazione è attiva.",
+      "type": "active_buff",
+      "automation": {
+        "cost": { "resource": "hope", "amount": 3 },
+        "effect": {
+          "operation": "trigger_feature",
+          "feature_id": "DRUIDO_F01",
+          "cost_override": 0,
+          "additional_effect": {
+            "input_request": {
+              "type": "select_trait",
+              "label": "Scegli Tratto da potenziare (+1)"
+            },
+            "stat_change": {
+              "target": "selected_trait",
+              "value": 1,
+              "duration": "while_transformed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DRUIDO_SUBCLASS_SELECT",
+      "name": "Selezione Sottoclasse",
+      "type": "selection_gate",
+      "options": [
+        {
+          "id": "SUB_CUSTODE_ELEMENTI",
+          "name": "Custode degli Elementi",
+          "description": "Incarna la furia degli elementi naturali: Fuoco, Terra, Aria o Acqua.",
+          "spellcast_trait": "Istinto",
+          "features": [
+            {
+              "id": "ELEMENTI_F01",
+              "name": "Incarnazione Elementale",
+              "description": "Marca 1 Stress per incanalare un elemento e ottenere benefici passivi (danni extra, bonus soglie, movimento).",
+              "automation": {
+                "cost": "1_stress",
+                "effect": "select_elemental_buff_mode"
+              }
+            }
+          ]
+        },
+        {
+          "id": "SUB_CUSTODE_RINNOVAMENTO",
+          "name": "Custode del Rinnovamento",
+          "description": "Un guaritore che preserva il ciclo della vita.",
+          "spellcast_trait": "Istinto",
+          "features": [
+            {
+              "id": "RINNOVAMENTO_F01",
+              "name": "Rigenerazione",
+              "description": "Tocca una creatura e spendi 3 Speranze per farle recuperare 1d4 Punti Ferita.",
+              "automation": {
+                "cost": { "resource": "hope", "amount": 3 },
+                "target": "touch_ally",
+                "effect": { "heal_hp": "1d4" }
+              }
+            },
+            {
+              "id": "RINNOVAMENTO_F02",
+              "name": "Illuminazione della Natura",
+              "description": "Una volta per riposo lungo, crea un'area di riposo. Rimuovi Stress totale pari al tuo Istinto diviso tra gli alleati.",
+              "automation": {
+                "frequency": "long_rest",
+                "effect": {
+                  "pool_healing": {
+                    "resource": "stress",
+                    "amount_source": "instinct_trait",
+                    "distribution": "split_among_party"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_ref": "DH_MB_051"
 }
