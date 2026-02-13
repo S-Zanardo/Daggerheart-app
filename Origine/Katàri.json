@@ -1,17 +1,48 @@
 {
-  "id": "DH_MB_070",
-  "name": "Katàri",
-  "image": "Katàri.jpg",
+  "id": "DH_ORIGIN_013",
+  "name": "Katari",
+  "image": "Katari",
   "category": "Origine",
-  "sub_category": "Katàri",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Speranza", "amount": 2 },
-  "range": "Personale",
-  "mechanics": {
-    "reaction": "Reroll Dado Speranza (Agilità)",
-    "action": "Artigli (Rende Vulnerabile)"
-  },
-  "description": "Istinti Felini: Quando effettuate un Tiro Agilità, potete spendere 2 Speranze per rilanciare il Dado Speranza. Artigli Retrattili: Effettuate un Tiro Agilità per graffiare un bersaglio in Mischia. In caso di successo, il bersaglio diventa temporaneamente Vulnerabile.",
-  "source_ref": "DH_MB_070"
+  "description": "I katari sono umanoidi felini con artigli retrattili, pupille a fessura verticale e orecchie alte e triangolari. Le loro orecchie sono in grado di ruotare per seguire i suoni, e i loro sensi sono estremamente acuti.",
+  "features": [
+    {
+      "id": "KATARI_F01",
+      "name": "Istinti Felini",
+      "description": "Quando effettuate un Tiro Agilità, potete spendere 2 Speranze per rilanciare il Dado Speranza.",
+      "type": "reroll_trigger",
+      "automation": {
+        "trigger": "post_roll_result",
+        "condition": {
+          "trait_used": "agility"
+        },
+        "cost": {
+          "resource": "hope",
+          "amount": 2
+        },
+        "effect": {
+          "operation": "reroll_die",
+          "target_die": "hope_die"
+        }
+      }
+    },
+    {
+      "id": "KATARI_F02",
+      "name": "Artigli Retrattili",
+      "description": "Effettuate un Tiro Agilità per graffiare un bersaglio in Mischia. In caso di successo, il bersaglio diventa temporaneamente Vulnerabile.",
+      "type": "action_attack",
+      "automation": {
+        "action_profile": {
+          "name": "Graffio (Artigli Retrattili)",
+          "range": "Mischia",
+          "trait_used": "agility",
+          "on_hit_effect": {
+            "target": "enemy",
+            "apply_condition": "vulnerable",
+            "duration": "temporary"
+          }
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_069"
 }
