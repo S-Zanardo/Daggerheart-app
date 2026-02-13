@@ -1,43 +1,162 @@
 {
-  "id": "DH_DEF_Mago",
-  "class_name": "Mago",
-  "category": "Definizione Classe",
-  "domains": [
-    "Codice",
-    "Splendore"
-  ],
-  "stats": {
+  "id": "DH_CLASS_007",
+  "name": "Mago",
+  "image": "Mago.jpg",
+  "category": "Classe",
+  "description": "I maghi sono studiosi dell'arcano che acquisiscono potere attraverso la conoscenza, l'apprendimento e l'uso di grimori o strumenti magici.",
+  "ui_data": {
+    "color_theme": "#4169E1",
+    "domain_refs": [
+      {
+        "name": "Codice",
+        "id": "DOMAIN_CODEX",
+        "image_asset": "Codice.png"
+      },
+      {
+        "name": "Splendore",
+        "id": "DOMAIN_SPLENDOR",
+        "image_asset": "Splendore.png"
+      }
+    ]
+  },
+  "base_stats": {
     "starting_evasion": 11,
     "starting_hp": 5,
     "starting_stress": 6,
-    "recommended_stats": {
-      "Agilità": -1,
-      "Forza": 0,
-      "Astuzia": 0,
-      "Istinto": 1,
-      "Presenza": 1,
-      "Conoscenza": 2
+    "starting_hope": 2
+  },
+  "creation_options": {
+    "starting_equipment": {
+      "choices": [
+        "Un libro che state cercando di tradurre",
+        "Un piccolo e innocuo animaletto elementale"
+      ]
     }
   },
-  "starting_items": {
-    "standard_kit": [
-      "Una torcia",
-      "16 metri di corda",
-      "Provviste di base",
-      "Una manciata d'oro"
-    ],
-    "potion_choice": [
-      "Pozione di Guarigione Minore",
-      "Pozione di Recupero Minore"
-    ],
-    "unique_choice": [
-      "Un libro che state cercando di tradurre",
-      "Un piccolo e innocuo cucciolo elementale"
-    ]
-  },
-  "class_mechanic": {
-    "name": "Prestidigitazione & Segni Misteriosi",
-    "description": "Prestidigitazione: Potete eseguire effetti magici innocui e di piccola entità a volontà (es. cambiare colore a un abito, creare un odore, accendere una candela). Segni Misteriosi: Scegliete un numero compreso tra 1 e 12. Quando tirate quel numero su un Dado Dualità, guadagnate una Speranza o rimuovete uno Stress. Potete cambiare il numero scelto quando fate un riposo lungo."
-  },
-  "source_ref": "DH_Schede_Mago"
+  "features": [
+    {
+      "id": "MAGO_F01",
+      "name": "Segni Misteriosi",
+      "description": "Scegliete un numero tra 1 e 12 (cambiabile ai riposi lunghi). Quando ottenete quel numero su un Dado Dualità, guadagnate una Speranza o rimuovete uno Stress.",
+      "type": "passive_trigger_check",
+      "automation": {
+        "rest_phase": {
+          "trigger": "long_rest",
+          "input_request": {
+            "type": "number_select",
+            "range": [1, 2],
+            "label": "Imposta Numero Fortunato",
+            "store_as": "wizard_lucky_number"
+          }
+        },
+        "usage": {
+          "trigger": "duality_roll_result",
+          "condition": {
+            "any_die_match": "wizard_lucky_number"
+          },
+          "effect": {
+            "prompt": "Segni Misteriosi attivati!",
+            "options": [
+              { "label": "Guadagna 1 Speranza", "effect": "gain_hope_1" },
+              { "label": "Rimuovi 1 Stress", "effect": "heal_stress_1" }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "MAGO_F02",
+      "name": "Prestidigitazione",
+      "description": "Potete eseguire effetti magici innocui e di piccola entità a volontà (cambiare colore, accendere candele, pulire oggetti).",
+      "type": "narrative_ability",
+      "automation": {
+        "trigger": "active_button",
+        "effect": "post_chat_message",
+        "message_content": "Il Mago esegue un piccolo trucco di magia arcana..."
+      }
+    },
+    {
+      "id": "MAGO_F03",
+      "name": "Non Questa Volta",
+      "description": "Spendete 3 Speranze per costringere un avversario fino a distanza Lontana a ripetere un tiro attacco o di danno.",
+      "type": "reaction_reroll",
+      "automation": {
+        "cost": { "resource": "hope", "amount": 3 },
+        "trigger": "enemy_roll_resolved",
+        "condition": { "range": "Lontana" },
+        "effect": {
+          "target": "last_enemy_roll",
+          "operation": "force_reroll"
+        }
+      }
+    },
+    {
+      "id": "MAGO_SUBCLASS_SELECT",
+      "name": "Selezione Sottoclasse",
+      "type": "selection_gate",
+      "options": [
+        {
+          "id": "SUB_SCUOLA_CONOSCENZA",
+          "name": "Scuola della Conoscenza",
+          "description": "Studiosi che comprendono la teoria magica meglio di chiunque altro.",
+          "spellcast_trait": "Conoscenza",
+          "features": [
+            {
+              "id": "CONOSCENZA_F01",
+              "name": "Preparato",
+              "description": "Prendete una carta dominio aggiuntiva del vostro livello o inferiore.",
+              "automation": {
+                "effect": { "target": "max_domain_cards", "operation": "add", "value": 1 }
+              }
+            },
+            {
+              "id": "CONOSCENZA_F02",
+              "name": "Iniziato",
+              "description": "Quando usate un'Esperienza, potete marcare 1 Stress invece di spendere Speranza. Se lo fate, il bonus dell'Esperienza raddoppia (es. diventa +2 o +4).",
+              "automation": {
+                "trigger": "use_experience_toggle",
+                "option": {
+                  "label": "Usa Metodo Iniziato (Stress)",
+                  "cost_override": { "resource": "stress", "amount": 1 },
+                  "modifier_multiplier": 2
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "SUB_SCUOLA_GUERRA",
+          "name": "Scuola della Guerra",
+          "description": "Maghi tattici specializzati nella distruzione sul campo di battaglia.",
+          "spellcast_trait": "Conoscenza",
+          "features": [
+            {
+              "id": "GUERRA_F01",
+              "name": "Magia da Battaglia",
+              "description": "Guadagnate una casella Punti Ferita aggiuntiva.",
+              "automation": {
+                "effect": { "target": "max_hp", "operation": "add", "value": 1 }
+              }
+            },
+            {
+              "id": "GUERRA_F02",
+              "name": "Affronta la Tua Paura",
+              "description": "Quando avete successo con Paura in un tiro attacco, infliggete 1d10 danni magici addizionali.",
+              "automation": {
+                "trigger": "attack_roll_result",
+                "condition": { "result_type": "success_with_fear" },
+                "effect": {
+                  "target": "damage_roll",
+                  "operation": "add_dice",
+                  "die_size": "d10",
+                  "damage_type": "magic"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_ref": "DH_MB_057"
 }
