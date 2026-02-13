@@ -1,17 +1,40 @@
 {
-  "id": "DH_MB_055",
+  "id": "DH_ORIGIN_016",
   "name": "Simiah",
-  "image": "Simiah.jpg",
+  "image": "Simiah",
   "category": "Origine",
-  "sub_category": "Simiah",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": { "evasion": 1 },
-    "advantage": "Tiri Agilità (Equilibrio/Arrampicata)"
-  },
-  "description": "Scalatore Naturale: Avete vantaggio sui Tiri Agilità che riguardano l’equilibrio e l’arrampicata. Scioltezza: Guadagnate bonus +1 permanente all’Evasione alla creazione del personaggio.",
-  "source_ref": "DH_MB_055"
+  "description": "I simiah assomigliano a scimmie o scimmie antropomorfe con arti lunghi e piedi prensili. Sono noti per la loro agilità nel passare dal movimento bipede all'arrampicata.",
+  "features": [
+    {
+      "id": "SIMIAH_F01",
+      "name": "Scalatore Naturale",
+      "description": "Avete vantaggio sui Tiri Agilità che riguardano l’equilibrio e l’arrampicata.",
+      "type": "situational_advantage",
+      "automation": {
+        "trigger": "agility_roll_declared",
+        "condition": {
+          "tags": ["climbing", "balance"]
+        },
+        "effect": {
+          "target": "current_roll",
+          "operation": "add_advantage"
+        }
+      }
+    },
+    {
+      "id": "SIMIAH_F02",
+      "name": "Scioltezza",
+      "description": "Guadagnate bonus +1 permanente all’Evasione alla creazione del personaggio.",
+      "type": "creation_bonus",
+      "automation": {
+        "trigger": "character_creation",
+        "effect": {
+          "target": "base_evasion",
+          "operation": "add",
+          "value": 1
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_072"
 }
