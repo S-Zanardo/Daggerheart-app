@@ -1,146 +1,65 @@
 {
-  "id": "DH_CLASS_003",
+  "id": "DH_CLASS_DRUIDO",
   "name": "Druido",
   "image": "Druido.jpg",
-  "category": "Classe",
-  "description": "I druidi sono i protettori della natura, capaci di trasformarsi in bestie selvagge e di comandare gli elementi o la forza vitale stessa.",
-  "ui_data": {
-    "color_theme": "#2E8B57",
-    "domain_refs": [
-      {
-        "name": "Saggezza",
-        "id": "DOMAIN_SAGE",
-        "image_asset": "Saggezza.png"
-      },
-      {
-        "name": "Arcano",
-        "id": "DOMAIN_ARCANA",
-        "image_asset": "Arcano.png"
-      }
-    ]
-  },
+  "description": "Diventare un druido è più di un’occupazione: è una chiamata per coloro che desiderano imparare e proteggere la magia della natura incontaminata. Attraverso anni di studio e dedizione, i druidi possono imparare a trasformarsi in bestie e a plasmare la natura stessa.",
+  "domains": ["Arcano", "Saggezza"],
   "base_stats": {
-    "starting_evasion": 10,
-    "starting_hp": 6,
-    "starting_stress": 5,
-    "starting_hope": 2
+    "evasion": 10,
+    "hp": 6,
+    "stress": 6
   },
-  "creation_options": {
-    "starting_equipment": {
-      "choices": [
-        "Un piccolo sacchetto di rocce e ossa",
-        "Uno strano ciondolo trovato nella terra"
-      ]
-    }
+  "recommended_traits": {
+    "agilità": 1,
+    "forza": 0,
+    "astuzia": 1,
+    "istinto": 2,
+    "presenza": -1,
+    "conoscenza": 0
   },
-  "features": [
+  "class_features": [
     {
-      "id": "DRUIDO_F01",
       "name": "Forma Bestiale",
-      "description": "Marcate uno Stress per trasformarvi magicamente in una creatura del vostro rango o inferiore. Ottenete i privilegi della bestia, il suo bonus all'Evasione e la sua arma naturale. Non potete lanciare incantesimi da carte dominio mentre trasformati.",
-      "type": "transformation_mode",
+      "description": "Marcate uno Stress per trasformarvi magicamente in una creatura del vostro rango o inferiore. Ottenete i privilegi della bestia e aggiungete il suo bonus di Evasione alla vostra. L'armatura diventa parte del vostro corpo (usate le caselle normalmente). Se subite l'ultimo PF, la forma termina.",
       "automation": {
         "cost": { "resource": "stress", "amount": 1 },
-        "trigger": "active_activation",
         "effect": {
-          "operation": "enable_beastform_mode",
-          "restrictions": {
-            "disable_domain_spells": true,
-            "disable_equipped_weapons": true
-          },
-          "stat_changes": {
-            "evasion": "add_beast_bonus",
-            "weapon": "override_with_beast_weapon"
-          },
-          "input_request": {
-            "type": "select_beast_from_library",
-            "filter": { "max_rank": "character_rank" }
-          }
+          "toggle_state": "beast_form_active",
+          "enable_beast_sheet": true
         }
       }
     },
     {
-      "id": "DRUIDO_F02",
-      "name": "Evoluzione",
-      "description": "Spendete 3 Speranze per trasformarvi in Forma Bestiale senza marcare Stress. Inoltre, aumentate un Tratto di +1 finché la trasformazione è attiva.",
-      "type": "active_buff",
+      "name": "Tocco della Natura",
+      "description": "Potete eseguire a volontà effetti innocui e minori che coinvolgono la natura, come far crescere un fiore o evocare una folata di vento.",
       "automation": {
-        "cost": { "resource": "hope", "amount": 3 },
-        "effect": {
-          "operation": "trigger_feature",
-          "feature_id": "DRUIDO_F01",
-          "cost_override": 0,
-          "additional_effect": {
-            "input_request": {
-              "type": "select_trait",
-              "label": "Scegli Tratto da potenziare (+1)"
-            },
-            "stat_change": {
-              "target": "selected_trait",
-              "value": 1,
-              "duration": "while_transformed"
-            }
-          }
-        }
+        "type": "narrative_effect"
       }
-    },
-    {
-      "id": "DRUIDO_SUBCLASS_SELECT",
-      "name": "Selezione Sottoclasse",
-      "type": "selection_gate",
-      "options": [
-        {
-          "id": "SUB_CUSTODE_ELEMENTI",
-          "name": "Custode degli Elementi",
-          "description": "Incarna la furia degli elementi naturali: Fuoco, Terra, Aria o Acqua.",
-          "spellcast_trait": "Istinto",
-          "features": [
-            {
-              "id": "ELEMENTI_F01",
-              "name": "Incarnazione Elementale",
-              "description": "Marca 1 Stress per incanalare un elemento e ottenere benefici passivi (danni extra, bonus soglie, movimento).",
-              "automation": {
-                "cost": "1_stress",
-                "effect": "select_elemental_buff_mode"
-              }
-            }
-          ]
-        },
-        {
-          "id": "SUB_CUSTODE_RINNOVAMENTO",
-          "name": "Custode del Rinnovamento",
-          "description": "Un guaritore che preserva il ciclo della vita.",
-          "spellcast_trait": "Istinto",
-          "features": [
-            {
-              "id": "RINNOVAMENTO_F01",
-              "name": "Rigenerazione",
-              "description": "Tocca una creatura e spendi 3 Speranze per farle recuperare 1d4 Punti Ferita.",
-              "automation": {
-                "cost": { "resource": "hope", "amount": 3 },
-                "target": "touch_ally",
-                "effect": { "heal_hp": "1d4" }
-              }
-            },
-            {
-              "id": "RINNOVAMENTO_F02",
-              "name": "Illuminazione della Natura",
-              "description": "Una volta per riposo lungo, crea un'area di riposo. Rimuovi Stress totale pari al tuo Istinto diviso tra gli alleati.",
-              "automation": {
-                "frequency": "long_rest",
-                "effect": {
-                  "pool_healing": {
-                    "resource": "stress",
-                    "amount_source": "instinct_trait",
-                    "distribution": "split_among_party"
-                  }
-                }
-              }
-            }
-          ]
-        }
-      ]
     }
   ],
-  "source_ref": "DH_MB_051"
+  "hope_feature": {
+    "name": "Evoluzione",
+    "cost": 3,
+    "description": "Trasformatevi in Forma Bestiale senza marcare Stress. Quando lo fate, aumentate un tratto di +1 finché non annullate la Forma Bestiale."
+  },
+  "subclasses_overview": [
+    {
+      "name": "Custode degli Elementi",
+      "description": "Scegliete il Custode degli Elementi se volete incarnare gli elementi primigeni della natura.",
+      "related_id": "DH_SUBCLASS_CUSTODE_ELEMENTI"
+    },
+    {
+      "name": "Custode del Rinnovamento",
+      "description": "Scegliete il Custode del Rinnovamento se volete evocare potenti magie per curare i vostri compagni.",
+      "related_id": "DH_SUBCLASS_CUSTODE_RINNOVAMENTO"
+    }
+  ],
+  "starting_items": [
+    "Torcia",
+    "Corda (16m)",
+    "Provviste di base",
+    "Manciata d'oro",
+    "Pozione di Guarigione Minore o Pozione di Recupero Minore",
+    "Borsa piena di pietruzze e ossicini o Strano pendente scovato nella sporcizia"
+  ]
 }
