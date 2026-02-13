@@ -1,20 +1,22 @@
 {
-  "id": "DH_MB_038",
+  "id": "DH_CARD_POTERE_ELEMENTALE_SPEC",
   "name": "Potere Elementale-Specializzazione",
-  "class": "Stregone",
   "image": "Potere Elementale-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Potere Elementale",
-  "class_restriction": "Stregone",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": "1 Stress",
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Scudo della Natura",
-    "trigger": "Un tiro attacco contro di voi ha successo",
-    "effect": "Tirare un d6 e aggiungere il risultato alla propria Evasione contro l'attacco."
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_POTERE_ELEMENTALE",
+  "parent_class": "Stregone",
+  "level_unlock": 5,
+  "description": "Scudo della Natura: Potete invocare il vostro elemento per proteggervi dai danni. Quando un tiro attacco contro di voi ha successo, potete marcare uno Stress e descrivere come usate il vostro elemento per difendervi. Quando lo fate, tirate un d6 e aggiungete il risultato alla vostra Evasione contro l’attacco (potenzialmente trasformando il colpo in un fallimento).",
+  "automation": {
+    "reaction": {
+      "trigger": "incoming_attack_hit",
+      "cost": { "resource": "stress", "amount": 1 },
+      "effect": {
+        "roll": "1d6",
+        "target": "evasion",
+        "operation": "add_temporary_to_incoming_attack"
+      }
+    }
   },
-  "description": "Scudo della Natura: Potete invocare il vostro elemento per proteggervi dai danni. Quando un tiro attacco contro di voi ha successo, potete marcare uno Stress e descrivere come usate il vostro elemento per difendervi. Quando lo fate, tirate un d6 e aggiungete il risultato alla vostra Evasione contro l’attacco.",
-  "source_ref": "DH_MB_038"
+  "source_ref": "DH_MB_039"
 }
