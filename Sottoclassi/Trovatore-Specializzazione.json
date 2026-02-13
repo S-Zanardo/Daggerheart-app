@@ -1,18 +1,24 @@
 {
-  "id": "DH_MB_002",
+  "id": "DH_CARD_TROVATORE_SPEC",
   "name": "Trovatore-Specializzazione",
   "image": "Trovatore-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Trovatore",
-  "class_restriction": "Bardo",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "trigger": "Assegnare Dado A Raccolta",
-    "effect": "Alleato guadagna 1 Speranza o rimuove 1 Stress"
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_TROVATORE",
+  "parent_class": "Bardo",
+  "level_unlock": 5,
   "description": "Maestro: Le vostre canzoni accendono il coraggio di chi le ascolta. Quando assegnate un Dado A Raccolta a un alleato, questo può guadagnare una Speranza o rimuovere uno Stress.",
-  "source_ref": "DH_MB_002"
+  "automation": {
+    "trigger_event": {
+      "trigger": "grant_rally_die",
+      "effect": {
+        "target": "ally_receiving_die",
+        "prompt": "Scegli un bonus aggiuntivo",
+        "options": [
+          { "label": "Guadagna 1 Speranza", "effect": { "resource": "hope", "add": 1 } },
+          { "label": "Rimuovi 1 Stress", "effect": { "resource": "stress", "heal": 1 } }
+        ]
+      }
+    }
+  },
+  "source_ref": "DH_CS_002"
 }
