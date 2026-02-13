@@ -1,0 +1,19 @@
+{
+  "id": "DH_MB_015",
+  "name": "Vendicatore-Privilegio Base",
+  "image": "Vendicatore-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Vendicatore",
+  "class_restriction": "Guardiano",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "2 Stress (Trigger)",
+  "range": "Mischia",
+  "mechanics": {
+    "passive_bonus": "Guadagnate uno Stress aggiuntivo (A Suo Agio)",
+    "trigger": "Avversario in Mischia sferra attacco contro di voi (Vendetta)",
+    "effect": "Marcare 2 Stress per costringere l'attaccante a subire 1 Punto Ferita"
+  },
+  "description": "A Suo Agio: Guadagnate uno Stress aggiuntivo. Vendetta: Quando un avversario in Mischia riesce a sferrare un attacco contro di voi, potete marcare 2 Stress per costringere l’attaccante a subire un Punto Ferita.",
+  "source_ref": "DH_MB_015"
+}
