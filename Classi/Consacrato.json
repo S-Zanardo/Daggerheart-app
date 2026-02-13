@@ -1,113 +1,55 @@
 {
-  "id": "DH_CLASS_002",
+  "id": "DH_CLASS_CONSACRATO",
   "name": "Consacrato",
   "image": "Consacrato.jpg",
-  "category": "Classe",
-  "description": "I consacrati sono i guardiani divini, capaci di invocare il potere sacro per proteggere gli alleati e punire i malvagi.",
-  "ui_data": {
-    "color_theme": "#D4AF37",
-    "domain_refs": [
-      {
-        "name": "Splendore",
-        "id": "DOMAIN_SPLENDOR",
-        "image_asset": "Splendore.png"
-      },
-      {
-        "name": "Valore",
-        "id": "DOMAIN_VALOR",
-        "image_asset": "Valore.png"
-      }
-    ]
-  },
+  "description": "I consacrati sono combattenti e guaritori divini, dotati di uno scopo sacro. Nei regni esistono molte divinità, che fungono da patrono per diversi ordini di consacrati. La loro etica si allinea tradizionalmente con il dominio o gli obiettivi di tale dio, come la difesa dei deboli, la vendetta o la protezione di una terra.",
+  "domains": ["Splendore", "Valore"],
   "base_stats": {
-    "starting_evasion": 9,
-    "starting_hp": 7,
-    "starting_stress": 5,
-    "starting_hope": 2
+    "evasion": 9,
+    "hp": 7,
+    "stress": 6
   },
-  "creation_options": {
-    "starting_equipment": {
-      "choices": [
-        "Un simbolo sacro consumato",
-        "Una sciarpa cerimoniale"
-      ]
+  "recommended_traits": {
+    "agilità": 0,
+    "forza": 2,
+    "astuzia": 0,
+    "istinto": 1,
+    "presenza": 1,
+    "conoscenza": -1
+  },
+  "class_feature": {
+    "name": "Dado Preghiera",
+    "description": "All’inizio di ogni sessione, tirate un numero di d4 pari al tratto da Incantatore della vostra sottoclasse. Questi sono i vostri Dadi Preghiera. Potete spendere un numero qualsiasi di Dadi Preghiera per aiutare voi stessi o un alleato entro distanza Lontana. Il valore di un dado speso può ridurre i danni in arrivo, essere aggiunto a un tiro dopo che è stato effettuato o far guadagnare Speranza pari al risultato.",
+    "automation": {
+      "trigger": "session_start",
+      "effect": "roll_prayer_dice_pool",
+      "die_size": "d4",
+      "count_source": "spellcast_trait"
     }
   },
-  "features": [
+  "hope_feature": {
+    "name": "Proteggere la Vita",
+    "cost": 3,
+    "description": "Annullare la perdita di un Punto Ferita di un alleato entro distanza Ravvicinata."
+  },
+  "subclasses_overview": [
     {
-      "id": "CONSACRATO_F01",
-      "name": "Dado Preghiera",
-      "description": "All'inizio della sessione, tirate un numero di d4 pari al vostro Tratto da Incantatore. Conservate i dadi nella vostra riserva. Potete spendere un dado per: ridurre i danni in arrivo (su di voi o alleato Lontano), aggiungere il valore a un tiro dopo averlo effettuato, o guadagnare Speranza pari al valore.",
-      "type": "resource_pool_rolling",
-      "automation": {
-        "trigger": "session_start",
-        "roll_source": "subclass_spellcast_trait",
-        "die_size": "d4",
-        "effect": {
-          "operation": "populate_die_pool",
-          "pool_id": "prayer_dice_pool"
-        },
-        "usage_mechanic": {
-          "cost": { "pool": "prayer_dice_pool", "amount": 1, "select_specific_value": true },
-          "options": [
-            { "label": "Riduci Danno", "effect": "reduce_incoming_damage_by_value" },
-            { "label": "Aggiungi al Tiro", "effect": "add_value_to_result" },
-            { "label": "Recupera Speranza", "effect": "gain_hope_by_value" }
-          ]
-        }
-      }
+      "name": "Emissario Divino",
+      "description": "Scegliete l’Emissario Divino se volete dominare il campo di battaglia con un’arma benedetta.",
+      "related_id": "DH_SUBCLASS_EMISSARIO_DIVINO"
     },
     {
-      "id": "CONSACRATO_F02",
-      "name": "Proteggere la Vita",
-      "description": "Spendete 3 Speranze per annullare la perdita di un Punto Ferita di un alleato entro distanza Ravvicinata.",
-      "type": "reaction_prevention",
-      "automation": {
-        "cost": { "resource": "hope", "amount": 3 },
-        "trigger": "ally_takes_damage",
-        "condition": { "range": "Ravvicinata" },
-        "effect": {
-          "target": "ally",
-          "operation": "negate_hp_loss",
-          "value": 1
-        }
-      }
-    },
-    {
-      "id": "CONSACRATO_SUBCLASS_SELECT",
-      "name": "Selezione Sottoclasse",
-      "type": "selection_gate",
-      "options": [
-        {
-          "id": "SUB_EMISSARIO",
-          "name": "Emissario Divino",
-          "description": "Un guerriero sacro che incanala la forza divina attraverso le armi.",
-          "spellcast_trait": "Forza",
-          "features": [
-            {
-              "id": "EMISSARIO_F01",
-              "name": "Arma Animata",
-              "description": "La tua arma fluttua e colpisce a distanza Lontana usando la Forza.",
-              "automation": { "toggle": true, "effect": "override_weapon_range_far_trait_strength" }
-            }
-          ]
-        },
-        {
-          "id": "SUB_SENTINELLA",
-          "name": "Sentinella Alata",
-          "description": "Un protettore celeste dotato di ali e grande mobilità.",
-          "spellcast_trait": "Agilità",
-          "features": [
-            {
-              "id": "SENTINELLA_F01",
-              "name": "Ali",
-              "description": "Puoi volare. Segna 1 Stress per volare fino a Lontano.",
-              "automation": { "cost": "1_stress", "effect": "fly_movement" }
-            }
-          ]
-        }
-      ]
+      "name": "Sentinella Alata",
+      "description": "Giocate con la Sentinella Alata se volete spiccare il volo e sferrare colpi devastanti dal cielo.",
+      "related_id": "DH_SUBCLASS_SENTINELLA_ALATA"
     }
   ],
-  "source_ref": "DH_MB_030"
+  "starting_items": [
+    "Torcia",
+    "Corda (16m)",
+    "Provviste di base",
+    "Manciata d'oro",
+    "Pozione di Guarigione Minore o Pozione di Recupero Minore",
+    "Raccolta di offerte o Simbolo sacro"
+  ]
 }
