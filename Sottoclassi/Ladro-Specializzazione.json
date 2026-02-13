@@ -1,25 +1,37 @@
 {
-  "id": "DH_MB_028",
+  "id": "DH_CARD_LADRO_SPEC",
   "name": "Ladro-Specializzazione",
-  "class": "Fuorilegge",
   "image": "Ladro-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Ladro",
-  "class_restriction": "Fuorilegge",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Variabile",
-  "mechanics": {
-    "feature": "Amici Ovunque",
-    "frequency": "1 volta per sessione",
-    "effect": "Chiamare aiuto da un contatto.",
-    "options": [
-      "Oro o oggetto/strumento comune",
-      "+3 al risultato di un tiro Speranza o Paura",
-      "Attacco furtivo a distanza (+2d8 danni)"
-    ]
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_LADRO",
+  "parent_class": "Fuorilegge",
+  "level_unlock": 5,
+  "description": "Amici Ovunque: Una volta per sessione, è possibile chiamare brevemente in aiuto un contatto dalla dubbia fama. Scegliete uno dei seguenti benefici: 1) Vi fornisce 1 manciata d’oro o uno strumento/oggetto necessario. 2) Al prossimo tiro azione, concede bonus +3 al risultato del Dado Speranza o Paura. 3) La prossima volta che infliggete un danno, attaccherà a distanza lo stesso bersaglio da una posizione nascosta, aggiungendo 2d8 al vostro tiro per i danni.",
+  "automation": {
+    "resource": {
+      "id": "friends_usage",
+      "max": 1,
+      "reset": "session"
+    },
+    "feature": {
+      "name": "Amici Ovunque",
+      "cost": { "resource": "friends_usage", "amount": 1 },
+      "options": [
+        {
+          "label": "Risorse",
+          "effect": { "add_gold": "1_handful", "or_add_item": "tool" }
+        },
+        {
+          "label": "Aiuto all'Azione",
+          "effect": { "target": "next_roll_result", "operation": "add", "value": 3 }
+        },
+        {
+          "label": "Cecchino Nascosto",
+          "trigger": "next_damage_deal",
+          "effect": { "operation": "add_damage_dice", "value": "2d8" }
+        }
+      ]
+    }
   },
-  "description": "Amici Ovunque: Una volta per sessione, è possibile chiamare brevemente in aiuto un contatto dalla dubbia fama. Scegliete uno dei seguenti benefici e descrivete cosa lo spinga ad aiutarvi in questo momento:\n• Vi fornisce 1 manciata d’oro, uno strumento unico o un oggetto normale che la situazione richiede.\n• Al prossimo tiro azione, il suo aiuto concede bonus +3 al risultato del Dado Speranza o Paura.\n• La prossima volta che infliggete un danno, attaccherà a distanza lo stesso bersaglio da una posizione nascosta, aggiungendo 2d8 al vostro tiro per i danni.",
-  "source_ref": "DH_MB_028"
+  "source_ref": "DH_CS_028"
 }
