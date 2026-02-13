@@ -1,23 +1,29 @@
 {
-  "id": "DH_MB_029",
+  "id": "DH_CARD_LADRO_MASTERY",
   "name": "Ladro-Maestria",
-  "class": "Fuorilegge",
   "image": "Ladro-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Ladro",
-  "class_restriction": "Fuorilegge",
-  "type": "Maestria",
-  "level": 8,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Supporto Fidato",
-    "effect": "Aumenta utilizzi 'Amici Ovunque' a 3 volte per sessione e aggiunge nuove opzioni.",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_LADRO",
+  "parent_class": "Fuorilegge",
+  "level_unlock": 8,
+  "description": "Supporto Fidato: Potete utilizzare il privilegio “Amici Ovunque” tre volte per sessione. Si aggiungono opzioni all'elenco: 4) Quando subite 1 o più Punti Ferita, può accorrere per proteggervi, riducendo di 1 i Punti Ferita subiti. 5) Quando effettuate un Tiro Presenza in una conversazione, vi sostiene; potete tirare un d20 come Dado Speranza.",
+  "automation": {
+    "passive_upgrade": {
+      "target_resource": "friends_usage",
+      "new_max": 3
+    },
     "new_options": [
-      "Riduzione danno (-1 PF subito)",
-      "Supporto sociale (d20 come Dado Speranza)"
+      {
+        "label": "Scudo Umano",
+        "trigger": "incoming_hp_damage",
+        "effect": { "reduce_hp_damage": 1 }
+      },
+      {
+        "label": "Supporto Sociale",
+        "trigger": "presence_roll",
+        "effect": { "replace_hope_die": "d20" }
+      }
     ]
   },
-  "description": "Supporto Fidato: Potete utilizzare il privilegio “Amici Ovunque” tre volte per sessione. Le seguenti opzioni si aggiungono all’elenco dei benefici che potete scegliere quando utilizzate questo privilegio:\n• Quando subite 1 o più Punti Ferita, può accorrere per proteggervi, riducendo di 1 i Punti Ferita subiti.\n• Quando effettuate un Tiro Presenza in una conversazione, vi sostiene. Potete tirare un d20 come Dado Speranza.",
-  "source_ref": "DH_MB_029"
+  "source_ref": "DH_CS_029"
 }
