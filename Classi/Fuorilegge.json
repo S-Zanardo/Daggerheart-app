@@ -1,0 +1,43 @@
+{
+  "id": "DH_DEF_Fuorilegge",
+  "class_name": "Fuorilegge",
+  "category": "Definizione Classe",
+  "domains": [
+    "Mezzanotte",
+    "Grazia"
+  ],
+  "stats": {
+    "starting_evasion": 12,
+    "starting_hp": 6,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": 2,
+      "Forza": -1,
+      "Astuzia": 1,
+      "Istinto": 0,
+      "Presenza": 1,
+      "Conoscenza": 0
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ],
+    "unique_choice": [
+      "Un set di strumenti di contraffazione",
+      "Un rampino"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Ammantato & Attacco Furtivo",
+    "description": "Ammantato: Sostituisce la condizione Nascosto. Quando siete Ammantati, rimanete invisibili se siete fermi quando un avversario si sposta dove normalmente vi vedrebbe. La condizione termina se vi spostate entro la linea di vista di un avversario o effettuate un attacco. Attacco Furtivo: Quando colpite con un attacco mentre siete Ammantati, OPPURE mentre un alleato si trova a distanza di Mischia dal bersaglio, aggiungete al tiro per i danni un numero di d6 pari al vostro Rango."
+  },
+  "source_ref": "DH_Schede_Fuorilegge"
+}
