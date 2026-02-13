@@ -1,0 +1,19 @@
+{
+  "id": "DH_MB_019",
+  "name": "Ferale-Specializzazione",
+  "image": "Ferale-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Ferale",
+  "class_restriction": "Ranger",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": null,
+  "range": "Mischia",
+  "mechanics": {
+    "passive_bonus": "Opzione di livello compagno extra (Addestramento Intensivo)",
+    "trigger": "Avversario vi attacca mentre è in Mischia col compagno",
+    "effect": "+2 Evasione contro l'attacco"
+  },
+  "description": "Addestramento Intensivo: Scegliete un’ulteriore opzione di aumento di livello per il vostro compagno. Uniti nella Battaglia: Quando un avversario vi attacca mentre si trova in Mischia con il vostro compagno, guadagnate bonus +2 alla vostra Evasione contro l’attacco.",
+  "source_ref": "DH_MB_019"
+}
