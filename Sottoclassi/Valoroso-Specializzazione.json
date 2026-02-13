@@ -1,0 +1,19 @@
+{
+  "id": "DH_MB_013",
+  "name": "Valoroso-Specializzazione",
+  "image": "Valoroso-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Valoroso",
+  "class_restriction": "Guardiano",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": null,
+  "range": "Ravvicinata",
+  "mechanics": {
+    "passive_bonus": "+2 soglie di danno (Implacabile)",
+    "trigger": "Alleato entro Ravvicinata subisce danni (Compagni d'Arme)",
+    "effect": "Marcare una Casella Armatura per ridurre la gravità del danno subito dall'alleato di una soglia"
+  },
+  "description": "Implacabile: Guadagnate bonus +2 permanente alle soglie di danno. Compagni d’Arme: Quando un alleato entro distanza Ravvicinata subisce danni, potete marcare una Casella Armatura per ridurne la gravità di una soglia.",
+  "source_ref": "DH_MB_013"
+}
