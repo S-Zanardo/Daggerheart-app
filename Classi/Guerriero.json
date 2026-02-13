@@ -1,43 +1,106 @@
 {
-  "id": "DH_DEF_Guerriero",
-  "class_name": "Guerriero",
-  "category": "Definizione Classe",
-  "domains": [
-    "Lame",
-    "Ossa"
-  ],
-  "stats": {
-    "starting_evasion": 11,
-    "starting_hp": 6,
-    "starting_stress": 6,
-    "recommended_stats": {
-      "Agilità": 2,
-      "Forza": 1,
-      "Astuzia": 0,
-      "Istinto": 1,
-      "Presenza": -1,
-      "Conoscenza": 0
-    }
-  },
-  "starting_items": {
-    "standard_kit": [
-      "Una torcia",
-      "16 metri di corda",
-      "Provviste di base",
-      "Una manciata d'oro"
-    ],
-    "potion_choice": [
-      "Pozione di Guarigione Minore",
-      "Pozione di Recupero Minore"
-    ],
-    "unique_choice": [
-      "Il ritratto di chi amate",
-      "Una cote per affilare"
+  "id": "DH_CLASS_006",
+  "name": "Guerriero",
+  "image": "Guerriero.jpg",
+  "category": "Classe",
+  "description": "I guerrieri sono maestri della guerra, addestrati per dominare il campo di battaglia con la forza bruta e la tattica.",
+  "ui_data": {
+    "color_theme": "#8B0000",
+    "domain_refs": [
+      {
+        "name": "Lame",
+        "id": "DOMAIN_BLADES",
+        "image_asset": "Lame.png"
+      },
+      {
+        "name": "Ossa",
+        "id": "DOMAIN_BONE",
+        "image_asset": "Ossa.png"
+      }
     ]
   },
-  "class_mechanic": {
-    "name": "Attacco di Opportunità",
-    "description": "Se un avversario entro distanza di Mischia tenta di uscirne, effettuate un tiro di reazione usando un tratto a vostra scelta contro la sua Difficoltà. Scegliete un effetto: in caso di successo, infliggete i danni della vostra arma. In caso di successo critico, infliggete i danni della vostra arma e l'avversario non si muove."
+  "base_stats": {
+    "starting_evasion": 9,
+    "starting_hp": 7,
+    "starting_stress": 5,
+    "starting_hope": 2
   },
-  "source_ref": "DH_Schede_Guerriero"
+  "creation_options": {
+    "starting_equipment": {
+      "choices": [
+        "Un'arma con una storia sanguinosa",
+        "Un pezzo di stendardo di una vecchia guerra"
+      ]
+    }
+  },
+  "features": [
+    {
+      "id": "GUERRIERO_F01",
+      "name": "Addestrato al Combattimento",
+      "description": "Quando effettuate un tiro per i danni, potete marcare uno Stress per aggiungere un bonus ai danni totali (solitamente pari alla vostra Competenza o un valore fisso).",
+      "type": "damage_boost",
+      "automation": {
+        "trigger": "damage_roll_declared",
+        "cost": { "resource": "stress", "amount": 1 },
+        "effect": {
+          "target": "damage_result",
+          "operation": "add_modifier",
+          "value_source": "proficiency"
+        }
+      }
+    },
+    {
+      "id": "GUERRIERO_F02",
+      "name": "Carica",
+      "description": "Spendete 3 Speranze per muovervi fino a distanza Lontana e sferrare un attacco con Vantaggio.",
+      "type": "active_action",
+      "automation": {
+        "cost": { "resource": "hope", "amount": 3 },
+        "effect": {
+          "movement": "move_far",
+          "attack": { "advantage": true }
+        }
+      }
+    },
+    {
+      "id": "GUERRIERO_SUBCLASS_SELECT",
+      "name": "Selezione Sottoclasse",
+      "type": "selection_gate",
+      "options": [
+        {
+          "id": "SUB_MASSACRATORE",
+          "name": "Massacratore",
+          "description": "Una forza inarrestabile che si lascia dietro una scia di distruzione.",
+          "features": [
+            {
+              "id": "MASSACRATORE_F01",
+              "name": "Furia Sanguinaria",
+              "description": "Quando riduci un nemico a 0 PF, ottieni un'azione gratuita o recuperi Stress.",
+              "automation": {
+                "trigger": "enemy_killed",
+                "effect": "prompt_action_or_heal_stress"
+              }
+            }
+          ]
+        },
+        {
+          "id": "SUB_STRATEGA",
+          "name": "Stratega",
+          "description": "Un esperto di tattica che controlla il flusso della battaglia.",
+          "features": [
+            {
+              "id": "STRATEGA_F01",
+              "name": "Piano di Battaglia",
+              "description": "All'inizio del combattimento, concedi un bonus all'Evasione o al Danno a un alleato.",
+              "automation": {
+                "trigger": "combat_start",
+                "effect": "grant_buff_to_ally"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_ref": "DH_MB_209"
 }
