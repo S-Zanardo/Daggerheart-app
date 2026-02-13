@@ -1,0 +1,24 @@
+{
+  "id": "DH_MB_024",
+  "name": "Ombra Notturna-Privilegio Base",
+  "class": "Fuorilegge",
+  "image": "Ombra Notturna-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Ombra Notturna",
+  "class_restriction": "Fuorilegge",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "1 Stress",
+  "range": "Lontana",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Astuzia",
+    "action": {
+      "name": "Passo d'Ombra",
+      "trigger": "Spostarsi in un'area di oscurità o ombra",
+      "cost": "1 Stress",
+      "effect": "Teletrasporto in un'altra ombra entro distanza Lontana. Diventate Ammantati."
+    }
+  },
+  "description": "Passo d’Ombra: Potete spostarvi da un’ombra a un’altra. Quando vi spostate in un’area di oscurità o nell’ombra proiettata da un’altra creatura o da un oggetto, potete marcare uno Stress per scomparire dal luogo in cui vi trovate e riapparire all’interno di un’altra ombra entro distanza Lontana. Quando riapparite, siete Ammantati.",
+  "source_ref": "DH_MB_024"
+}
