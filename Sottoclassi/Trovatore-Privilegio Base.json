@@ -1,0 +1,26 @@
+{
+  "id": "DH_MB_001",
+  "name": "Trovatore-Privilegio Base",
+  "image": "Trovatore-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Trovatore",
+  "class_restriction": "Bardo",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "1 Riposo Lungo (per canzone)",
+  "range": "Ravvicinata",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Presenza",
+    "action": {
+      "name": "Musico Eccezionale",
+      "effect": "Eseguire una canzone (una volta ciascuna per riposo lungo)",
+      "options": [
+        "Canzone Popolare: Voi e alleati recuperate 1 PF",
+        "Canto Epico: Bersaglio diventa Vulnerabile",
+        "Ballata: Voi e alleati guadagnate 1 Speranza"
+      ]
+    }
+  },
+  "description": "Musico Eccezionale: Descrivete il modo in cui vi esibite per gli altri. È possibile eseguire ogni canzone una sola volta per riposo lungo:\nCanzone Popolare: Voi e tutti gli alleati a distanza Ravvicinata recuperate un Punto Ferita.\nCanto Epico: Rendete temporaneamente Vulnerabile un bersaglio a distanza Ravvicinata.\nBallata: Voi e tutti gli alleati a distanza Ravvicinata guadagnate una Speranza.",
+  "source_ref": "DH_MB_001"
+}
