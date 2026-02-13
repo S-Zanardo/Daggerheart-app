@@ -1,0 +1,44 @@
+{
+  "id": "DH_DEF_Guardiano",
+  "class_name": "Guardiano",
+  "category": "Definizione Classe",
+  "domains": [
+    "Valore",
+    "Lame"
+  ],
+  "stats": {
+    "starting_evasion": 9,
+    "starting_hp": 7,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": 1,
+      "Forza": 2,
+      "Astuzia": -1,
+      "Istinto": 0,
+      "Presenza": 1,
+      "Conoscenza": 0
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ],
+    "unique_choice": [
+      "Un ricordo del vostro mentore",
+      "Una chiave misteriosa"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Inarrestabile",
+    "description": "Una volta per riposo lungo, potete diventare Inarrestabili guadagnando un Dado Inarrestabile (d4 al livello 1). Posizionatelo sulla scheda iniziando con il valore 1. Dopo aver inflitto 1 o più Punti Ferita a un bersaglio, aumentate di uno il valore del dado. Quando siete Inarrestabili, potete aggiungere il valore attuale del dado ai vostri tiri per i danni OPPURE sottrarre quel valore dai danni che state per subire (riducendo il valore del dado di 1 dopo l'uso). Quando il dado supera il valore massimo o la scena finisce, rimuovetelo.",
+    "progression": "Al livello 5, il Dado Inarrestabile diventa un d6."
+  },
+  "source_ref": "DH_Schede_Guardiano"
+}
