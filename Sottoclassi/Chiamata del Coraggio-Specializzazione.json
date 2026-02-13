@@ -1,20 +1,21 @@
 {
-  "id": "DH_CARD_CUSTODE_ELEMENTI_SPEC",
-  "name": "Custode degli Elementi-Specializzazione",
-  "image": "Custode degli Elementi-Specializzazione.jpg",
+  "id": "DH_CARD_CHIAMATA_CORAGGIO_SPEC",
+  "name": "Chiamata del Coraggio-Specializzazione",
+  "image": "Chiamata del Coraggio-Specializzazione.jpg",
   "category": "Privilegio Sottoclasse",
-  "parent_subclass_id": "DH_SUBCLASS_CUSTODE_ELEMENTI",
-  "parent_class": "Druido",
+  "parent_subclass_id": "DH_SUBCLASS_CHIAMATA_CORAGGIO",
+  "parent_class": "Guardiano",
   "level_unlock": 5,
-  "description": "Aura Elementale: Una volta per riposo, mentre Incanalate, potete ammantarvi di un'aura. Fuoco: Quando un avversario subisce 1 o più PF da voi, marca 1 Stress. Terra: Gli alleati entro distanza Ravvicinata ottengono +1 alla Forza. Acqua: Quando venite colpiti, marcate 1 Stress per spostare l'attaccante a distanza Prossima. Aria: Riducete i danni degli attacchi a distanza (non-Mischia) di 1d8.",
+  "description": "Raccogliere la Sfida: Siete vigili di fronte al pericolo crescente. Quando avete 2 o meno Punti Ferita, potete tirare un d20 come Dado Speranza (sostituendo il d12 standard per i tiri azione/reazione).",
   "automation": {
-    "condition": "is_channeling",
-    "modes_upgrade": {
-      "Fuoco": { "trigger": "deal_hp_damage", "effect": { "target": "enemy", "resource": "stress", "add": 1 } },
-      "Terra": { "aura": "close", "target": "allies", "buff": { "stat": "strength", "value": 1 } },
-      "Acqua": { "trigger": "hit_by_enemy", "cost": "1_stress", "effect": "move_attacker_close" },
-      "Aria": { "trigger": "incoming_ranged_damage", "effect": { "reduce_damage": "1d8" } }
+    "passive_bonus": {
+      "condition": "hp_current <= 2",
+      "effect": {
+        "target": "hope_die",
+        "operation": "replace_die",
+        "new_die": "d20"
+      }
     }
   },
-  "source_ref": "DH_MB_033"
+  "source_ref": "DH_CS_044"
 }
