@@ -1,21 +1,25 @@
 {
-  "id": "DH_MB_052",
+  "id": "DH_CARD_SCUOLA_GUERRA_SPEC",
   "name": "Scuola della Guerra-Specializzazione",
-  "class": "Mago",
   "image": "Scuola della Guerra-Specializzazione.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Scuola della Guerra",
-  "class_restriction": "Mago",
-  "type": "Specializzazione",
-  "level": 5,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "feature": "Evoca Scudo",
-    "condition": "Avere almeno 2 Speranze",
-    "effect": "Aggiungere la propria Competenza all'Evasione.",
-    "upgrade": "Il danno di 'Affronta la Tua Paura' aumenta a 2d10 (Alimentato dalla Paura)."
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_SCUOLA_GUERRA",
+  "parent_class": "Mago",
+  "level_unlock": 5,
   "description": "Evoca Scudo: Potete evocare una barriera protettiva di magia. Finché avete almeno 2 Speranze, aggiungete la vostra Competenza alla vostra Evasione. Alimentato dalla Paura: Il danno magico addizionale della caratteristica “Affronta la Tua Paura” aumenta a 2d10.",
+  "automation": {
+    "passive_conditional": {
+      "condition": "hope >= 2",
+      "effect": {
+        "target": "evasion",
+        "operation": "add",
+        "value_source": "proficiency"
+      }
+    },
+    "variable_override": {
+      "target_variable": "fear_damage_die",
+      "new_value": "2d10"
+    }
+  },
   "source_ref": "DH_MB_052"
 }
