@@ -1,20 +1,27 @@
 {
-  "id": "DH_MB_011",
+  "id": "DH_CARD_RINNOVAMENTO_MASTERY",
   "name": "Custode del Rinnovamento-Maestria",
-  "class": "Druido",
   "image": "Custode del Rinnovamento-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Custode del Rinnovamento",
-  "class_restriction": "Druido",
-  "type": "Maestria",
-  "level": 8,
-  "cost": "1 Stress",
-  "range": "Ravvicinata",
-  "mechanics": {
-    "condition": "In Forma Bestiale",
-    "trigger": "Alleato entro Ravvicinata subisce 2+ PF",
-    "effect": "Marca 1 Stress per ridurre danno di 1 PF"
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_CUSTODE_RINNOVAMENTO",
+  "parent_class": "Druido",
+  "level_unlock": 8,
   "description": "Difensore: La vostra trasformazione animale incarna uno spirito protettore della guarigione e del rinnovamento. Quando siete in Forma Bestiale e un alleato entro distanza Ravvicinata subisce 2 o più Punti Ferita, potete marcare uno Stress per ridurre di 1 il numero di Punti Ferita subiti.",
+  "automation": {
+    "reaction": {
+      "trigger": "ally_takes_damage",
+      "condition": {
+        "self_state": "beastform_active",
+        "ally_range": "Ravvicinata",
+        "min_damage": 2
+      },
+      "cost": { "resource": "stress", "amount": 1 },
+      "effect": {
+        "target": "ally",
+        "operation": "reduce_incoming_damage_hp",
+        "value": 1
+      }
+    }
+  },
   "source_ref": "DH_MB_011"
 }
