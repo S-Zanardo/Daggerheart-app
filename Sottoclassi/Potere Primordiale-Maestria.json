@@ -1,0 +1,22 @@
+{
+  "id": "DH_MB_041",
+  "name": "Potere Primordiale-Maestria",
+  "class": "Stregone",
+  "image": "Potere Primordiale-Maestria.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Potere Primordiale",
+  "class_restriction": "Stregone",
+  "type": "Maestria",
+  "level": 8,
+  "cost": "Variabile (vedi descrizione)",
+  "range": "Personale",
+  "mechanics": {
+    "feature": "Infusione Arcana",
+    "trigger_gain": "Subire danno magico OPPURE spendere 2 Speranze",
+    "condition": "Diventare Infusi (fino al riposo lungo)",
+    "trigger_release": "Attacco con danni magici riuscito",
+    "effect": "Rilasciare Infusione per +10 danni o +3 Difficoltà al tiro reazione avversario."
+  },
+  "description": "Infusione Arcana: Potete raccogliere energia magica per potenziare le vostre capacità. Quando subite un danno magico, diventate Infusi. In alternativa, potete spendere 2 Speranze per diventare Infusi. Quando effettuate con successo un attacco che infligge danni magici mentre siete Infusi, potete rilasciare tale condizione per ottenere bonus +10 al tiro di danno o bonus +3 alla Difficoltà del tiro reazione che il bersaglio deve superare per contrastare l’incantesimo. La condizione di Infusione si interrompe al prossimo riposo lungo.",
+  "source_ref": "DH_MB_041"
+}
