@@ -1,0 +1,53 @@
+{
+  "id": "DH_ORIGIN_018",
+  "name": "Nano",
+  "image": "Nano",
+  "category": "Origine",
+  "description": "I nani sono umanoidi di bassa statura con ossatura quadrata, muscolatura densa e folto pelo corporeo. La loro pelle e le unghie contengono elevata cheratina, rendendoli naturalmente resistenti e adatti a decorazioni corporee permanenti come gemme incastonate.",
+  "features": [
+    {
+      "id": "NANO_F01",
+      "name": "Pelle Dura",
+      "description": "Quando subite un danno Minore, potete marcare 2 Stress invece di subire un Punto Ferita.",
+      "type": "damage_conversion",
+      "automation": {
+        "trigger": "incoming_damage_resolved",
+        "condition": {
+          "severity": "minor"
+        },
+        "cost": {
+          "resource": "stress",
+          "amount": 2
+        },
+        "effect": {
+          "target": "hp_loss",
+          "operation": "set_value",
+          "value": 0,
+          "log_message": "Danno Minore convertito in 2 Stress"
+        }
+      }
+    },
+    {
+      "id": "NANO_F02",
+      "name": "Resistenza Aumentata",
+      "description": "Spendete 3 Speranze per dimezzare i danni fisici in arrivo.",
+      "type": "damage_mitigation",
+      "automation": {
+        "trigger": "incoming_damage_declared",
+        "condition": {
+          "damage_type": "physical"
+        },
+        "cost": {
+          "resource": "hope",
+          "amount": 3
+        },
+        "effect": {
+          "target": "incoming_damage_value",
+          "operation": "divide_by_2_round_down",
+          "log_message": "Danni dimezzati (Resistenza Aumentata)"
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_057"
+}
