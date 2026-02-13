@@ -1,21 +1,29 @@
 {
-  "id": "DH_MB_051",
-  "name": "Scuola della Guerra-Privilegio Base",
-  "class": "Mago",
-  "image": "Scuola della Guerra-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Scuola della Guerra",
-  "class_restriction": "Mago",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Conoscenza. +1 Casella Punti Ferita (Magia da Battaglia).",
-    "feature": "Affronta la Tua Paura",
-    "trigger": "Successo con Paura in un tiro di attacco",
-    "effect": "Infliggere 1d10 danni magici addizionali."
+  "id": "DH_CARD_SCUOLA_GUERRA_BASE",
+  "name": "Scuola della Guerra-Privilegio base",
+  "image": "Scuola della Guerra-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_SCUOLA_GUERRA",
+  "parent_class": "Mago",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Conoscenza. Magia da Battaglia: Avete concentrato i vostri sforzi per diventare una forza incontrastabile sul campo di battaglia. Guadagnate una casella aggiuntiva di Punti Ferita. Affronta la Tua Paura: Quando avete successo con Paura in un tiro di attacco, infliggete 1d10 danni magici addizionali.",
+  "automation": {
+    "spellcast_trait": "Conoscenza",
+    "passive_stat_boost": {
+      "target": "max_hp",
+      "operation": "add",
+      "value": 1
+    },
+    "trigger_event": {
+      "name": "Affronta la Tua Paura",
+      "trigger": "attack_roll_success_with_fear",
+      "effect": {
+        "target": "damage_roll",
+        "operation": "add_die",
+        "value": "1d10",
+        "variable_name": "fear_damage_die"
+      }
+    }
   },
-  "description": "Magia da Battaglia: Avete concentrato i vostri sforzi per diventare una forza incontrastabile sul campo di battaglia. Guadagnate una casella aggiuntiva di Punti Ferita. Affronta la Tua Paura: Quando avete successo con Paura in un tiro di attacco, infliggete 1d10 danni magici addizionali.",
   "source_ref": "DH_MB_051"
 }
