@@ -1,0 +1,20 @@
+{
+  "id": "DH_MB_044",
+  "name": "Chiamata del Coraggio-Maestria",
+  "class": "Guerriero",
+  "image": "Chiamata del Coraggio-Maestria.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Chiamata del Coraggio",
+  "class_restriction": "Guerriero",
+  "type": "Maestria",
+  "level": 8,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "feature": "Commilitoni",
+    "effect_1": "Effettuare un Tiro Combinato una volta in più per sessione.",
+    "effect_2": "Costo ridotto a 2 Speranze per gli alleati che iniziano un Tiro Combinato con voi."
+  },
+  "description": "Commilitoni: Il vostro saldo coraggio è un punto fermo nel caos della battaglia per i vostri alleati. Potete effettuare un Tiro Combinato una volta in più per sessione. Inoltre, quando un alleato inizia un Tiro Combinato con voi, deve spendere solo 2 Speranze per farlo.",
+  "source_ref": "DH_MB_044"
+}
