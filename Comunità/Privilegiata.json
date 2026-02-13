@@ -1,21 +1,29 @@
 {
-  "id": "DH_MB_073",
+  "id": "DH_COMMUNITY_008",
   "name": "Privilegiata",
   "image": "Privilegiata.jpg",
   "category": "Comunità",
-  "sub_category": "Privilegiata",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Vantaggio (Sociale)",
-    "triggers": [
-      "Interagire con nobiltà",
-      "Contrattare prezzi",
-      "Sfruttare reputazione"
-    ]
-  },
-  "description": "Privilegio: Avete vantaggio nei tiri per interagire con la nobiltà, contrattare un prezzo o sfruttare la vostra reputazione per ottenere ciò che volete.",
+  "description": "Far parte di una comunità privilegiata significa essere abituati a una vita di eleganza, opulenza e prestigio all’interno delle alte sfere della società. I privilegiati attribuiscono grande valore ai titoli e ai possedimenti.",
+  "features": [
+    {
+      "id": "PRIVILEGIATA_F01",
+      "name": "Privilegio",
+      "description": "Avete vantaggio nei tiri per interagire con la nobiltà, contrattare un prezzo o sfruttare la vostra reputazione per ottenere ciò che volete.",
+      "type": "situational_advantage",
+      "automation": {
+        "usage": {
+          "trigger": "roll_check_declared",
+          "condition": {
+            "check_tags": ["nobility_interaction", "haggling", "reputation", "commerce"]
+          },
+          "effect": {
+            "operation": "add_advantage",
+            "target": "current_roll",
+            "message": "Vantaggio applicato: Privilegio"
+          }
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_073"
 }
