@@ -1,0 +1,20 @@
+{
+  "id": "DH_MB_043",
+  "name": "Chiamata del Coraggio-Specializzazione",
+  "class": "Guerriero",
+  "image": "Chiamata del Coraggio-Specializzazione.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Chiamata del Coraggio",
+  "class_restriction": "Guerriero",
+  "type": "Specializzazione",
+  "level": 5,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "feature": "Raccogliere la Sfida",
+    "condition": "Avere 2 o meno Punti Ferita",
+    "effect": "Potete tirare un d20 come Dado Speranza."
+  },
+  "description": "Raccogliere la Sfida: Siete vigili di fronte al pericolo crescente. Quando avete 2 o meno Punti Ferita, potete tirare un d20 come Dado Speranza.",
+  "source_ref": "DH_MB_043"
+}
