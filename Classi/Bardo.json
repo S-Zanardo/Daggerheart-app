@@ -1,45 +1,117 @@
 {
-  "id": "DH_DEF_Bardo",
-  "class_name": "Bardo",
-  "category": "Definizione Classe",
-  "domains": [
-    "Grazia",
-    "Codice"
-  ],
-  "stats": {
+  "id": "DH_CLASS_001",
+  "name": "Bardo",
+  "image": "Bardo.jpg",
+  "category": "Classe",
+  "description": "I bardi sono le figure più carismatiche di tutti i reami, maestri nell'attirare l'attenzione tramite la musica, le storie o l'oratoria.",
+  "ui_data": {
+    "color_theme": "#E84A5F", 
+    "domain_refs": [
+      {
+        "name": "Grazia",
+        "id": "DOMAIN_GRACE",
+        "image_asset": "Grazia.png"
+      },
+      {
+        "name": "Codice",
+        "id": "DOMAIN_CODEX",
+        "image_asset": "Codice.png"
+      }
+    ]
+  },
+  "base_stats": {
     "starting_evasion": 10,
     "starting_hp": 5,
     "starting_stress": 6,
-    "recommended_stats": {
-      "Agilità": 0,
-      "Forza": -1,
-      "Astuzia": 1,
-      "Istinto": 0,
-      "Presenza": 2,
-      "Conoscenza": 1
+    "starting_hope": 2
+  },
+  "creation_options": {
+    "starting_equipment": {
+      "choices": [
+        "Un romanzo sentimentale",
+        "Una lettera mai aperta"
+      ]
     }
   },
-  "starting_items": {
-    "standard_kit": [
-      "Una torcia",
-      "16 metri di corda",
-      "Provviste di base",
-      "Una manciata d'oro"
-    ],
-    "unique_choice": [
-      "Un romanzo sentimentale",
-      "Una lettera mai aperta"
-    ],
-    "potion_choice": [
-      "Pozione di Guarigione Minore",
-      "Pozione di Recupero Minore"
-    ]
-  },
-  "class_mechanic": {
-    "name": "Chiamata A Raccolta",
-    "description": "Una volta per sessione, descrivete come radunate il gruppo; poi date a voi stessi e a ciascuno dei vostri alleati un Dado A Raccolta. Un PG può spendere il suo Dado A Raccolta per tirarlo e aggiungere il risultato al suo tiro azione, tiro reazione, tiro di danno oppure per cancellare un numero di Stress pari al risultato. A fine sessione i dadi non spesi vengono persi.",
-    "die_value": "d6 (Livello 1)",
-    "progression": "Il dado diventa un d8 al livello 5 e un d10 al livello 8."
-  },
-  "source_ref": "DH_Schede_334"
+  "features": [
+    {
+      "id": "BARDO_F01",
+      "name": "Chiamata a Raccolta",
+      "description": "Una volta per sessione, date a voi stessi e a ciascuno dei vostri alleati un Dado A Raccolta (d6). Un PG può spendere il dado per aggiungerlo a un tiro (azione/reazione/danno) o per cancellare Stress pari al risultato.",
+      "type": "party_buff_resource",
+      "automation": {
+        "frequency": "once_per_session",
+        "trigger": "active_activation",
+        "effect": {
+          "target": "all_party_members",
+          "operation": "grant_temporary_resource",
+          "resource_id": "rally_die",
+          "die_size": "d6",
+          "progression": { "level_5": "d8" },
+          "usage_mechanic": {
+            "option_1": { "label": "Potenzia Tiro", "action": "add_die_result_to_roll" },
+            "option_2": { "label": "Cura Stress", "action": "heal_stress_by_die_value" }
+          }
+        }
+      }
+    },
+    {
+      "id": "BARDO_F02",
+      "name": "Sceneggiata",
+      "description": "Spendete 3 Speranze per distrarre un bersaglio a distanza Ravvicinata, infliggendogli penalità -2 alla Difficoltà.",
+      "type": "active_debuff",
+      "automation": {
+        "cost": { "resource": "hope", "amount": 3 },
+        "target": { "range": "Ravvicinata", "type": "enemy" },
+        "effect": {
+          "target_stat": "difficulty",
+          "operation": "subtract",
+          "value": 2,
+          "duration": "temporary_scene"
+        }
+      }
+    },
+    {
+      "id": "BARDO_SUBCLASS_SELECT",
+      "name": "Selezione Sottoclasse",
+      "type": "selection_gate",
+      "options": [
+        {
+          "id": "SUB_ORATORE",
+          "name": "Oratore",
+          "description": "Usate il potere delle parole per affascinare le folle.",
+          "spellcast_trait": "Presenza",
+          "features": [
+            {
+              "id": "ORATORE_F01",
+              "name": "Discorso Ispiratore",
+              "description": "Una volta per riposo lungo, rimuovi 2 Stress a tutti gli alleati entro distanza Lontana.",
+              "automation": { "frequency": "long_rest", "effect": "aoe_heal_stress_2" }
+            },
+            {
+              "id": "ORATORE_F02",
+              "name": "Cuore di Poeta",
+              "description": "Spendi 1 Speranza per aggiungere +1d4 ai tiri per impressionare, persuadere o offendere.",
+              "automation": { "trigger": "social_roll", "cost": "1_hope", "effect": "add_d4" }
+            }
+          ]
+        },
+        {
+          "id": "SUB_TROVATORE",
+          "name": "Trovatore",
+          "description": "Musico eccezionale capace di ispirare grandi imprese.",
+          "spellcast_trait": "Presenza",
+          "features": [
+            {
+              "id": "TROVATORE_F01",
+              "name": "Musico Eccezionale",
+              "description": "Conoscete due canzoni che potete suonare una volta per riposo.",
+              "automation": { "frequency": "long_rest", "mechanic": "select_song_effect" }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_ref": "DH_MB_046"
 }
