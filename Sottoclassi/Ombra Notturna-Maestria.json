@@ -1,0 +1,23 @@
+{
+  "id": "DH_MB_026",
+  "name": "Ombra Notturna-Maestria",
+  "class": "Fuorilegge",
+  "image": "Ombra Notturna-Maestria.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Ombra Notturna",
+  "class_restriction": "Fuorilegge",
+  "type": "Maestria",
+  "level": 8,
+  "cost": "1 Stress (Svanire)",
+  "range": "Remota (Passo d'Ombra)",
+  "mechanics": {
+    "passive_bonus": "+1 Evasione permanente. Passo d'Ombra esteso a distanza Remota (Ombra Sfuggente).",
+    "action": {
+      "name": "Svanire",
+      "cost": "1 Stress",
+      "effect": "Diventare Ammantati in qualsiasi momento e rimuovere condizione Trattenuto. Dura fino a tiro con Paura o riposo."
+    }
+  },
+  "description": "Ombra Sfuggente: Guadagnate bonus +1 permanente all’Evasione. Potete usare il vostro privilegio “Passo d’Ombra” per muovervi fino a distanza Remota. Svanire: Marcate uno Stress per diventare Ammantati in qualsiasi momento. Quando vi Ammantate con questo privilegio, eliminate automaticamente la condizione di Trattenuto, se presente. Rimanete Ammantati in questo modo finché non tirate con Paura o fino al prossimo riposo.",
+  "source_ref": "DH_MB_026"
+}
