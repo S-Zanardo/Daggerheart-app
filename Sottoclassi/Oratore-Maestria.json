@@ -1,19 +1,26 @@
 {
-  "id": "DH_MB_006",
+  "id": "DH_CARD_ORATORE_MASTERY",
   "name": "Oratore-Maestria",
   "image": "Oratore-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Oratore",
-  "class_restriction": "Bardo",
-  "type": "Maestria",
-  "level": 8,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Dado A Raccolta aumenta a d10",
-    "trigger": "Aiutare un Alleato con narrazione",
-    "effect": "Tira d10 come dado vantaggio"
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_ORATORE",
+  "parent_class": "Bardo",
+  "level_unlock": 8,
+  "description": "Poesia Epica: Il Dado A Raccolta aumenta a d10. Inoltre, quando Aiutate un Alleato, potete narrare il momento come se steste scrivendo la storia del suo eroismo in un libro di memorie. Quando lo fate, tirate un d10 come dado vantaggio (invece del d6 standard).",
+  "automation": {
+    "passive_upgrade": {
+      "target_feature": "Chiamata a Raccolta",
+      "parameter": "rally_die_size",
+      "new_value": "d10"
+    },
+    "feature_upgrade": {
+      "trigger": "help_ally",
+      "effect": {
+        "target": "help_die",
+        "operation": "replace",
+        "new_value": "d10"
+      }
+    }
   },
-  "description": "Poesia Epica: Il Dado A Raccolta aumenta a d10. Inoltre, quando Aiutate un Alleato, potete narrare il momento come se steste scrivendo la storia del suo eroismo in un libro di memorie. Quando lo fate, tirate un d10 come dado vantaggio.",
-  "source_ref": "DH_MB_006"
+  "source_ref": "DH_MB_005"
 }
