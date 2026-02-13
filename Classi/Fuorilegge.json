@@ -1,123 +1,67 @@
 {
-  "id": "DH_CLASS_004",
+  "id": "DH_CLASS_FUORILEGGE",
   "name": "Fuorilegge",
   "image": "Fuorilegge.jpg",
-  "category": "Classe",
-  "description": "I fuorilegge sono furfanti che si muovono nell'ombra. Maestri della furtività e dell'inganno, colpiscono dove fa più male quando il nemico meno se lo aspetta.",
-  "ui_data": {
-    "color_theme": "#4B0082",
-    "domain_refs": [
-      {
-        "name": "Mezzanotte",
-        "id": "DOMAIN_MIDNIGHT",
-        "image_asset": "Mezzanotte.png"
-      },
-      {
-        "name": "Grazia",
-        "id": "DOMAIN_GRACE",
-        "image_asset": "Grazia.png"
-      }
-    ]
-  },
+  "description": "I fuorilegge sono furfanti, spesso sia nell’atteggiamento che nello stile di vita. Conosciuti in generale come bugiardi e criminali, i migliori di questa classe si muovono nel mondo in modo anonimo, senza lasciare tracce. Utilizzando il loro ingegno e le loro lame affilate, ingannano i nemici attraverso la manipolazione sociale con la stessa facilità con cui scassinano serrature o infliggono colpi subdoli.",
+  "domains": ["Mezzanotte", "Grazia"],
   "base_stats": {
-    "starting_evasion": 12,
-    "starting_hp": 6,
-    "starting_stress": 6,
-    "starting_hope": 2
+    "evasion": 12,
+    "hp": 6,
+    "stress": 6
   },
-  "creation_options": {
-    "starting_equipment": {
-      "choices": [
-        "Un set di strumenti di contraffazione",
-        "Un rampino"
-      ]
-    }
+  "recommended_traits": {
+    "agilità": 1,
+    "forza": -1,
+    "astuzia": 2,
+    "istinto": 0,
+    "presenza": 1,
+    "conoscenza": 0
   },
-  "features": [
+  "class_features": [
     {
-      "id": "FUORILEGGE_F01",
       "name": "Ammantato",
-      "description": "Sostituisce la condizione Nascosto. Siete invisibili se restate fermi. L'effetto termina se attaccate o entrate in linea di vista.",
-      "type": "status_effect_override",
+      "description": "Ogni volta che sareste Nascosti, siete invece Ammantati. Oltre ai benefici della condizione di Nascosto, quando siete Ammantati rimanete invisibili se siete fermi quando un avversario si sposta dove normalmente vi vedrebbe. Quando vi spostate entro la linea di vista di un avversario o effettuate un attacco, non siete più Ammantati.",
       "automation": {
-        "effect": {
-          "operation": "replace_condition",
-          "original": "hidden",
-          "new": "cloaked",
-          "benefits": ["invisible_stationary", "advantage_stealth"]
-        }
+        "effect": "apply_status_cloaked"
       }
     },
     {
-      "id": "FUORILEGGE_F02",
       "name": "Attacco Furtivo",
-      "description": "Quando colpite mentre siete Ammantati o se un alleato è in mischia con il bersaglio, aggiungete d6 extra ai danni pari al vostro Rango.",
-      "type": "damage_modifier",
+      "description": "Quando colpite mentre siete Ammantati o mentre un alleato si trova a distanza di Mischia dal bersaglio, aggiungete al tiro per i danni un numero di d6 pari al vostro rango (Rango 1: 1d6; Rango 2: 2d6; Rango 3: 3d6; Rango 4: 4d6).",
       "automation": {
-        "trigger": "attack_hit",
-        "condition": {
-          "any_true": [
-            "is_cloaked",
-            "ally_in_melee_range_of_target"
-          ]
-        },
+        "trigger": "damage_roll",
+        "condition": "is_cloaked_or_ally_melee",
         "effect": {
-          "operation": "add_damage_dice",
-          "die_size": "d6",
-          "count_source": "character_rank"
+          "type": "add_dice",
+          "die": "d6",
+          "count_source": "rank"
         }
       }
-    },
-    {
-      "id": "FUORILEGGE_F03",
-      "name": "Schivata del Fuorilegge",
-      "description": "Spendete 3 Speranze per ottenere +2 all'Evasione fino al prossimo attacco che vi colpisce (o fino al riposo).",
-      "type": "active_defense",
-      "automation": {
-        "cost": { "resource": "hope", "amount": 3 },
-        "effect": {
-          "target_stat": "evasion",
-          "operation": "add",
-          "value": 2,
-          "duration": "until_hit_or_rest"
-        }
-      }
-    },
-    {
-      "id": "FUORILEGGE_SUBCLASS_SELECT",
-      "name": "Selezione Sottoclasse",
-      "type": "selection_gate",
-      "options": [
-        {
-          "id": "SUB_LADRO",
-          "name": "Ladro",
-          "description": "Un criminale con una rete di contatti ovunque.",
-          "spellcast_trait": "Astuzia",
-          "features": [
-            {
-              "id": "LADRO_F01",
-              "name": "Legami",
-              "description": "Quando arrivi in un luogo, puoi definire un contatto PNG che ti deve un favore o ti conosce.",
-              "automation": { "effect": "narrative_prompt_create_npc_contact" }
-            }
-          ]
-        },
-        {
-          "id": "SUB_OMBRA_NOTTURNA",
-          "name": "Ombra Notturna",
-          "description": "Manipolatore delle ombre e delle tenebre.",
-          "spellcast_trait": "Agilità",
-          "features": [
-            {
-              "id": "OMBRA_F01",
-              "name": "Passo d'Ombra",
-              "description": "Teletrasportati da un'ombra all'altra.",
-              "automation": { "effect": "teleport_movement_shadows" }
-            }
-          ]
-        }
-      ]
     }
   ],
-  "source_ref": "DH_MB_044"
+  "hope_feature": {
+    "name": "Schivata del Fuorilegge",
+    "cost": 3,
+    "description": "Bonus +2 all'Evasione fino al successivo attacco riuscito contro di voi. Diversamente, questo bonus dura fino al riposo successivo."
+  },
+  "subclasses_overview": [
+    {
+      "name": "Ladro",
+      "description": "Scegliete il Ladro se volete avere una rete di contatti ovunque l’avventura vi conduca.",
+      "related_id": "DH_SUBCLASS_LADRO"
+    },
+    {
+      "name": "Ombra Notturna",
+      "description": "Scegliete l’Ombra Notturna se volete manipolare le ombre per muovervi con il favore delle tenebre.",
+      "related_id": "DH_SUBCLASS_OMBRA_NOTTURNA"
+    }
+  ],
+  "starting_items": [
+    "Torcia",
+    "Corda (16m)",
+    "Provviste di base",
+    "Manciata d'oro",
+    "Pozione di Guarigione Minore o Pozione di Recupero Minore",
+    "Attrezzatura da falsario o Un rampino"
+  ]
 }
