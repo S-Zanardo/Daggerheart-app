@@ -1,14 +1,15 @@
 {
-  "id": "ORIGIN_DRAKONA",
+  "id": "DH_ORIGIN_002",
   "name": "Drakona",
-  "category": "Origin",
-  "description": "Umanoidi simili a draghi senza ali, dotati di scaglie resistenti e un potente soffio elementale.",
+  "image": "Drakona",
+  "category": "Origine",
+  "description": "I drakona assomigliano a draghi senza ali in forma umanoide e possiedono un potente soffio elementale. Hanno scaglie spesse che forniscono un'eccellente armatura naturale.",
   "features": [
     {
       "id": "DRAKONA_F01",
       "name": "Scaglie",
-      "description": "Quando subite danni Gravi, potete marcare uno Stress per subire 1 Punto Ferita in meno.",
-      "type": "reaction",
+      "description": "Le scaglie fungono da protezione naturale. Quando subite danni Gravi, potete marcare uno Stress per subire 1 Punto Ferita in meno.",
+      "type": "reaction_damage_reduction",
       "automation": {
         "trigger": "incoming_damage",
         "condition": {
@@ -28,26 +29,28 @@
     {
       "id": "DRAKONA_F02",
       "name": "Soffio Elementale",
-      "description": "Potete rivolgere il vostro soffio contro un bersaglio entro distanza Prossima. Infligge d8 danni magici applicando la vostra Competenza.",
+      "description": "Scegliete un elemento per il vostro Soffio Elementale (come elettricità, fuoco o ghiaccio). Potete rivolgere il vostro soffio contro un bersaglio o un gruppo di bersagli entro distanza Prossima, trattandolo come un’arma basata sull’Istinto che infligge d8 danni magici applicando la vostra Competenza.",
       "type": "action_attack",
       "automation": {
-        "input_required": {
-          "type": "select_element",
-          "options": ["Fuoco", "Ghiaccio", "Elettricità", "Acido", "Veleno"],
-          "label": "Scegli il tipo di Soffio (una tantum alla creazione)"
+        "creation_phase": {
+          "input_request": {
+            "type": "select_option",
+            "label": "Scegli il tipo di Soffio Elementale",
+            "options": ["Fuoco", "Ghiaccio", "Elettricità", "Acido", "Veleno"]
+          },
+          "store_as": "breath_element"
         },
-        "attack_profile": {
+        "virtual_weapon": {
           "name": "Soffio Elementale",
           "range": "Prossima",
-          "trait": "instinct",
-          "damage": {
-            "dice_count": 1,
-            "dice_type": "d8",
-            "damage_type": "magic",
-            "add_proficiency": true
-          }
+          "trait_used": "Istinto",
+          "damage_die": "1d8",
+          "damage_type": "Magico",
+          "add_proficiency_to_damage": true,
+          "tags": ["Area", "Magico"]
         }
       }
     }
-  ]
+  ],
+  "source_ref": "DH_MB_056"
 }
