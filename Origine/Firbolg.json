@@ -1,18 +1,47 @@
 {
-  "id": "DH_MB_061",
+  "id": "DH_ORIGIN_006",
   "name": "Firbolg",
-  "image": "Firbolg.jpg",
+  "image": "Firbolg",
   "category": "Origine",
-  "sub_category": "Firbolg",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Stress", "amount": 1 },
-  "range": "Mischia",
-  "mechanics": {
-    "action": "Carica (danno AoE dopo movimento)",
-    "damage": "1d12 Fisico",
-    "passive": "Irremovibile (Tira d6 su Stress: 6 = annulla)"
-  },
-  "description": "Carica: Quando riuscite in un Tiro Agilità per spostarvi da distanza Lontana o Remota a distanza di Mischia, potete marcare uno Stress per infliggere 1d12 danni fisici a tutti i bersagli entro distanza di Mischia. Irremovibile: Quando dovreste marcare uno Stress, tirate un d6. Con un risultato di 6, non dovete marcarlo.",
-  "source_ref": "DH_MB_061"
+  "description": "I firbolg sono umanoidi dai tratti bovini, riconoscibili per il naso largo e le orecchie lunghe e cadenti. Sono noti per la loro forza e la loro natura inamovibile.",
+  "features": [
+    {
+      "id": "FIRBOLG_F01",
+      "name": "Carica",
+      "description": "Quando riuscite in un Tiro Agilità per spostarvi da distanza Lontana o Remota a distanza di Mischia con uno o più bersagli, potete marcare uno Stress per infliggere 1d12 danni fisici a tutti i bersagli entro distanza di Mischia.",
+      "type": "movement_action",
+      "automation": {
+        "trigger": "agility_move_success",
+        "condition": {
+          "start_range": ["Lontana", "Remota"],
+          "end_range": "Mischia"
+        },
+        "cost": {
+          "resource": "stress",
+          "amount": 1
+        },
+        "effect": {
+          "target": "all_enemies_in_melee",
+          "operation": "deal_damage",
+          "value": "1d12",
+          "damage_type": "Fisico"
+        }
+      }
+    },
+    {
+      "id": "FIRBOLG_F02",
+      "name": "Irremovibile",
+      "description": "Quando dovreste marcare uno Stress, tirate un d6. Con un risultato di 6, non dovete marcarlo.",
+      "type": "resource_protection",
+      "automation": {
+        "trigger": "on_stress_mark_attempt",
+        "process": {
+          "roll": "1d6",
+          "check": "result == 6",
+          "on_success": "cancel_stress_cost"
+        }
+      }
+    }
+  ],
+  "source_ref": "DH_MB_063"
 }
