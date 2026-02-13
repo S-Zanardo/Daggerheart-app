@@ -1,17 +1,37 @@
 {
-  "id": "DH_MB_059",
-  "name": "Elfi",
-  "image": "Elfi.jpg",
-  "category": "Origine",
-  "sub_category": "Elfi",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Stress", "amount": 1 },
-  "range": "Personale",
-  "mechanics": {
-    "reaction": "Vantaggio al tiro reazione",
-    "rest_feature": "Mossa Interludio Aggiuntiva (Trance)"
-  },
-  "description": "Reazione Istintiva: Marcate uno Stress per ottenere vantaggio in un tiro reazione. Dormiveglia: Durante un riposo, potete cadere in trance per scegliere una mossa di interludio aggiuntiva.",
-  "source_ref": "DH_MB_059"
+  "id": "ORIGIN_ELF",
+  "name": "Elfo",
+  "category": "Origin",
+  "description": "Umanoidi alti dai sensi acuti, capaci di entrare in trance invece di dormire.",
+  "features": [
+    {
+      "id": "ELF_F01",
+      "name": "Reazione Istintiva",
+      "description": "Marcate uno Stress per ottenere vantaggio in un tiro reazione.",
+      "type": "reaction_modifier",
+      "automation": {
+        "trigger": "reaction_roll",
+        "cost": {
+          "resource": "stress",
+          "amount": 1
+        },
+        "effect": {
+          "operation": "grant_advantage"
+        }
+      }
+    },
+    {
+      "id": "ELF_F02",
+      "name": "Dormiveglia",
+      "description": "Durante un riposo, potete cadere in trance per scegliere una mossa di interludio aggiuntiva.",
+      "type": "rule_override",
+      "automation": {
+        "trigger": "rest_phase",
+        "effect": {
+          "operation": "increase_downtime_actions",
+          "value": 1
+        }
+      }
+    }
+  ]
 }
