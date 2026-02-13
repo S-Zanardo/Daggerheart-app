@@ -1,19 +1,36 @@
 {
-  "id": "DH_MB_020",
+  "id": "DH_CARD_FERALE_MASTERY",
   "name": "Ferale-Maestria",
   "image": "Ferale-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Ferale",
-  "class_restriction": "Ranger",
-  "type": "Maestria",
-  "level": 8,
-  "cost": null,
-  "range": "Prossima",
-  "mechanics": {
-    "passive_bonus": "Due opzioni di livello compagno extra (Addestramento Avanzato)",
-    "trigger": "Danno letale o ultimo Stress a voi o compagno (1 volta per riposo lungo)",
-    "effect": "Voi o il compagno potete accorrere e subire il danno/stress al posto dell'altro"
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_FERALE",
+  "parent_class": "Ranger",
+  "level_unlock": 8,
+  "description": "Addestramento Avanzato: Scegliete due opzioni di aumento di livello aggiuntive per il compagno. Amico Fedele: Una volta per riposo lungo, quando il danno di un attacco marcherebbe l’ultimo Stress del vostro compagno oppure subireste il vostro ultimo Punto Ferita, ed entrambi siete entro distanza Prossima, voi o il vostro compagno potete accorrere al fianco dell’altro e marcare quello Stress o subire quel danno al posto dell'altro.",
+  "automation": {
+    "features": [
+      {
+        "name": "Addestramento Avanzato",
+        "effect": {
+          "operation": "grant_companion_upgrade_choice",
+          "count": 2
+        }
+      },
+      {
+        "name": "Amico Fedele",
+        "frequency": "long_rest",
+        "trigger": "fatal_damage_incoming",
+        "condition": {
+          "targets": ["self", "companion"],
+          "proximity": "Prossima",
+          "threshold": "last_hp_or_stress"
+        },
+        "effect": {
+          "prompt": "Scambiare il bersaglio del danno con il Compagno/Ranger?",
+          "operation": "redirect_damage"
+        }
+      }
+    ]
   },
-  "description": "Addestramento Avanzato: Scegliete due opzioni di aumento di livello aggiuntive per il compagno. Amico Fedele: Una volta per riposo lungo, quando il danno di un attacco marcherebbe l’ultimo Stress del vostro compagno oppure subireste il vostro ultimo Punto Ferita, ed entrambi siete entro distanza Prossima, voi o il vostro compagno potete accorrere al fianco dell’altro e marcare quello Stress o subire quel danno.",
   "source_ref": "DH_MB_020"
 }
