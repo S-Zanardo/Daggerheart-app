@@ -1,0 +1,19 @@
+{
+  "id": "DH_MB_014",
+  "name": "Valoroso-Maestria",
+  "image": "Valoroso-Maestria.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Valoroso",
+  "class_restriction": "Guardiano",
+  "type": "Maestria",
+  "level": 8,
+  "cost": "1 Stress (Trigger)",
+  "range": "Ravvicinata",
+  "mechanics": {
+    "passive_bonus": "+3 soglie di danno (Imperturbabile)",
+    "trigger": "Alleato entro Ravvicinata con 2 o meno PF sta per subire danno (Protettore Fedele)",
+    "effect": "Marcare uno Stress per correre al suo fianco e subire il danno al suo posto"
+  },
+  "description": "Imperturbabile: Guadagnate bonus +3 permanente alle soglie di danno. Protettore Fedele: Quando un alleato entro distanza Ravvicinata ha 2 o meno Punti Ferita sta per subire un danno, potete marcare uno Stress per correre al suo fianco e subire il danno al suo posto.",
+  "source_ref": "DH_MB_014"
+}
