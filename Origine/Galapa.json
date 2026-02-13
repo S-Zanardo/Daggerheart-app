@@ -1,17 +1,49 @@
 {
-  "id": "DH_MB_064",
+  "id": "DH_ORIGIN_008",
   "name": "Galapa",
-  "image": "Galapa.jpg",
+  "image": "Galapa",
   "category": "Origine",
-  "sub_category": "Galapa",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": { "type": "Stress", "amount": 1 },
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": { "damage_threshold": "Competenza" },
-    "stance": "Rinchiudersi (Resistenza danni fisici, Svantaggio azioni, Immobilità)"
-  },
-  "description": "Guscio: Guadagnate un bonus alle soglie di danno pari alla vostra Competenza. Rinchiudersi: Marcate uno Stress per ritrarvi nel vostro guscio. Quando siete nel guscio, guadagnate resistenza ai danni fisici, ma avete svantaggio ai tiri azione e non potete muovervi.",
+  "description": "I galapa assomigliano a tartarughe antropomorfe con grandi gusci a cupola. Sono noti per la loro resilienza e la capacità di usare il guscio come scudo.",
+  "features": [
+    {
+      "id": "GALAPA_F01",
+      "name": "Guscio",
+      "description": "Guadagnate un bonus alle soglie di danno pari alla vostra Competenza.",
+      "type": "passive_stat_buff",
+      "automation": {
+        "passive_effect": {
+          "target": ["damage_threshold_minor", "damage_threshold_major", "damage_threshold_severe"],
+          "operation": "add_dynamic",
+          "value_source": "character_proficiency"
+        }
+      }
+    },
+    {
+      "id": "GALAPA_F02",
+      "name": "Rinchiudersi",
+      "description": "Marcate uno Stress per ritrarvi nel vostro guscio. Quando siete nel guscio, guadagnate resistenza ai danni fisici, ma avete svantaggio ai tiri azione e non potete muovervi.",
+      "type": "toggle_stance",
+      "automation": {
+        "activation_cost": {
+          "resource": "stress",
+          "amount": 1
+        },
+        "stance_effects": [
+          {
+            "target": "incoming_physical_damage",
+            "effect": "resistance"
+          },
+          {
+            "target": "all_action_rolls",
+            "effect": "disadvantage"
+          },
+          {
+            "target": "movement",
+            "effect": "set_zero"
+          }
+        ]
+      }
+    }
+  ],
   "source_ref": "DH_MB_064"
 }
