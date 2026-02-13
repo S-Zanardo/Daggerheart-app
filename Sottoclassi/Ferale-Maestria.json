@@ -1,0 +1,19 @@
+{
+  "id": "DH_MB_020",
+  "name": "Ferale-Maestria",
+  "image": "Ferale-Maestria.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Ferale",
+  "class_restriction": "Ranger",
+  "type": "Maestria",
+  "level": 8,
+  "cost": null,
+  "range": "Prossima",
+  "mechanics": {
+    "passive_bonus": "Due opzioni di livello compagno extra (Addestramento Avanzato)",
+    "trigger": "Danno letale o ultimo Stress a voi o compagno (1 volta per riposo lungo)",
+    "effect": "Voi o il compagno potete accorrere e subire il danno/stress al posto dell'altro"
+  },
+  "description": "Addestramento Avanzato: Scegliete due opzioni di aumento di livello aggiuntive per il compagno. Amico Fedele: Una volta per riposo lungo, quando il danno di un attacco marcherebbe l’ultimo Stress del vostro compagno oppure subireste il vostro ultimo Punto Ferita, ed entrambi siete entro distanza Prossima, voi o il vostro compagno potete accorrere al fianco dell’altro e marcare quello Stress o subire quel danno.",
+  "source_ref": "DH_MB_020"
+}
