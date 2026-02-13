@@ -1,24 +1,43 @@
 {
-  "id": "DH_MB_037",
-  "name": "Potere Elementale-Privilegio Base",
-  "class": "Stregone",
-  "image": "Potere Elementale-Privilegio Base.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Potere Elementale",
-  "class_restriction": "Stregone",
-  "type": "Privilegio Base",
-  "level": 1,
-  "cost": "1 Speranza (per il bonus)",
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": "Tratto Incantatore: Istinto",
-    "feature": "Elementalista",
-    "effect": "Scegliere un elemento (Aria, Acqua, Fulmine, Fuoco, Terra) alla creazione. Plasmare l'elemento per effetti innocui.",
-    "action": {
-      "cost": "1 Speranza",
-      "effect": "Ottenere bonus +2 al tiro azione O bonus +3 al tiro per i danni descrivendo il controllo sull'elemento."
-    }
+  "id": "DH_CARD_POTERE_ELEMENTALE_BASE",
+  "name": "Potere Elementale-Privilegio base",
+  "image": "Potere Elementale-Privilegio base.jpg",
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_POTERE_ELEMENTALE",
+  "parent_class": "Stregone",
+  "level_unlock": 1,
+  "description": "Tratto da Incantatore: Istinto. Elementalista: Scegliete uno dei seguenti elementi alla creazione del personaggio: Aria, Terra, Fuoco, Fulmine, Acqua. Potete plasmare questo elemento generando effetti innocui. Inoltre, spendendo una Speranza e descrivendo in che modo il controllo su questo elemento favorisce un tiro azione che state per effettuare, ottenete bonus +2 al tiro azione o bonus +3 al tiro per i danni.",
+  "automation": {
+    "spellcast_trait": "Istinto",
+    "creation_choice": {
+      "label": "Scegli Elemento",
+      "options": ["Aria", "Terra", "Fuoco", "Fulmine", "Acqua"],
+      "store_as": "sorcerer_element"
+    },
+    "features": [
+      {
+        "name": "Elementalista",
+        "cost": { "resource": "hope", "amount": 1 },
+        "options": [
+          {
+            "label": "+2 al Tiro Azione",
+            "effect": {
+              "target": "current_action_roll",
+              "operation": "add_modifier",
+              "value": 2
+            }
+          },
+          {
+            "label": "+3 ai Danni",
+            "effect": {
+              "target": "current_damage_roll",
+              "operation": "add_modifier",
+              "value": 3
+            }
+          }
+        ]
+      }
+    ]
   },
-  "description": "Elementalista: Scegliete uno dei seguenti elementi alla creazione del personaggio: ARIA · ACQUA · FULMINE · FUOCO · TERRA. Potete plasmare questo elemento generando effetti innocui. Inoltre, spendendo una Speranza e descrivendo in che modo il controllo su questo elemento favorisce un tiro azione che state per effettuare, ottenete bonus +2 al tiro azione o bonus +3 al tiro per i danni.",
-  "source_ref": "DH_MB_037"
+  "source_ref": "DH_MB_038"
 }
