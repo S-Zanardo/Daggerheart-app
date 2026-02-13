@@ -1,0 +1,30 @@
+{
+  "id": "DH_MB_030",
+  "name": "Emissario Divino-Privilegio Base",
+  "image": "Emissario Divino-Privilegio Base.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Emissario Divino",
+  "class_restriction": "Consacrato",
+  "type": "Privilegio Base",
+  "level": 1,
+  "cost": "1 Stress (Arma Animata) / 1 Riposo Lungo (Tocco)",
+  "range": "Ravvicinata / Contatto",
+  "mechanics": {
+    "passive_bonus": "Tratto Incantatore: Forza",
+    "actions": [
+      {
+        "name": "Arma Animata",
+        "effect": "L'arma vola per attaccare a distanza Ravvicinata e torna indietro. Marca 1 Stress per colpire un secondo bersaglio.",
+        "trigger": "Impugnare arma Mischia o Prossima"
+      },
+      {
+        "name": "Tocco Ristoratore",
+        "frequency": "1 volta per riposo lungo",
+        "range": "Contatto",
+        "effect": "Cura 2 Punti Ferita o rimuove 2 Stress"
+      }
+    ]
+  },
+  "description": "Arma Animata: Quando impugnate un’arma con portata Mischia o Prossima, questa può volare dalla vostra mano per attaccare un avversario entro distanza Ravvicinata e poi tornare nelle vostre mani. Potete marcare uno Stress per colpire un altro avversario entro portata con lo stesso tiro attacco. Tocco Ristoratore: Una volta per riposo lungo, toccando una creatura potete curare 2 Punti Ferita o rimuovere 2 Stress.",
+  "source_ref": "DH_MB_030"
+}
