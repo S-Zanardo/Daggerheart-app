@@ -1,19 +1,30 @@
 {
-  "id": "DH_MB_017",
+  "id": "DH_CARD_VENDICATORE_MASTERY",
   "name": "Vendicatore-Maestria",
   "image": "Vendicatore-Maestria.jpg",
-  "category": "Sottoclasse",
-  "sub_category": "Vendicatore",
-  "class_restriction": "Guardiano",
-  "type": "Maestria",
-  "level": 8,
-  "cost": "2 Speranze",
-  "range": "Personale",
-  "mechanics": {
-    "action": "Dare Priorità a un avversario (fino al prossimo riposo)",
-    "effect": "Scambiare risultati Dadi Speranza e Paura negli attacchi contro l'avversario prioritario",
-    "limit": "Un solo avversario prioritario alla volta"
-  },
+  "category": "Privilegio Sottoclasse",
+  "parent_subclass_id": "DH_SUBCLASS_VENDICATORE",
+  "parent_class": "Guardiano",
+  "level_unlock": 8,
   "description": "Nemesi: Spendete 2 Speranze per Dare Priorità a un avversario fino al vostro prossimo riposo. Quando effettuate un attacco contro l’avversario a cui avete dato Priorità, potete scambiare i risultati dei Dadi Speranza e Paura. Potete Dare Priorità a un solo avversario alla volta.",
+  "automation": {
+    "active_ability": {
+      "name": "Nemesi",
+      "cost": { "resource": "hope", "amount": 2 },
+      "effect": {
+        "target": "enemy",
+        "apply_status": "prioritized_nemesis",
+        "limit": "single_target"
+      }
+    },
+    "roll_modification": {
+      "trigger": "attack_roll",
+      "condition": { "target_status": "prioritized_nemesis" },
+      "option": {
+        "label": "Scambia Speranza/Paura",
+        "effect": "swap_duality_dice_values"
+      }
+    }
+  },
   "source_ref": "DH_MB_017"
 }
