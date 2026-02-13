@@ -1,0 +1,43 @@
+{
+  "id": "DH_DEF_Stregone",
+  "class_name": "Stregone",
+  "category": "Definizione Classe",
+  "domains": [
+    "Arcano",
+    "Mezzanotte"
+  ],
+  "stats": {
+    "starting_evasion": 10,
+    "starting_hp": 6,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": 0,
+      "Forza": -1,
+      "Astuzia": 1,
+      "Istinto": 2,
+      "Presenza": 1,
+      "Conoscenza": 0
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ],
+    "unique_choice": [
+      "Un globo sussurrante",
+      "Un cimelio di famiglia"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Percezione Arcana, Illusione Minore & Incanalare il Potere Grezzo",
+    "description": "Percezione Arcana: Potete percepire la presenza di persone dotate di magia e oggetti incantati a distanza Ravvicinata. Illusione Minore: Effettuate un Tiro Incantesimo (Difficoltà 10). Se riuscito, create un'illusione visiva minore (taglia pari o inferiore alla vostra) entro distanza Ravvicinata. Incanalare il Potere Grezzo: Una volta per riposo lungo, potete spostare una carta dominio dalla vostra Dotazione alla riserva per scegliere uno dei seguenti effetti: guadagnare Speranza pari al livello della carta OPPURE potenziare un incantesimo di danno, ottenendo un bonus ai danni pari al doppio del livello della carta."
+  },
+  "source_ref": "DH_Schede_Stregone"
+}
