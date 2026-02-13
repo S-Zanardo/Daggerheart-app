@@ -1,21 +1,38 @@
 {
-  "id": "DH_MB_074",
+  "id": "DH_COMMUNITY_001",
   "name": "Austera",
   "image": "Austera.jpg",
   "category": "Comunità",
-  "sub_category": "Austera",
-  "type": "Carta Comunità",
-  "level": 0,
-  "cost": {
-    "type": "Riposo",
-    "amount": 1
-  },
-  "range": "Personale",
-  "mechanics": {
-    "input_required": "Definire 3 valori/detti",
-    "effect": "Sostituisci Dado Speranza con d20",
-    "condition": "Incarnare i propri principi durante l'azione"
-  },
-  "description": "Dedizione: Annotate tre detti o valori che la vostra educazione vi ha trasmesso. Una volta per riposo, quando descrivete come incarnate questi principi attraverso l’azione che state compiendo, potete tirare un d20 come dado Speranza.",
+  "description": "Far parte di una comunità austera significa provenire da una cultura che si concentra sulla disciplina o sulla fede e che sostiene con forza una serie di principi che riflettono la propria esperienza.",
+  "features": [
+    {
+      "id": "AUSTERA_F01",
+      "name": "Dedizione",
+      "description": "Annotate tre detti o valori che la vostra educazione vi ha trasmesso. Una volta per riposo, quando descrivete come incarnate questi principi attraverso l’azione che state compiendo, potete tirare un d20 come dado Speranza.",
+      "type": "active_roll_modifier",
+      "automation": {
+        "creation_phase": {
+          "input_request": {
+            "type": "text_list",
+            "label": "Definisci i 3 Valori o Detti della tua educazione",
+            "min_items": 3,
+            "max_items": 3,
+            "store_as": "austera_principles"
+          }
+        },
+        "usage": {
+          "frequency": "short_rest",
+          "trigger": "pre_action_roll_toggle",
+          "label": "Usa Dedizione (d20 Speranza)",
+          "effect": {
+            "operation": "override_die_size",
+            "target_die": "hope_die",
+            "new_size": "d20",
+            "duration": "single_roll"
+          }
+        }
+      }
+    }
+  ],
   "source_ref": "DH_MB_074"
 }
