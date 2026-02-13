@@ -1,0 +1,29 @@
+{
+  "id": "DH_MB_050",
+  "name": "Scuola della Conoscenza-Maestria",
+  "class": "Mago",
+  "image": "Scuola della Conoscenza-Maestria.jpg",
+  "category": "Sottoclasse",
+  "sub_category": "Scuola della Conoscenza",
+  "class_restriction": "Mago",
+  "type": "Maestria",
+  "level": 8,
+  "cost": null,
+  "range": "Personale",
+  "mechanics": {
+    "passive_bonus": "Carta dominio extra (Brillante).",
+    "actions": [
+      {
+        "name": "Brillante",
+        "effect": "Prendere una carta dominio aggiuntiva del proprio livello o inferiore."
+      },
+      {
+        "name": "Padronanza Affinata",
+        "trigger": "Utilizzare un'Esperienza",
+        "effect": "Tirare un d6. Se il risultato è 5 o superiore, l'Esperienza è usata senza spendere Speranza."
+      }
+    ]
+  },
+  "description": "Brillante: Prendete una carta dominio aggiuntiva del vostro livello o di livello inferiore da un dominio a cui avete accesso. Padronanza Affinata: Quando Utilizzate un’Esperienza, tirate un d6. Con un risultato di 5 o superiore, potete utilizzarla senza spendere Speranza.",
+  "source_ref": "DH_MB_050"
+}
