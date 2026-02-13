@@ -1,17 +1,40 @@
 {
-  "id": "DH_MB_056",
+  "id": "ORIGIN_CLANK",
   "name": "Clank",
-  "image": "Clank.jpg",
-  "category": "Origine",
-  "sub_category": "Clank",
-  "type": "Tratto Razziale",
-  "level": 0,
-  "cost": null,
-  "range": "Personale",
-  "mechanics": {
-    "passive_bonus": { "experience_trait": 1 },
-    "feature": "Riposo Breve efficiente (usa mossa Riposo Lungo)"
-  },
-  "description": "Scopo Preciso: Alla creazione del personaggio, scegliete una delle vostre Esperienze che meglio si allinea con tale finalità e guadagnate bonus +1 permanente a essa. Efficiente: Quando effettuate un riposo breve, potete scegliere una mossa di riposo lungo invece che una mossa di riposo breve.",
-  "source_ref": "DH_MB_056"
+  "category": "Origin",
+  "description": "I clank sono esseri artificiali, costrutti di ingranaggi, metallo e magia (o tecnologia), creati per uno scopo specifico.",
+  "features": [
+    {
+      "id": "CLANK_F01",
+      "name": "Scopo Preciso",
+      "description": "Decidete chi vi ha creato e per quale scopo. Alla creazione del personaggio, scegliete una delle vostre Esperienze che meglio si allinea con tale finalità e guadagnate bonus +1 permanente a essa.",
+      "type": "creation_choice",
+      "automation": {
+        "trigger": "character_creation",
+        "input_required": {
+          "type": "select_experience",
+          "label": "Seleziona l'Esperienza allineata al tuo scopo"
+        },
+        "effect": {
+          "target": "selected_experience",
+          "operation": "add_modifier",
+          "value": 1
+        }
+      }
+    },
+    {
+      "id": "CLANK_F02",
+      "name": "Efficiente",
+      "description": "Quando effettuate un riposo breve, potete scegliere una mossa di riposo lungo invece di una mossa di riposo breve.",
+      "type": "rule_override",
+      "automation": {
+        "trigger": "short_rest_menu",
+        "effect": {
+          "operation": "unlock_options",
+          "source_list": "long_rest_moves",
+          "target_list": "short_rest_moves"
+        }
+      }
+    }
+  ]
 }
