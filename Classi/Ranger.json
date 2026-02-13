@@ -1,0 +1,43 @@
+{
+  "id": "DH_DEF_Ranger",
+  "class_name": "Ranger",
+  "category": "Definizione Classe",
+  "domains": [
+    "Ossa",
+    "Saggezza"
+  ],
+  "stats": {
+    "starting_evasion": 12,
+    "starting_hp": 6,
+    "starting_stress": 6,
+    "recommended_stats": {
+      "Agilità": 2,
+      "Forza": 0,
+      "Astuzia": 1,
+      "Istinto": 1,
+      "Presenza": -1,
+      "Conoscenza": 0
+    }
+  },
+  "starting_items": {
+    "standard_kit": [
+      "Una torcia",
+      "16 metri di corda",
+      "Provviste di base",
+      "Una manciata d'oro"
+    ],
+    "potion_choice": [
+      "Pozione di Guarigione Minore",
+      "Pozione di Recupero Minore"
+    ],
+    "unique_choice": [
+      "Un trofeo della vostra prima preda",
+      "Una bussola apparentemente rotta"
+    ]
+  },
+  "class_mechanic": {
+    "name": "Focus del Ranger",
+    "description": "Spendete una Speranza ed effettuate un attacco contro un bersaglio. Se l'attacco ha successo, infliggete i normali danni e rendete il bersaglio il vostro Focus. Finché il privilegio non termina (o scegliete un altro Focus), sapete sempre in che direzione si trova e, quando gli infliggete danno, deve marcare uno Stress aggiuntivo. Se fallite un attacco contro il Focus, potete terminare questo privilegio per rilanciare i Dadi Dualità."
+  },
+  "source_ref": "DH_Schede_Ranger"
+}
