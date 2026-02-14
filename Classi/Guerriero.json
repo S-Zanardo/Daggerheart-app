@@ -1,106 +1,68 @@
 {
-  "id": "DH_CLASS_006",
+  "id": "DH_CLASS_GUERRIERO",
   "name": "Guerriero",
   "image": "Guerriero.jpg",
-  "category": "Classe",
-  "description": "I guerrieri sono maestri della guerra, addestrati per dominare il campo di battaglia con la forza bruta e la tattica.",
-  "ui_data": {
-    "color_theme": "#8B0000",
-    "domain_refs": [
-      {
-        "name": "Lame",
-        "id": "DOMAIN_BLADES",
-        "image_asset": "Lame.png"
-      },
-      {
-        "name": "Ossa",
-        "id": "DOMAIN_BONE",
-        "image_asset": "Ossa.png"
-      }
-    ]
-  },
+  "description": "Diventare un guerriero richiede anni, spesso una vita intera, di allenamento e dedizione all’esercizio delle armi e della violenza. Mentre molti di coloro che combattono pensano solo alla forza bruta, i guerrieri comprendono l’importanza di un corpo e di una mente agili, il che li rende alcuni dei combattenti più ricercati in tutti i reami. Si sa che i guerrieri hanno un’arma preferita; mettersi tra loro e la loro lama è sempre un grave errore.",
+  "domains": ["Lame", "Ossa"],
   "base_stats": {
-    "starting_evasion": 9,
-    "starting_hp": 7,
-    "starting_stress": 5,
-    "starting_hope": 2
+    "evasion": 11,
+    "hp": 6,
+    "stress": 6
   },
-  "creation_options": {
-    "starting_equipment": {
-      "choices": [
-        "Un'arma con una storia sanguinosa",
-        "Un pezzo di stendardo di una vecchia guerra"
-      ]
-    }
+  "recommended_traits": {
+    "agilità": 2,
+    "forza": 1,
+    "astuzia": 0,
+    "istinto": 1,
+    "presenza": -1,
+    "conoscenza": 0
   },
-  "features": [
+  "class_features": [
     {
-      "id": "GUERRIERO_F01",
+      "name": "Attacco di Opportunità",
+      "description": "Se un avversario entro distanza di Mischia tenta di uscirne, effettuate un tiro di reazione usando un tratto a vostra scelta contro la sua Difficoltà. Scegliete un effetto in caso di successo (due per Critico): 1) Non può spostarsi. 2) Subisce danni pari alla vostra arma primaria. 3) Vi muovete con loro.",
+      "automation": {
+        "trigger": "enemy_leaves_melee",
+        "mechanic": "reaction_roll",
+        "success_choices": 1,
+        "crit_choices": 2,
+        "options": ["stop_movement", "deal_primary_damage", "move_with_target"]
+      }
+    },
+    {
       "name": "Addestrato al Combattimento",
-      "description": "Quando effettuate un tiro per i danni, potete marcare uno Stress per aggiungere un bonus ai danni totali (solitamente pari alla vostra Competenza o un valore fisso).",
-      "type": "damage_boost",
+      "description": "Ignorate l’impugnatura quando equipaggiate le vostre armi (es. usate armi a due mani con una sola mano). Quando infliggete danno fisico, ottenete un bonus al tiro per i danni pari al vostro livello.",
       "automation": {
-        "trigger": "damage_roll_declared",
-        "cost": { "resource": "stress", "amount": 1 },
-        "effect": {
-          "target": "damage_result",
-          "operation": "add_modifier",
-          "value_source": "proficiency"
-        }
+        "passive_effects": [
+          { "effect": "ignore_weapon_grip_restrictions" },
+          { "trigger": "deal_physical_damage", "effect": "add_level_to_damage" }
+        ]
       }
-    },
-    {
-      "id": "GUERRIERO_F02",
-      "name": "Carica",
-      "description": "Spendete 3 Speranze per muovervi fino a distanza Lontana e sferrare un attacco con Vantaggio.",
-      "type": "active_action",
-      "automation": {
-        "cost": { "resource": "hope", "amount": 3 },
-        "effect": {
-          "movement": "move_far",
-          "attack": { "advantage": true }
-        }
-      }
-    },
-    {
-      "id": "GUERRIERO_SUBCLASS_SELECT",
-      "name": "Selezione Sottoclasse",
-      "type": "selection_gate",
-      "options": [
-        {
-          "id": "SUB_MASSACRATORE",
-          "name": "Massacratore",
-          "description": "Una forza inarrestabile che si lascia dietro una scia di distruzione.",
-          "features": [
-            {
-              "id": "MASSACRATORE_F01",
-              "name": "Furia Sanguinaria",
-              "description": "Quando riduci un nemico a 0 PF, ottieni un'azione gratuita o recuperi Stress.",
-              "automation": {
-                "trigger": "enemy_killed",
-                "effect": "prompt_action_or_heal_stress"
-              }
-            }
-          ]
-        },
-        {
-          "id": "SUB_STRATEGA",
-          "name": "Stratega",
-          "description": "Un esperto di tattica che controlla il flusso della battaglia.",
-          "features": [
-            {
-              "id": "STRATEGA_F01",
-              "name": "Piano di Battaglia",
-              "description": "All'inizio del combattimento, concedi un bonus all'Evasione o al Danno a un alleato.",
-              "automation": {
-                "trigger": "combat_start",
-                "effect": "grant_buff_to_ally"
-              }
-            }
-          ]
-        }
-      ]
     }
   ],
-  "source_ref": "DH_MB_209"
+  "hope_feature": {
+    "name": "Nessuna Tregua",
+    "cost": 3,
+    "description": "Ottenete bonus +1 ai tiri attacco fino al prossimo riposo."
+  },
+  "subclasses_overview": [
+    {
+      "name": "Chiamata del Coraggio",
+      "description": "Rispondete alla Chiamata del Coraggio se volete usare la forza dei vostri nemici per alimentare il vostro potere.",
+      "related_id": "DH_SUBCLASS_CHIAMATA_CORAGGIO"
+    },
+    {
+      "name": "Chiamata dello Sterminatore",
+      "description": "Rispondete alla Chiamata dello Sterminatore se volete abbattere gli avversari con una forza immensa.",
+      "related_id": "DH_SUBCLASS_CHIAMATA_STERMINATORE"
+    }
+  ],
+  "starting_items": [
+    "Torcia",
+    "Corda (16m)",
+    "Provviste di base",
+    "Manciata d'oro",
+    "Pozione di Guarigione Minore o Pozione di Recupero Minore",
+    "Il disegno di un amante o Una pietra per affilare (cote)"
+  ]
 }
