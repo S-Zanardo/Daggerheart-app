@@ -1,163 +1,78 @@
 {
-  "id": "DH_CLASS_009",
+  "id": "DH_CLASS_STREGONE",
   "name": "Stregone",
   "image": "Stregone.jpg",
-  "category": "Classe",
-  "description": "Gli stregoni possiedono un potere magico innato e hanno appreso come sfruttare tale potere per ottenere ciò che desiderano.",
-  "ui_data": {
-    "color_theme": "#800080",
-    "domain_refs": [
-      {
-        "name": "Arcano",
-        "id": "DOMAIN_ARCANA",
-        "image_asset": "Arcano.png"
-      },
-      {
-        "name": "Mezzanotte",
-        "id": "DOMAIN_MIDNIGHT",
-        "image_asset": "Mezzanotte.png"
-      }
-    ]
-  },
+  "description": "Non tutti gli utilizzatori di magia innata scelgono di affinare il loro dono, ma quelli che lo fanno possono diventare potenti stregoni. Le abilità di uno stregone possono spaziare dal dominio sugli elementi alla creazione di realistiche illusioni. Il percorso che porta a diventare un formidabile stregone non consiste nell’acquisire altro potere, ma nell’imparare a coltivare e controllare il potere che già si possiede.",
+  "domains": ["Arcano", "Mezzanotte"],
   "base_stats": {
-    "starting_evasion": 10,
-    "starting_hp": 6,
-    "starting_stress": 6,
-    "starting_hope": 2
+    "evasion": 10,
+    "hp": 6,
+    "stress": 6
   },
-  "creation_options": {
-    "starting_equipment": {
-      "choices": [
-        "Un globo sussurrante",
-        "Un cimelio di famiglia"
-      ]
-    }
+  "recommended_traits": {
+    "agilità": 0,
+    "forza": -1,
+    "astuzia": 1,
+    "istinto": 2,
+    "presenza": 1,
+    "conoscenza": 0
   },
-  "features": [
+  "class_features": [
     {
-      "id": "STREGONE_F01",
       "name": "Percezione Arcana",
-      "description": "Potete percepire la presenza di magia o oggetti incantati a distanza Ravvicinata.",
-      "type": "narrative_sense",
+      "description": "Potete percepire la presenza di persone che possiedono il dono della magia e di oggetti incantati a distanza Ravvicinata.",
       "automation": {
-        "trigger": "active_ping",
-        "effect": "reveal_magic_tags_in_range",
-        "range": "Ravvicinata"
+        "type": "passive_sense",
+        "range": "close",
+        "target": "magic_sources"
       }
     },
     {
-      "id": "STREGONE_F02",
       "name": "Illusione Minore",
-      "description": "Effettuate un Tiro Incantesimo (Difficoltà 10). Se riuscito, create un'illusione visiva e uditiva minore.",
-      "type": "innate_spell",
+      "description": "Effettuate un Tiro Incantesimo (Difficoltà 10). Se l’esito è positivo, create un’illusione visiva minore, non più grande della vostra taglia, entro una distanza Ravvicinata. Questa illusione è convincente per chiunque si trovi a distanza Ravvicinata o maggiore.",
       "automation": {
-        "trigger": "active_roll",
-        "roll_type": "spellcast",
+        "type": "action_roll",
+        "stat": "spellcast_trait",
         "difficulty": 10,
-        "success_effect": "create_illusion_object"
+        "effect": "create_illusion"
       }
     },
     {
-      "id": "STREGONE_F03",
       "name": "Incanalare il Potere Grezzo",
-      "description": "Una volta per riposo lungo, sposta una carta dalla Dotazione alla Riserva per: guadagnare Speranza pari al livello della carta OPPURE ottenere bonus al prossimo danno magico pari al doppio del livello della carta.",
-      "type": "resource_conversion",
+      "description": "Una volta per riposo lungo, potete spostare una carta dominio dalla vostra Dotazione (carte attive) alla riserva (carte inattive). Se lo fate, scegliete un effetto: 1) Guadagnate Speranza pari al livello della carta. 2) Potenziare un incantesimo che infligge danni, ottenendo un bonus ai danni pari al doppio del livello della carta.",
       "automation": {
         "frequency": "long_rest",
-        "trigger": "active_activation",
-        "input_request": {
-          "type": "select_equipped_card",
-          "filter": "domain_card"
-        },
-        "effect": {
-          "operation": "unequip_card",
-          "options": [
-            {
-              "label": "Guadagna Speranza",
-              "action": { "resource": "hope", "operation": "add", "value_source": "card_level" }
-            },
-            {
-              "label": "Potenzia Prossimo Incantesimo",
-              "action": {
-                "status_effect": "empowered_spell",
-                "duration": "next_damage_roll",
-                "modifier": { "value_source": "card_level_x2" }
-              }
-            }
-          ]
-        }
+        "cost": { "type": "unequip_domain_card" },
+        "options": [
+          { "label": "Guadagna Speranza", "effect": "gain_hope_equal_to_card_level" },
+          { "label": "Potenzia Danno", "effect": "add_damage_bonus_double_card_level" }
+        ]
       }
-    },
-    {
-      "id": "STREGONE_F04",
-      "name": "Magia Volatile",
-      "description": "Spendete 3 Speranze per rilanciare un numero qualsiasi di dadi di danno in un attacco che infligge danni magici.",
-      "type": "damage_reroll",
-      "automation": {
-        "cost": { "resource": "hope", "amount": 3 },
-        "trigger": "damage_roll_result",
-        "condition": { "damage_type": "magic" },
-        "effect": {
-          "operation": "reroll_selected_dice",
-          "selection_mode": "any_number"
-        }
-      }
-    },
-    {
-      "id": "STREGONE_SUBCLASS_SELECT",
-      "name": "Selezione Sottoclasse",
-      "type": "selection_gate",
-      "options": [
-        {
-          "id": "SUB_POTERE_ELEMENTALE",
-          "name": "Potere Elementale",
-          "description": "Incanalare la potenza grezza di un elemento: Aria, Terra, Fuoco, Fulmine o Acqua.",
-          "spellcast_trait": "Istinto",
-          "features": [
-            {
-              "id": "ELEMENTALE_F01",
-              "name": "Elementalista",
-              "description": "Scegli un elemento. Spendi 1 Speranza per ottenere +2 al tiro azione o +3 ai danni quando descrivi l'uso dell'elemento.",
-              "automation": {
-                "creation_phase": {
-                  "input_request": { "type": "select_option", "options": ["Aria", "Terra", "Fuoco", "Fulmine", "Acqua"] }
-                },
-                "usage": {
-                  "cost": "1_hope",
-                  "options": [
-                    { "label": "+2 Azione", "effect": "add_modifier_2" },
-                    { "label": "+3 Danni", "effect": "add_damage_3" }
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        {
-          "id": "SUB_POTERE_PRIMORDIALE",
-          "name": "Potere Primordiale",
-          "description": "Modificare l'essenza stessa della magia per estenderne la versatilità.",
-          "spellcast_trait": "Istinto",
-          "features": [
-            {
-              "id": "PRIMORDIALE_F01",
-              "name": "Manipolare la Magia",
-              "description": "Dopo un incantesimo/attacco magico, marca 1 Stress per: Estendere portata, +2 al risultato, Raddoppiare un dado danno, o Colpire bersaglio extra.",
-              "automation": {
-                "trigger": "magic_attack_resolved",
-                "cost": "1_stress",
-                "choices": [
-                  { "label": "Estendi Portata", "effect": "increase_range_1_band" },
-                  { "label": "+2 al Tiro", "effect": "add_result_modifier_2" },
-                  { "label": "Raddoppia un Dado", "effect": "double_selected_damage_die" },
-                  { "label": "Bersaglio Extra", "effect": "apply_hit_second_target" }
-                ]
-              }
-            }
-          ]
-        }
-      ]
     }
   ],
-  "source_ref": "DH_MB_050"
+  "hope_feature": {
+    "name": "Magia Volatile",
+    "cost": 3,
+    "description": "Rilanciare un numero qualsiasi di dadi di danno in un attacco che infligge danni magici."
+  },
+  "subclasses_overview": [
+    {
+      "name": "Potere Elementale",
+      "description": "Scegliete il Potere Elementale se volete incanalare la potenza grezza di un particolare elemento.",
+      "related_id": "DH_SUBCLASS_POTERE_ELEMENTALE"
+    },
+    {
+      "name": "Potere Primordiale",
+      "description": "Scegliete il Potere Primordiale se volete estendere la versatilità dei vostri incantesimi in modo dirompente.",
+      "related_id": "DH_SUBCLASS_POTERE_PRIMORDIALE"
+    }
+  ],
+  "starting_items": [
+    "Torcia",
+    "Corda (16m)",
+    "Provviste di base",
+    "Manciata d'oro",
+    "Pozione di Guarigione Minore o Pozione di Recupero Minore",
+    "Un globo sussurrante o Un cimelio di famiglia"
+  ]
 }
