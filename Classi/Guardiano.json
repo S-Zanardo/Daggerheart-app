@@ -1,140 +1,76 @@
 {
-  "id": "DH_CLASS_005",
+  "id": "DH_CLASS_GUARDIANO",
   "name": "Guardiano",
   "image": "Guardiano.jpg",
-  "category": "Classe",
-  "description": "I guardiani sono protettori inarrestabili, guerrieri in armatura pesante che difendono i loro alleati a ogni costo.",
-  "ui_data": {
-    "color_theme": "#B8860B",
-    "domain_refs": [
-      {
-        "name": "Valore",
-        "id": "DOMAIN_VALOR",
-        "image_asset": "Valore.png"
-      },
-      {
-        "name": "Lame",
-        "id": "DOMAIN_BLADES",
-        "image_asset": "Lame.png"
-      }
-    ]
-  },
+  "description": "Il titolo di guardiano comprende una serie di professioni marziali che si riferiscono più alla loro bussola morale e all’incrollabile forza d’animo che ai mezzi con cui combattono. Sebbene molti guardiani si uniscano a gruppi militanti per un paese o una causa, è più probabile che seguano quei pochi a cui tengono veramente, senza curarsi degli altri. Guai a chi fa del male all’alleato di un guardiano, perché quest’ultimo risponderà con altrettanta forza.",
+  "domains": ["Valore", "Lame"],
   "base_stats": {
-    "starting_evasion": 9,
-    "starting_hp": 7,
-    "starting_stress": 5,
-    "starting_hope": 2
+    "evasion": 9,
+    "hp": 7,
+    "stress": 6
   },
-  "creation_options": {
-    "starting_equipment": {
-      "choices": [
-        "Un dono del tuo mentore",
-        "Una chiave misteriosa"
+  "recommended_traits": {
+    "agilità": 1,
+    "forza": 2,
+    "astuzia": -1,
+    "istinto": 0,
+    "presenza": 1,
+    "conoscenza": 0
+  },
+  "class_feature": {
+    "name": "Inarrestabile",
+    "description": "Una volta per riposo lungo, attivate il Dado Inarrestabile (d4 al liv. 1, d6 al liv. 5). Iniziate con il valore 1. Quando infliggete danni, aumentate il valore di 1. Aggiungete il valore attuale del dado ai tiri per i danni. Riducete la gravità dei danni fisici subiti di una soglia. Non potete essere Trattenuti o Vulnerabili. Se il valore supera il massimo del dado, l'effetto termina.",
+    "automation": {
+      "frequency": "long_rest",
+      "resource": {
+        "name": "Dado Inarrestabile",
+        "type": "die_counter",
+        "start_value": 1,
+        "max_value_scaling": { "level_1": 4, "level_5": 6 }
+      },
+      "passive_effects": [
+        { "condition": "unstoppable_active", "effect": "reduce_incoming_phys_damage_severity" },
+        { "condition": "unstoppable_active", "effect": "immunity_restrained_vulnerable" }
+      ],
+      "triggers": [
+        {
+          "trigger": "deal_damage",
+          "effect": "increment_die_value"
+        },
+        {
+          "trigger": "damage_roll",
+          "effect": "add_die_value_to_damage"
+        },
+        {
+          "trigger": "die_value_exceeds_max",
+          "effect": "end_unstoppable_state"
+        }
       ]
     }
   },
-  "features": [
+  "hope_feature": {
+    "name": "Baluardo in Prima Linea",
+    "cost": 3,
+    "description": "Cancellare 2 Caselle Armatura marcate."
+  },
+  "subclasses_overview": [
     {
-      "id": "GUARDIANO_F01",
-      "name": "Inarrestabile",
-      "description": "Una volta per riposo lungo, diventate Inarrestabili iniziando con un d4 a valore 1. Riducete i danni subiti pari al valore attuale del dado. Quando infliggete danno, aumentate il valore di 1. Se supera il massimo (4), l'effetto termina.",
-      "type": "scaling_resource_buff",
-      "automation": {
-        "frequency": "long_rest",
-        "trigger": "active_activation",
-        "effect": {
-          "operation": "create_resource_die",
-          "resource_id": "unstoppable_die",
-          "die_size": "d4",
-          "start_value": 1,
-          "progression": { "level_5": "d6" }
-        },
-        "passive_benefits": [
-          {
-            "target": "incoming_damage",
-            "operation": "subtract",
-            "value_source": "unstoppable_die_current_value"
-          }
-        ],
-        "reaction_trigger": {
-          "event": "damage_dealt_to_enemy",
-          "condition": "damage > 0",
-          "effect": "increment_die_value",
-          "on_max_exceeded": "remove_resource_die"
-        }
-      }
+      "name": "Valoroso",
+      "description": "Scegliete il Valoroso se volete incassare i colpi più pesanti e continuare a combattere.",
+      "related_id": "DH_SUBCLASS_VALOROSO"
     },
     {
-      "id": "GUARDIANO_F02",
-      "name": "Baluardo in Prima Linea",
-      "description": "Spendete 3 Speranze per riparare 2 Caselle Armatura.",
-      "type": "resource_recovery",
-      "automation": {
-        "cost": { "resource": "hope", "amount": 3 },
-        "effect": {
-          "target": "armor_slots",
-          "operation": "restore",
-          "value": 2
-        }
-      }
-    },
-    {
-      "id": "GUARDIANO_SUBCLASS_SELECT",
-      "name": "Selezione Sottoclasse",
-      "type": "selection_gate",
-      "options": [
-        {
-          "id": "SUB_VALOROSO",
-          "name": "Valoroso",
-          "description": "Incassate i colpi più pesanti grazie a una resistenza incredibile.",
-          "features": [
-            {
-              "id": "VALOROSO_F01",
-              "name": "Saldo",
-              "description": "Bonus permanente +1 alle soglie di danno.",
-              "automation": {
-                "effect": { "target": "damage_thresholds", "operation": "add_all", "value": 1 }
-              }
-            },
-            {
-              "id": "VALOROSO_F02",
-              "name": "Volontà di Ferro",
-              "description": "Quando subite danni fisici, potete marcare una Casella Armatura extra per ridurne la gravità.",
-              "automation": {
-                "trigger": "incoming_physical_damage",
-                "cost": "1_armor_slot",
-                "effect": "reduce_severity_one_step"
-              }
-            }
-          ]
-        },
-        {
-          "id": "SUB_VENDICATORE",
-          "name": "Vendicatore",
-          "description": "Punite i nemici che osano ferire voi o i vostri alleati.",
-          "features": [
-            {
-              "id": "VENDICATORE_F01",
-              "name": "A Suo Agio",
-              "description": "Guadagnate una casella Stress aggiuntiva.",
-              "automation": {
-                "effect": { "target": "max_stress", "operation": "add", "value": 1 }
-              }
-            },
-            {
-              "id": "VENDICATORE_F02",
-              "name": "Vendetta",
-              "description": "Quando un nemico in mischia vi colpisce, marcate 2 Stress per infliggergli 1 Punto Ferita.",
-              "automation": {
-                "trigger": "hit_by_melee_attack",
-                "cost": { "resource": "stress", "amount": 2 },
-                "effect": { "target": "attacker", "operation": "deal_direct_hp_damage", "value": 1 }
-              }
-            }
-          ]
-        }
-      ]
+      "name": "Vendicatore",
+      "description": "Scegliete il Vendicatore se volete punire i nemici che feriscono voi o i vostri alleati.",
+      "related_id": "DH_SUBCLASS_VENDICATORE"
     }
   ],
-  "source_ref": "DH_MB_040"
+  "starting_items": [
+    "Torcia",
+    "Corda (16m)",
+    "Provviste di base",
+    "Manciata d'oro",
+    "Pozione di Guarigione Minore o Pozione di Recupero Minore",
+    "Un dono del tuo mentore o Una chiave misteriosa"
+  ]
 }
