@@ -1,0 +1,7 @@
+ {
+    "id": "DH_SUPPLY_BOMBA_FUMO",
+    "name": "Bomba Fumogena",
+    "category": "loot_supply",
+    "rarity": "common",
+    "feature_text": "Crea una nuvola di fumo a distanza Ravvicinata. Tutti al suo interno sono Nascosti."
+  }
