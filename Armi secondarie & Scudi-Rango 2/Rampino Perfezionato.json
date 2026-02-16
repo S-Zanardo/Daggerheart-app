@@ -1,0 +1,21 @@
+ {
+    "id": "DH_WEAPON_RAMPINO_PERFEZIONATO",
+    "name": "Rampino Perfezionato",
+    "rank": 2,
+    "type": "secondary",
+    "hands": 1,
+    "range": "Ravvicinata",
+    "combat_logic": {
+      "primary_trait": "astuzia",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 2,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "feature": {
+      "name": "Agganciato",
+      "description": "Se l’attacco ha successo, potete trascinare il bersaglio a distanza di Mischia.",
+      "stat_impact": null
+    }
+  }
