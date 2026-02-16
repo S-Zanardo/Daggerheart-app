@@ -1,0 +1,21 @@
+ {
+    "id": "DH_WEAPON_FRUSTA_PERFEZIONATA",
+    "name": "Frusta Perfezionata",
+    "rank": 2,
+    "type": "secondary",
+    "hands": 1,
+    "range": "Prossima",
+    "combat_logic": {
+      "primary_trait": "presenza",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 2,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "feature": {
+      "name": "Snervante",
+      "description": "Marcate uno Stress per schioccare la frusta e costringere tutti gli avversari in Mischia ad allontanarsi a distanza Ravvicinata.",
+      "stat_impact": null
+    }
+  }
