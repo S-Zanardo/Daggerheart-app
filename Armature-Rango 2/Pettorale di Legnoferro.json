@@ -1,0 +1,11 @@
+ {
+    "id": "DH_ARMOR_PETTORALE_LEGNOFERRO",
+    "name": "Pettorale di Legnoferro",
+    "rank": 2,
+    "defensive_logic": {
+      "base_armor_score": 4,
+      "thresholds": { "major": 9, "severe": 20 },
+      "passive_modifiers": null
+    },
+    "feature_text": "Rinforzato: Quando marcate l’ultima Casella Armatura, aumentate le soglie di danno di +2 finché non riparate almeno 1 Casella Armatura."
+  }
