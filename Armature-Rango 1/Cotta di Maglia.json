@@ -1,0 +1,11 @@
+ {
+    "id": "DH_ARMOR_COTTA_MAGLIA",
+    "name": "Cotta di Maglia",
+    "rank": 1,
+    "defensive_logic": {
+      "base_armor_score": 4,
+      "thresholds": { "major": 7, "severe": 15 },
+      "passive_modifiers": { "evasion": -1 }
+    },
+    "feature_text": "Pesante: −1 all’Evasione."
+  }
