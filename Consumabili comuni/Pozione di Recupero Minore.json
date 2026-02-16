@@ -1,0 +1,8 @@
+ {
+    "id": "DH_SUPPLY_POZIONE_RECUPERO_MINORE",
+    "name": "Pozione di Recupero Minore",
+    "category": "loot_supply",
+    "rarity": "common",
+    "feature_text": "Bevete per rimuovere 1d4 Stress.",
+    "automation": { "effect": "clear_stress", "dice": "1d4" }
+  }
