@@ -1,0 +1,17 @@
+{
+    "id": "DH_WEAPON_BACCHETTA",
+    "name": "Bacchetta",
+    "rank": 1,
+    "type": "primary",
+    "hands": 1,
+    "range": "Lontana",
+    "combat_logic": {
+      "primary_trait": "conoscenza",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 1,
+      "damage_type": "magic",
+      "alternate_traits": null
+    },
+    "feature": null
+  },
