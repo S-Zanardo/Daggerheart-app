@@ -1,4 +1,4 @@
- {
+  {
     "id": "DH_WEAPON_ASCIA_BATTAGLIA",
     "name": "Ascia da Battaglia",
     "rank": 1,
@@ -12,4 +12,6 @@
       "damage_flat_bonus": 3,
       "damage_type": "physical",
       "alternate_traits": null
-    }
+    },
+    "feature": null
+  }
