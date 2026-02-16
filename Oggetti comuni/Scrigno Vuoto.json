@@ -1,0 +1,7 @@
+ {
+    "id": "DH_LOOT_SCRIGNO",
+    "name": "Scrigno Vuoto",
+    "category": "loot_item",
+    "rarity": "common",
+    "feature_text": "Magico. Sembra vuoto finché non pronunciate la parola d'ordine per rivelarne il contenuto."
+  }
