@@ -1,0 +1,21 @@
+ {
+    "id": "DH_WEAPON_MARTELLO_EXOTA",
+    "name": "Martello di Exota",
+    "rank": 2,
+    "type": "primary",
+    "hands": 2,
+    "range": "Mischia",
+    "combat_logic": {
+      "primary_trait": "istinto",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 8,
+      "damage_flat_bonus": 6,
+      "damage_type": "magic",
+      "alternate_traits": null
+    },
+    "feature": {
+      "name": "Esplosivo",
+      "description": "Dopo un attacco riuscito contro un bersaglio entro Mischia, tutti gli altri avversari entro distanza Prossima devono superare un tiro reazione (14) o subire la metà dei danni.",
+      "stat_impact": null
+    }
+  }
