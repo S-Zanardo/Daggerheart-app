@@ -1,0 +1,8 @@
+{
+    "id": "DH_SUPPLY_VELENO_POTENZIATO",
+    "name": "Veleno di Macinadenti Potenziato",
+    "category": "loot_supply",
+    "rarity": "common",
+    "feature_text": "Applicare su arma fisica: +1d8 al prossimo tiro di danno.",
+    "automation": { "effect": "buff_next_damage", "dice": "1d8" }
+  }
