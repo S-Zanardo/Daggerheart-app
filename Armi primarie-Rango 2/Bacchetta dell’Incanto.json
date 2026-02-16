@@ -1,0 +1,21 @@
+ {
+    "id": "DH_WEAPON_BACCHETTA_INCANTO",
+    "name": "Bacchetta dell’Incanto",
+    "rank": 2,
+    "type": "primary",
+    "hands": 1,
+    "range": "Lontana",
+    "combat_logic": {
+      "primary_trait": "presenza",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 4,
+      "damage_type": "magic",
+      "alternate_traits": null
+    },
+    "feature": {
+      "name": "Persuasiva",
+      "description": "Prima di effettuare un Tiro Presenza, potete marcare 2 Stress per tirare con vantaggio.",
+      "stat_impact": null
+    }
+  }
