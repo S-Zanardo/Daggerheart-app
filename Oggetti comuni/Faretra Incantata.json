@@ -1,0 +1,8 @@
+ {
+    "id": "DH_LOOT_FARETRA",
+    "name": "Faretra Incantata",
+    "category": "loot_item",
+    "rarity": "common",
+    "feature_text": "Quando riuscite in un attacco con una freccia di questa faretra, ottenete un bonus al danno pari al vostro livello.",
+    "automation": { "trigger": "attack_success", "effect": "add_damage_bonus", "value_source": "level" }
+  }
