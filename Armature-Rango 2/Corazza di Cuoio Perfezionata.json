@@ -1,0 +1,11 @@
+{
+    "id": "DH_ARMOR_CORAZZA_CUOIO_PERFEZIONATA",
+    "name": "Corazza di Cuoio Perfezionata",
+    "rank": 2,
+    "defensive_logic": {
+      "base_armor_score": 4,
+      "thresholds": { "major": 9, "severe": 20 },
+      "passive_modifiers": null
+    },
+    "feature_text": null
+  }
