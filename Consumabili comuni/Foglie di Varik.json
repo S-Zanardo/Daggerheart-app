@@ -1,0 +1,8 @@
+ {
+    "id": "DH_SUPPLY_FOGLIE_VARIK",
+    "name": "Foglie di Varik",
+    "category": "loot_supply",
+    "rarity": "common",
+    "feature_text": "Mangiate per ottenere 2 Speranze.",
+    "automation": { "effect": "gain_hope", "value": 2 }
+  }
