@@ -1,0 +1,11 @@
+ {
+    "id": "DH_ARMOR_GAMBESONE",
+    "name": "Gambesone",
+    "rank": 1,
+    "defensive_logic": {
+      "base_armor_score": 3,
+      "thresholds": { "major": 5, "severe": 11 },
+      "passive_modifiers": { "evasion": 1 }
+    },
+    "feature_text": "Flessibile: +1 all’Evasione."
+  }
