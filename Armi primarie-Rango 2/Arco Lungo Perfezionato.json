@@ -1,0 +1,22 @@
+ {
+    "id": "DH_WEAPON_ARCO_LUNGO_PERFEZIONATO",
+    "name": "Arco Lungo Perfezionato",
+    "rank": 2,
+    "type": "primary",
+    "hands": 2,
+    "range": "Remota",
+    "combat_logic": {
+      "primary_trait": "agilità",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 8,
+      "damage_flat_bonus": 6,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "ammo_config": { "uses_ammo": true, "type": "frecce" },
+    "feature": {
+      "name": "Ingombrante",
+      "description": "-1 all’Astuzia.",
+      "stat_impact": { "astuzia": -1 }
+    }
+  }
