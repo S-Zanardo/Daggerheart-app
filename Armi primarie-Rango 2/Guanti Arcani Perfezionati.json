@@ -1,0 +1,17 @@
+ {
+    "id": "DH_WEAPON_GUANTI_ARCANI_PERFEZIONATI",
+    "name": "Guanti Arcani Perfezionati",
+    "rank": 2,
+    "type": "primary",
+    "hands": 2,
+    "range": "Mischia",
+    "combat_logic": {
+      "primary_trait": "forza",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 10,
+      "damage_flat_bonus": 6,
+      "damage_type": "magic",
+      "alternate_traits": null
+    },
+    "feature": null
+  }
