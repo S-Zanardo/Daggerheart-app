@@ -1,0 +1,21 @@
+ {
+    "id": "DH_WEAPON_SCETTRO",
+    "name": "Scettro",
+    "rank": 1,
+    "type": "primary",
+    "hands": 2,
+    "range": "Lontana",
+    "combat_logic": {
+      "primary_trait": "presenza",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 0,
+      "damage_type": "magic",
+      "alternate_traits": ["presenza", "mischia"]
+    },
+    "feature": {
+      "name": "Versatile",
+      "description": "Quest’arma può essere usata anche con le seguenti statistiche — Presenza, Mischia, d8.",
+      "stat_impact": null
+    }
+  }
