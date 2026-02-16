@@ -1,0 +1,17 @@
+ {
+    "id": "DH_WEAPON_SCIABOLA",
+    "name": "Sciabola",
+    "rank": 1,
+    "type": "primary",
+    "hands": 1,
+    "range": "Mischia",
+    "combat_logic": {
+      "primary_trait": "presenza",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 8,
+      "damage_flat_bonus": 1,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "feature": null
+  },
