@@ -1,0 +1,11 @@
+  {
+    "id": "DH_ARMOR_CORAZZA_CUOIO",
+    "name": "Corazza di Cuoio",
+    "rank": 1,
+    "defensive_logic": {
+      "base_armor_score": 3,
+      "thresholds": { "major": 6, "severe": 13 },
+      "passive_modifiers": null
+    },
+    "feature_text": null
+  }
