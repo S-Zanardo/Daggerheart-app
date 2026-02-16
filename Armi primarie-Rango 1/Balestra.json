@@ -1,0 +1,18 @@
+ {
+    "id": "DH_WEAPON_BALESTRA",
+    "name": "Balestra",
+    "rank": 1,
+    "type": "primary",
+    "hands": 1,
+    "range": "Lontana",
+    "combat_logic": {
+      "primary_trait": "astuzia",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 1,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "ammo_config": { "uses_ammo": true, "type": "dardi" },
+    "feature": null
+  }
