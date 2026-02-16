@@ -1,0 +1,7 @@
+ {
+    "id": "DH_SUPPLY_POZIONE_COSTANZA",
+    "name": "Pozione di Costanza",
+    "category": "loot_supply",
+    "rarity": "common",
+    "feature_text": "Bevete per ottenere una mossa di interludio aggiuntiva."
+  }
