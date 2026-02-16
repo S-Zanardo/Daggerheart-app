@@ -1,0 +1,8 @@
+{
+    "id": "DH_CURRENCY_SACCO",
+    "name": "Sacco d'Oro",
+    "category": "currency",
+    "rarity": "common",
+    "description": "Una borsa piena. 10 Sacchi = 1 Forziere.",
+    "automation": { "conversion_rate": 10 }
+  }
