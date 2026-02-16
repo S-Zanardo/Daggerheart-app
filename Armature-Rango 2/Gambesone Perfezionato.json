@@ -1,0 +1,11 @@
+{
+    "id": "DH_ARMOR_GAMBESONE_PERFEZIONATO",
+    "name": "Gambesone Perfezionato",
+    "rank": 2,
+    "defensive_logic": {
+      "base_armor_score": 4,
+      "thresholds": { "major": 7, "severe": 16 },
+      "passive_modifiers": { "evasion": 1 }
+    },
+    "feature_text": "Flessibile: +1 all’Evasione."
+  }
