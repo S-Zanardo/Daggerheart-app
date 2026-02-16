@@ -1,0 +1,8 @@
+  {
+    "id": "DH_CURRENCY_MANCIATA",
+    "name": "Manciata d'Oro",
+    "category": "currency",
+    "rarity": "common",
+    "description": "Monete spicciole. 10 Manciate = 1 Sacco.",
+    "automation": { "conversion_rate": 1 }
+  }
