@@ -1,0 +1,8 @@
+ {
+    "id": "DH_LOOT_FRECCE_TRAPASSANTI",
+    "name": "Frecce Trapassanti",
+    "category": "loot_item",
+    "rarity": "common",
+    "feature_text": "3 volte per riposo: Aggiungete la vostra Competenza al tiro di danno.",
+    "automation": { "trigger": "attack_damage", "effect": "add_proficiency_to_damage", "uses_per_rest": 3 }
+  }
