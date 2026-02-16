@@ -1,0 +1,8 @@
+ {
+    "id": "DH_LOOT_SACCO_PELO",
+    "name": "Sacco a Pelo di Qualità",
+    "category": "loot_item",
+    "rarity": "common",
+    "feature_text": "Durante gli interludi, rimuovete automaticamente uno Stress.",
+    "automation": { "trigger": "interlude", "effect": "clear_stress", "value": 1 }
+  }
