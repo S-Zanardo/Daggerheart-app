@@ -1,0 +1,17 @@
+ {
+    "id": "DH_WEAPON_RUNE_MISTICHE",
+    "name": "Rune Mistiche",
+    "rank": 1,
+    "type": "primary",
+    "hands": 1,
+    "range": "Prossima",
+    "combat_logic": {
+      "primary_trait": "istinto",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 10,
+      "damage_flat_bonus": 0,
+      "damage_type": "magic",
+      "alternate_traits": null
+    },
+    "feature": null
+  }
