@@ -1,0 +1,11 @@
+ {
+    "id": "DH_ARMOR_GIACO_TYRIS",
+    "name": "Giaco di Tyris",
+    "rank": 2,
+    "defensive_logic": {
+      "base_armor_score": 5,
+      "thresholds": { "major": 8, "severe": 18 },
+      "passive_modifiers": null
+    },
+    "feature_text": "Quieta: Ottenete bonus +2 ai tiri per muovervi silenziosamente."
+  }
