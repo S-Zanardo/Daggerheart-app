@@ -1,0 +1,11 @@
+ {
+    "id": "DH_ARMOR_COTTA_ELUNDRIANA",
+    "name": "Cotta Elundriana",
+    "rank": 2,
+    "defensive_logic": {
+      "base_armor_score": 4,
+      "thresholds": { "major": 9, "severe": 21 },
+      "passive_modifiers": null
+    },
+    "feature_text": "Protetta: Riducete il danno magico subito di un valore pari al vostro Punteggio di Armatura prima di applicarlo alle soglie di danno."
+  }
