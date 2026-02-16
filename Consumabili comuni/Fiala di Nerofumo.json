@@ -1,0 +1,7 @@
+ {
+    "id": "DH_SUPPLY_NEROFUMO",
+    "name": "Fiala di Nerofumo",
+    "category": "loot_supply",
+    "rarity": "common",
+    "feature_text": "Reazione ad attacco: Tirate d6 pari alla vostra Agilità. Aggiungete il dado più alto all'Evasione."
+  }
