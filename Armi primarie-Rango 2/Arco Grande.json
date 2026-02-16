@@ -1,0 +1,22 @@
+ {
+    "id": "DH_WEAPON_ARCO_GRANDE",
+    "name": "Arco Grande",
+    "rank": 2,
+    "type": "primary",
+    "hands": 2,
+    "range": "Lontana",
+    "combat_logic": {
+      "primary_trait": "forza",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 6,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "ammo_config": { "uses_ammo": true, "type": "frecce" },
+    "feature": {
+      "name": "Potente",
+      "description": "In caso di attacco riuscito, tirate un dado di danno aggiuntivo e scartate il risultato più basso.",
+      "stat_impact": null
+    }
+  }
