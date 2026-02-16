@@ -1,0 +1,17 @@
+ {
+    "id": "DH_WEAPON_PUGNALE_PERFEZIONATO",
+    "name": "Pugnale Perfezionato",
+    "rank": 2,
+    "type": "primary",
+    "hands": 1,
+    "range": "Mischia",
+    "combat_logic": {
+      "primary_trait": "astuzia",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 8,
+      "damage_flat_bonus": 4,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "feature": null
+  }
