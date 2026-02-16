@@ -1,0 +1,8 @@
+ {
+    "id": "DH_CURRENCY_FORZIERE",
+    "name": "Forziere d'Oro",
+    "category": "currency",
+    "rarity": "common",
+    "description": "Una cassa pesante. Vale 100 Manciate.",
+    "automation": { "conversion_rate": 100 }
+  }
