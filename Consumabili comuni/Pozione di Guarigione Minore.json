@@ -1,0 +1,8 @@
+ {
+    "id": "DH_SUPPLY_POZIONE_GUARIGIONE_MINORE",
+    "name": "Pozione di Guarigione Minore",
+    "category": "loot_supply",
+    "rarity": "common",
+    "feature_text": "Bevete per recuperare 1d4 Punti Ferita.",
+    "automation": { "effect": "restore_hp", "dice": "1d4" }
+  }
