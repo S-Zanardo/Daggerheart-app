@@ -1,0 +1,7 @@
+ {
+    "id": "DH_LOOT_MANETTE",
+    "name": "Manette",
+    "category": "loot_item",
+    "rarity": "common",
+    "feature_text": "Paio di manette con lucchetto e chiave."
+  }
