@@ -1,0 +1,21 @@
+{
+    "id": "DH_WEAPON_ALABARDA",
+    "name": "Alabarda",
+    "rank": 1,
+    "type": "primary",
+    "hands": 2,
+    "range": "Prossima",
+    "combat_logic": {
+      "primary_trait": "forza",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 10,
+      "damage_flat_bonus": 2,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "feature": {
+      "name": "Ingombrante",
+      "description": "-1 all’Astuzia.",
+      "stat_impact": { "astuzia": -1 }
+    }
+  },
