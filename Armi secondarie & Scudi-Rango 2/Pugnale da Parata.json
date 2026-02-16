@@ -1,0 +1,21 @@
+ {
+    "id": "DH_WEAPON_PUGNALE_PARATA",
+    "name": "Pugnale da Parata",
+    "rank": 2,
+    "type": "secondary",
+    "hands": 1,
+    "range": "Mischia",
+    "combat_logic": {
+      "primary_trait": "astuzia",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 2,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "feature": {
+      "name": "Parata",
+      "description": "Quando venite attaccati, tirate i dadi di danno. Se uno dei dadi di danno dell’attaccante ha lo stesso valore di uno dei vostri, i risultati corrispondenti vengono scartati dai dadi di danno dell’attaccante prima di calcolare il danno subito.",
+      "stat_impact": null
+    }
+  }
