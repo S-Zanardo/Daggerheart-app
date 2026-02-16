@@ -1,0 +1,21 @@
+ {
+    "id": "DH_WEAPON_STILETTO_PERFEZIONATO",
+    "name": "Stiletto Perfezionato",
+    "rank": 2,
+    "type": "secondary",
+    "hands": 1,
+    "range": "Mischia",
+    "combat_logic": {
+      "primary_trait": "astuzia",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 8,
+      "damage_flat_bonus": 2,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "feature": {
+      "name": "Accoppiato",
+      "description": "+3 al danno dell’arma primaria contro bersagli entro distanza di Mischia.",
+      "stat_impact": null
+    }
+  }
