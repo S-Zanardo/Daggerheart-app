@@ -1,0 +1,17 @@
+ {
+    "id": "DH_WEAPON_BASTONE_GEMELLO",
+    "name": "Bastone Gemello",
+    "rank": 1,
+    "type": "primary",
+    "hands": 2,
+    "range": "Lontana",
+    "combat_logic": {
+      "primary_trait": "istinto",
+      "attack_modifier_bonus": 0,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 3,
+      "damage_type": "magic",
+      "alternate_traits": null
+    },
+    "feature": null
+  },
