@@ -1,0 +1,22 @@
+ {
+    "id": "DH_WEAPON_ARCO_BELCRINE",
+    "name": "Arco di Belcrine",
+    "rank": 2,
+    "type": "primary",
+    "hands": 2,
+    "range": "Remota",
+    "combat_logic": {
+      "primary_trait": "agilità",
+      "attack_modifier_bonus": 1,
+      "damage_dice_face": 6,
+      "damage_flat_bonus": 5,
+      "damage_type": "physical",
+      "alternate_traits": null
+    },
+    "ammo_config": { "uses_ammo": true, "type": "frecce" },
+    "feature": {
+      "name": "Affidabile",
+      "description": "+1 ai tiri attacco (già calcolato).",
+      "stat_impact": null
+    }
+  }
