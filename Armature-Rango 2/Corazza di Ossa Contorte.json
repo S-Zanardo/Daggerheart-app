@@ -1,0 +1,11 @@
+{
+    "id": "DH_ARMOR_CORAZZA_OSSA_CONTORTE",
+    "name": "Corazza di Ossa Contorte",
+    "rank": 2,
+    "defensive_logic": {
+      "base_armor_score": 4,
+      "thresholds": { "major": 9, "severe": 21 },
+      "passive_modifiers": null
+    },
+    "feature_text": "Resiliente: Prima di marcare l’ultima Casella Armatura, tirate un d6. Con un 6, riducete la gravità di una soglia senza marcare la Casella Armatura."
+  }
