@@ -28,7 +28,7 @@
   "hope_feature": {
     "name": "Sceneggiata",
     "cost": 3,
-    "description": "Distrarre temporaneamente un bersaglio a distanza Ravvicinata, infliggendogli penalità -2 alla Difficoltà."
+    "description": "Spendete 3 Speranze per Distrarre temporaneamente un bersaglio a distanza Ravvicinata, infliggendogli penalità -2 alla Difficoltà."
   },
   "subclasses_overview": [
     {
