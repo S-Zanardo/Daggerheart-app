@@ -1,23 +1,28 @@
 {
-    "id": "DH_WEAPON_STILETTO",
-    "name": "Stiletto",
-    "rank": 1,
-    "type": "secondary",
-    "hands": 1,
-    "range": "Mischia",
-    "combat_logic": {
-      "primary_trait": "astuzia",
-      "attack_modifier_bonus": 0,
-      "damage_dice_face": 8,
-      "damage_flat_bonus": 0,
-      "damage_type": "physical",
-      "alternate_traits": null
+  "id": "DH_WEAPON_STILETTO",
+  "name": "Stiletto",
+  "rank": 1,
+  "type": "secondary",
+  "hands": 1,
+  "range": "Mischia",
+  "combat_logic": {
+    "primary_trait": "astuzia",
+    "attack_modifier_bonus": 0,
+    "damage_dice_face": 8,
+    "damage_flat_bonus": 0,
+    "damage_type": "physical",
+    "alternate_traits": null
+  },
+  "feature": {
+    "name": "Accoppiato",
+    "description": "+2 al danno dell’arma primaria contro bersagli entro distanza di Mischia.",
+    "stat_impact": null,
+    "passive_modifiers": { 
+      "damage_flat_bonus": 2 
     },
-    "feature": {
-      "name": "Accoppiato",
-      "description": "+2 al danno dell’arma primaria contro bersagli entro distanza di Mischia.",
-      "stat_impact": null,
-      "passive_modifiers": { "prymary_damage_flat_bonus": 2 }
-      "condition": { "primary_weapone_range": "Mischia", "type": "primary" }
+    "condition": { 
+      "target_range": "Mischia", 
+      "target_type": "primary" 
     }
   }
+}
