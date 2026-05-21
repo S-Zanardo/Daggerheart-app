@@ -16,7 +16,7 @@
     {
       "name": "Ingombrante",
       "description": "-1 all’Astuzia.",
-      "effect_target": "player",
+      "effect_target": "character",
       "activation_trigger": "passive_equipped",
       "target_requirements": null,
       "modifiers": {
