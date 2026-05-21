@@ -1,21 +1,30 @@
- {
-    "id": "DH_WEAPON_BORDONE",
-    "name": "Bordone",
-    "rank": 1,
-    "type": "primary",
-    "hands": 2,
-    "range": "Remota",
-    "combat_logic": {
-      "primary_trait": "conoscenza",
-      "attack_modifier_bonus": 0,
-      "damage_dice_face": 6,
-      "damage_flat_bonus": 0,
-      "damage_type": "magic",
-      "alternate_traits": null
-    },
-    "feature": {
+{
+  "id": "DH_WEAPON_BORDONE",
+  "name": "Bordone",
+  "rank": 1,
+  "type": "primary",
+  "hands": 2,
+  "range": "Remota",
+  "combat_logic": {
+    "primary_trait": "conoscenza",
+    "attack_modifier_bonus": 0,
+    "damage_dice_face": 6,
+    "damage_flat_bonus": 0,
+    "damage_type": "magic"
+  },
+  "features": [
+    {
       "name": "Potente",
       "description": "In caso di attacco riuscito, tirate un dado di danno aggiuntivo e scartate il risultato più basso.",
-      "stat_impact": null
+      "effect_target": "self_weapon",
+      "activation_trigger": "on_hit",
+      "target_requirements": null,
+      "modifiers": {
+        "dice_logic": {
+          "additional_damage_dice": 1,
+          "discard_lowest_dice": true
+        }
+      }
     }
-  }
+  ]
+}
