@@ -10,19 +10,20 @@
     "attack_modifier_bonus": 0,
     "damage_dice_face": 8,
     "damage_flat_bonus": 0,
-    "damage_type": "physical",
-    "alternate_traits": null
+    "damage_type": "physical"
   },
-  "feature": {
-    "name": "Accoppiato",
-    "description": "+2 al danno dell’arma primaria contro bersagli entro distanza di Mischia.",
-    "stat_impact": null,
-    "passive_modifiers": { 
-      "damage_flat_bonus": 2 
-    },
-    "condition": { 
-      "target_range": "Mischia", 
-      "target_type": "primary" 
+  "features": [
+    {
+      "name": "Accoppiato",
+      "description": "+2 al danno dell’arma primaria contro bersagli entro distanza di Mischia.",
+      "effect_target": "primary_weapon",
+      "activation_trigger": "passive_equipped",
+      "target_requirements": {
+        "range": "Mischia"
+      },
+      "modifiers": {
+        "damage_flat_bonus": 2
+      }
     }
-  }
+  ]
 }
