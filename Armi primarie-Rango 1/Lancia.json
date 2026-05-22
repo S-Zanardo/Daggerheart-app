@@ -16,8 +16,13 @@
     {
       "name": "Ingombrante",
       "description": "-1 all’Astuzia.",
-      "stat_impact": {
-        "astuzia": -1
+      "effect_target": "character",
+      "activation_trigger": "passive_equipped",
+      "target_requirements": null,
+      "modifiers": {
+        "traits": {
+          "astuzia": -1
+        }
       }
     }
   ]
