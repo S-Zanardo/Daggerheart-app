@@ -16,10 +16,8 @@
     {
       "name": "Ingombrante",
       "description": "-1 all’Astuzia.",
-      "modifiers": {
-        "stat_impact": {
-          "astuzia": -1
-        }
+      "stat_impact": {
+        "astuzia": -1
       }
     }
   ]
