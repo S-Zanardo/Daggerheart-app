@@ -1,21 +1,26 @@
- {
-    "id": "DH_WEAPON_MARTELLO_GUERRA",
-    "name": "Martello da Guerra",
-    "rank": 1,
-    "type": "primary",
-    "hands": 2,
-    "range": "Mischia",
-    "combat_logic": {
-      "primary_trait": "forza",
-      "attack_modifier_bonus": 0,
-      "damage_dice_face": 12,
-      "damage_flat_bonus": 3,
-      "damage_type": "physical",
-      "alternate_traits": null
-    },
-    "feature": {
+{
+  "id": "DH_WEAPON_MARTELLO_GUERRA",
+  "name": "Martello da Guerra",
+  "rank": 1,
+  "type": "primary",
+  "hands": 2,
+  "range": "Mischia",
+  "combat_logic": {
+    "primary_trait": "forza",
+    "attack_modifier_bonus": 0,
+    "damage_dice_face": 12,
+    "damage_flat_bonus": 3,
+    "damage_type": "physical"
+  },
+  "features": [
+    {
       "name": "Pesante",
       "description": "Subite -1 all’Evasione.",
-      "stat_impact": { "evasion": -1 }
+      "modifiers": {
+        "stat_impact": {
+          "evasion": -1
+        }
+      }
     }
-  }
+  ]
+}
