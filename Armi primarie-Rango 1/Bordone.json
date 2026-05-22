@@ -15,15 +15,12 @@
   "features": [
     {
       "name": "Potente",
-      "description": "In caso di attacco riuscito, tirate un dado di danno aggiuntivo e scartate il risultato più basso.",
-      "effect_target": "self_weapon",
-      "activation_trigger": "on_hit",
+      "description": "In caso di attacco riuscito, tirate due dadi di danno e tenete il risultato più alto.",
+      "effect_target": "damage_roll",
+      "activation_trigger": "on_damage_roll",
       "target_requirements": null,
       "modifiers": {
-        "dice_logic": {
-          "additional_damage_dice": 1,
-          "discard_lowest_dice": true
-        }
+        "roll_advantage": true
       }
     }
   ]
