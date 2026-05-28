@@ -1,21 +1,40 @@
- {
-    "id": "DH_WEAPON_SPADONE",
-    "name": "Spadone",
-    "rank": 1,
-    "type": "primary",
-    "hands": 2,
-    "range": "Mischia",
-    "combat_logic": {
-      "primary_trait": "forza",
-      "attack_modifier_bonus": 0,
-      "damage_dice_face": 10,
-      "damage_flat_bonus": 3,
-      "damage_type": "physical",
-      "alternate_traits": null
+{
+  "id": "DH_WEAPON_SPADONE",
+  "name": "Spadone",
+  "rank": 1,
+  "type": "primary",
+  "hands": 2,
+  "range": "Mischia",
+  "combat_logic": {
+    "primary_trait": "forza",
+    "attack_modifier_bonus": 0,
+    "damage_dice_face": 10,
+    "damage_flat_bonus": 3,
+    "damage_type": "physical"
+  },
+  "features": [
+    {
+      "name": "Massiccio (Ingombrante)",
+      "description": "-1 all’Evasione.",
+      "effect_target": "character",
+      "activation_trigger": "passive_equipped",
+      "target_requirements": null,
+      "modifiers": {
+        "stat_impact": {
+          "evasion": -1
+        }
+      }
     },
-    "feature": {
-      "name": "Massiccio",
-      "description": "-1 all’Evasione. In caso di attacco riuscito, tirate un dado di danno aggiuntivo e scartate il risultato più basso.",
-      "stat_impact": { "evasion": -1 }
+    {
+      "name": "Massiccio (Potente)",
+      "description": "In caso di attacco riuscito, tirate un dado di danno aggiuntivo e scartate il risultato più basso.",
+      "effect_target": "damage_roll",
+      "activation_trigger": "on_damage_phase",
+      "target_requirements": null,
+      "modifiers": {
+        "damage_dice_count_bonus": 1,
+        "keep_highest_dice": true
+      }
     }
-  }
+  ]
+}
