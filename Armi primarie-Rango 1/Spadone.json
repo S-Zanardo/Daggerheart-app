@@ -14,7 +14,7 @@
   },
   "features": [
     {
-      "name": "Massiccio (Ingombrante)",
+      "name": "Pesante",
       "description": "-1 all’Evasione.",
       "effect_target": "character",
       "activation_trigger": "passive_equipped",
@@ -26,7 +26,7 @@
       }
     },
     {
-      "name": "Massiccio (Potente)",
+      "name": "Potente",
       "description": "In caso di attacco riuscito, tirate un dado di danno aggiuntivo e scartate il risultato più basso.",
       "effect_target": "damage_roll",
       "activation_trigger": "on_damage_phase",
