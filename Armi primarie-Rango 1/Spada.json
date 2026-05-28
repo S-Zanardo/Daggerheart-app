@@ -15,13 +15,7 @@
   "features": [
     {
       "name": "Affidabile",
-      "description": "+1 ai tiri attacco.",
-      "effect_target": "weapon_attack_roll",
-      "activation_trigger": "passive_equipped",
-      "target_requirements": null,
-      "modifiers": {
-        "attack_modifier_bonus": 1
-      }
+      "description": "+1 ai tiri attacco."
     }
   ]
 }
