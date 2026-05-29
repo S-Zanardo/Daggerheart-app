@@ -18,7 +18,9 @@
       "target_requirements": null,
       "modifiers": {
         "stat_impact": {
-          "evasion": -2,
+          "evasion": -2
+        },
+        "traits": {
           "agility": -1
         }
       }
