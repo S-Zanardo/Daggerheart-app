@@ -1,21 +1,29 @@
- {
-    "id": "DH_WEAPON_SCUDO_ROTELLA",
-    "name": "Scudo a Rotella",
-    "rank": 1,
-    "type": "secondary",
-    "hands": 1,
-    "range": "Mischia",
-    "combat_logic": {
-      "primary_trait": "forza",
-      "attack_modifier_bonus": 0,
-      "damage_dice_face": 4,
-      "damage_flat_bonus": 0,
-      "damage_type": "physical",
-      "alternate_traits": null
-    },
-    "feature": {
+{
+  "id": "DH_WEAPON_SCUDO_ROTELLA",
+  "name": "Scudo a Rotella",
+  "rank": 1,
+  "type": "secondary",
+  "hands": 1,
+  "range": "Mischia",
+  "combat_logic": {
+    "primary_trait": "forza",
+    "attack_modifier_bonus": 0,
+    "damage_dice_face": 4,
+    "damage_flat_bonus": 0,
+    "damage_type": "physical"
+  },
+  "features": [
+    {
       "name": "Protettore",
       "description": "+1 al Punteggio di Armatura.",
-      "stat_impact": { "armor_score": 1 }
+      "effect_target": "character",
+      "activation_trigger": "passive_equipped",
+      "target_requirements": null,
+      "modifiers": {
+        "stat_impact": {
+          "armor_bonus": 1
+        }
+      }
     }
-  }
+  ]
+}
