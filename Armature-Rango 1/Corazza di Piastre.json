@@ -1,11 +1,27 @@
 {
-    "id": "DH_ARMOR_CORAZZA_PIASTRE",
-    "name": "Corazza di Piastre",
-    "rank": 1,
-    "defensive_logic": {
-      "base_armor_score": 4,
-      "thresholds": { "major": 8, "severe": 17 },
-      "passive_modifiers": { "evasion": -2, "agility": -1 }
-    },
-    "feature_text": "Molto Pesante: −2 all’Evasione; −1 all’Agilità."
-  }
+  "id": "DH_ARMOR_CORAZZA_PIASTRE",
+  "name": "Corazza di Piastre",
+  "rank": 1,
+  "defensive_logic": {
+    "base_armor_score": 4,
+    "thresholds": {
+      "major": 8,
+      "severe": 17
+    }
+  },
+  "features": [
+    {
+      "name": "Molto Pesante",
+      "description": "−2 all’Evasione; −1 all’Agilità.",
+      "effect_target": "character",
+      "activation_trigger": "passive_equipped",
+      "target_requirements": null,
+      "modifiers": {
+        "stat_impact": {
+          "evasion": -2,
+          "agility": -1
+        }
+      }
+    }
+  ]
+}
