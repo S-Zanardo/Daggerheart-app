@@ -14,14 +14,14 @@
       "name": "Molto Pesante",
       "description": "−2 all’Evasione; −1 all’Agilità.",
       "effect_target": "character",
-      "activation_trigger": "passive_equipped",
+      "activation_trigger": "passive",
       "target_requirements": null,
       "modifiers": {
         "stat_impact": {
           "evasion": -2
         },
         "traits": {
-          "agilità": -1
+          "Agilità": -1
         }
       }
     }
